@@ -18,7 +18,9 @@ export const Navbar = (props: Props) => {
     const currentPage = usePathname() as Page;
 
     const getButtonClassName = (page: Page) => {
-        return currentPage === page ? 'text-white bg-red-700 rounded md:bg-transparent md:text-red-700 md:dark:text-red-500 dark:bg-red-600 md:dark:bg-transparent' : 'text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-red-700 dark:text-white md:dark:hover:text-red-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent';
+        return currentPage === page 
+            ? 'text-red-700 md:text-red-700 dark:text-red-500' 
+            : 'text-gray-900 hover:text-red-700 dark:text-white md:dark:hover:text-red-500';
     };
 
     const toggleMobileMenu = () => {
