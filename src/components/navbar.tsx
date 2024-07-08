@@ -29,7 +29,7 @@ export const Navbar = (props: Props) => {
         <nav className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 fixed top-0 left-0 right-0 z-50">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src="/images/ROSI-ONLY.png" className="h-8" alt="ROSI Logo" />
+                    <img src="/dark_images/ROSI-ONLY.png" className="h-8" alt="ROSI Logo" />
                 </a>
                 <div className="flex md:order-2">
                     <button type="button" aria-controls="navbar-search" aria-expanded={isMobileMenuOpen} onClick={toggleMobileMenu} className="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1">
