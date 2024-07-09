@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
 enum Page {
-    Home = '/',
+    Home = '',
     programming = '/programming',
     electrical = '/electrical',
     community = '/community'
@@ -34,8 +34,15 @@ export const Navbar = (props: Props) => {
         setCurrentLanguage(savedLanguage);
     }, []);
 
+    // const getButtonClassName = (page: Page) => {
+    //     return currentPage === page 
+    //         ? 'text-red-700 md:text-red-700 dark:text-red-500' 
+    //         : 'text-gray-900 hover:text-red-700 dark:text-white md:dark:hover:text-red-500';
+    // };
+
     const getButtonClassName = (page: Page) => {
-        return currentPage === page 
+        const pageWithLanguage = `/${currentLanguage}${page}`;
+        return currentPage === pageWithLanguage 
             ? 'text-red-700 md:text-red-700 dark:text-red-500' 
             : 'text-gray-900 hover:text-red-700 dark:text-white md:dark:hover:text-red-500';
     };
@@ -84,7 +91,7 @@ export const Navbar = (props: Props) => {
         switch (langCode) {
             case 'en':
                 return (
-                    <svg className="w-5 h-5 rounded-full me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 3900 3900">
+                    <svg className="w-3.5 h-3.5 rounded-full me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 3900 3900">
                         <path fill="#b22234" d="M0 0h7410v3900H0z"/>
                         <path d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0" stroke="#fff" stroke-width="300"/>
                         <path fill="#3c3b6e" d="M0 0h2964v2100H0z"/>
