@@ -7,10 +7,6 @@ import { faCode, faBolt, faUsers, faIndustry, faPencil, faWrench, faPlus, faStar
 import { useRouter } from "next/navigation";
 
 export default function Home() {
-  
-  const savedLanguage = localStorage.getItem('language') || 'en';
-  const router = useRouter();
-  router.replace('/' + savedLanguage);
 
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -18,6 +14,10 @@ export default function Home() {
     const savedTheme = localStorage.getItem('theme');
     const isDark = savedTheme === 'dark';
     setIsDarkMode(isDark);
+
+    const savedLanguage = localStorage.getItem('language') || 'en';
+    const router = useRouter();
+    router.replace('/' + savedLanguage);
   }, []);
 
   return (      
