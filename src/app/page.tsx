@@ -19,9 +19,9 @@ export default function Home() {
         />
       </div>
 
-      <div className="rounded-md py-20 px-96 bg-slate-700">
+      {/* <div className="rounded-md py-20 px-96 bg-slate-700">
         Pill shape
-      </div>
+      </div> */}
 
       {/* <div className="rounded-md py-20 px-96 bg-slate-700">
         <p style={{"text-align: center; padding-right: 0;"}}>
