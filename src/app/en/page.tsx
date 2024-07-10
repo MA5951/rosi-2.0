@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCode, faBolt, faUsers, faIndustry, faPencil, faWrench } from '@fortawesome/free-solid-svg-icons';
+import { faCode, faBolt, faUsers, faIndustry, faPencil, faWrench, faPlus, faSend } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
   return (      
@@ -157,7 +157,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className="mb-3 text-2xl font-semibold">
-            <FontAwesomeIcon icon={faIndustry} className="mr-2" />
+            <FontAwesomeIcon icon={faPlus} className="mr-2" />
             Contribute{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
@@ -175,7 +175,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className="mb-3 text-2xl font-semibold">
-            <FontAwesomeIcon icon={faIndustry} className="mr-2" />
+            <FontAwesomeIcon icon={faSend} className="mr-2" />
             Contact{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
