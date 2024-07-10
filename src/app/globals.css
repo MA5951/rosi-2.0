@@ -27,15 +27,15 @@ body {
 }
 
 @font-face {
-  font-family: 'OpenSansCondensedLight';
-  src: url('/OpenSans_Condensed-Light.ttf') format('truetype');
+  font-family: 'OpenSansBold';
+  src: url('/fonts/OpenSans-Bold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 body:lang(he), 
 body :lang(he) {
-  font-family: 'OpenSansCondensedLight', sans-serif;
+  font-family: 'OpenSansBold', sans-serif;
 }
 
 @layer utilities {

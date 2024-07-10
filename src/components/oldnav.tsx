@@ -87,6 +87,36 @@ export const Navbar = (props: Props) => {
         }
     };
 
+    const getLangText = (origin: string) => {
+        if (currentLanguage === 'he') {
+            switch (origin) {
+                case 'Home':
+                    return 'בית';
+                case 'Programming':
+                    return 'תוכנה';
+                case 'Electrical':
+                    return 'אלקטרוניקה';
+                case 'Community':
+                    return 'קהילה';
+                case 'Manufacturing':
+                    return 'ייצור';
+                case 'Mechanics':
+                    return 'מכניקה';
+                case 'CAD':
+                    return 'שרטוט';
+                case 'Contribute':
+                    return 'העלת תוכן';
+                case 'Contact':
+                    return 'צור קשר';
+                case "Search...":
+                    return 'חיפוש...';
+                default:
+                    return 'Language';
+            }
+        }
+        return origin;
+    }
+
     const getFlagIcon = (langCode: string) => {
         switch (langCode) {
             case 'en':
@@ -144,7 +174,7 @@ export const Navbar = (props: Props) => {
         <nav className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 fixed top-0 left-0 right-0 z-50">
             <div className="w-full flex flex-wrap items-center justify-between p-4">
                 <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src="/dark_images/ROSI-ONLY.png" className="h-8" alt="ROSI Logo" />
+                    <img src="/images/ROSI-ONLY.png" className="h-8" alt="ROSI Logo" />
                 </a>
                 <div className="flex md:order-2">
                     <button type="button" aria-controls="navbar-search" aria-expanded={isMobileMenuOpen} onClick={toggleMobileMenu} className="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1">
@@ -160,7 +190,7 @@ export const Navbar = (props: Props) => {
                             </svg>
                             <span className="sr-only">Search icon</span>
                         </div>
-                        <input type="text" id="search-navbar" className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" placeholder="Search..." />
+                        <input type="text" id="search-navbar" className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" placeholder={getLangText("Search...")} />
                     </div>
                     <button onClick={toggleMobileMenu} type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-search" aria-expanded={isMobileMenuOpen}>
                         <span className="sr-only">Open main menu</span>
@@ -231,35 +261,35 @@ export const Navbar = (props: Props) => {
                                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                             </svg>
                         </div>
-                        <input type="text" id="search-navbar" className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" placeholder="Search..." />
+                        <input type="text" id="search-navbar" className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" placeholder={getLangText("Search...")} />
                     </div>
                     <ul className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-4 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
                         <li>
-                            <Link href={`/${currentLanguage}${Page.Home}`} className={getButtonClassName(Page.Home)} aria-current="page">Home</Link>
+                            <Link href={`/${currentLanguage}${Page.Home}`} className={getButtonClassName(Page.Home)} aria-current="page">{getLangText('Home')}</Link>
                         </li>
                         <li>
-                            <Link href={`/${currentLanguage}${Page.programming}`} className={getButtonClassName(Page.programming)}>Programming</Link>
+                            <Link href={`/${currentLanguage}${Page.programming}`} className={getButtonClassName(Page.programming)}>{getLangText('Programming')}</Link>
                         </li>
                         <li>
-                            <Link href={`/${currentLanguage}${Page.electrical}`} className={getButtonClassName(Page.electrical)}>Electrical</Link>
+                            <Link href={`/${currentLanguage}${Page.electrical}`} className={getButtonClassName(Page.electrical)}>{getLangText('Electrical')}</Link>
                         </li>
                         <li>
-                            <Link href={`/${currentLanguage}${Page.community}`} className={getButtonClassName(Page.community)}>Community</Link>
+                            <Link href={`/${currentLanguage}${Page.community}`} className={getButtonClassName(Page.community)}>{getLangText('Community')}</Link>
                         </li>
                         <li>
-                            <Link href={`/${currentLanguage}${Page.manufacturing}`} className={getButtonClassName(Page.manufacturing)}>Manufacturing</Link>
+                            <Link href={`/${currentLanguage}${Page.manufacturing}`} className={getButtonClassName(Page.manufacturing)}>{getLangText('Manufacturing')}</Link>
                         </li>
                         <li>
-                            <Link href={`/${currentLanguage}${Page.mechanics}`} className={getButtonClassName(Page.mechanics)}>Mechanics</Link>
+                            <Link href={`/${currentLanguage}${Page.mechanics}`} className={getButtonClassName(Page.mechanics)}>{getLangText('Mechanics')}</Link>
                         </li>
                         <li>
-                            <Link href={`/${currentLanguage}${Page.cad}`} className={getButtonClassName(Page.cad)}>CAD</Link>
+                            <Link href={`/${currentLanguage}${Page.cad}`} className={getButtonClassName(Page.cad)}>{getLangText('CAD')}</Link>
                         </li>
                         <li>
-                            <Link href={`/${currentLanguage}${Page.contribute}`} className={getButtonClassName(Page.contribute)}>Contribute</Link>
+                            <Link href={`/${currentLanguage}${Page.contribute}`} className={getButtonClassName(Page.contribute)}>{getLangText('Contribute')}</Link>
                         </li>
                         <li>
-                            <Link href={`/${currentLanguage}${Page.contact}`} className={getButtonClassName(Page.contact)}>Contact</Link>
+                            <Link href={`/${currentLanguage}${Page.contact}`} className={getButtonClassName(Page.contact)}>{getLangText('Contact')}</Link>
                         </li>
                     </ul>
                 </div>

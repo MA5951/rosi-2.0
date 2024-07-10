@@ -30,7 +30,7 @@ export default function Home() {
 
       <div>
         <Image
-          src={isDarkMode ? "/dark_images/ROSI.png" : "/white_images/ROSI.png"}
+          src={isDarkMode ? "/images/dark_rosi.png" : "/images/light_rosi.png"}
           alt="ROSI Logo"
           style={{marginTop: '10%'}}
           width={900}
