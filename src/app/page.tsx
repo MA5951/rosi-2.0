@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { fa-code } from '@fortawesome/free-solid-svg-icons';
+import { faCode } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
   return (      
@@ -43,7 +43,7 @@ export default function Home() {
       </div> */}
 
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-      <i class="fa fa-code" aria-hidden="true">
+      <i class="fa faCode" aria-hidden="true">
       </i>
       <a
         href="/programming"
