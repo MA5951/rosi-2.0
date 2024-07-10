@@ -16,8 +16,8 @@ export default function Home() {
     setIsDarkMode(isDark);
 
     const savedLanguage = localStorage.getItem('language') || 'en';
-    const router = useRouter();
-    router.replace('/' + savedLanguage);
+    // const router = useRouter();
+    // router.replace('/' + savedLanguage);
   }, []);
 
   return (      
