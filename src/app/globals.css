@@ -26,6 +26,18 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+@font-face {
+  font-family: 'OpenSansCondensedLight';
+  src: url('/OpenSans_Condensed-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body:lang(he), 
+body :lang(he) {
+  font-family: 'OpenSansCondensedLight', sans-serif;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
