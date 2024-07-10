@@ -1,46 +1,34 @@
+"use client"
+
 import Image from "next/image";
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCode } from '@fortawesome/free-solid-svg-icons';
+import { faCode, faBolt, faUsers, faIndustry, faPencil, faWrench, faPlus, faStar } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const isDark = savedTheme === 'dark';
+    setIsDarkMode(isDark);
+  }, []);
+
   return (      
     <main className="flex min-h-screen flex-col items-center justify-between bg-gray-200 dark:bg-slate-900">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
       </div>
 
-      {/* <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]"> */}
       <div>
         <Image
-          // className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/dark_images/ROSI.png"
+          src={isDarkMode ? "/dark_images/ROSI.png" : "/white_images/ROSI.png"}
           alt="ROSI Logo"
           style={{marginTop: '10%'}}
           width={900}
           height={500}
           priority
         />
-      </div>
-
-      {/* <div className="rounded-md py-20 px-96 bg-slate-700">
-        Pill shape
-      </div> */}
-
-      {/* <div className="rounded-md py-20 px-96 bg-slate-700">
-        <p style={{"text-align: center; padding-right: 0;"}}>
-            ROSI - Robotics Open Source Israel
-            <br />
-            הוא פרויקט אופן סורס שמטרתו יצירת תשתית משותפת בין כל קבוצות FIRST בארץ.
-            <br />
-            לאתר שלנו אפשר להעלות מצגות, קבצי CAD, קטעי קוד, הרצאות מצולמות ועוד.
-            <br />
-            כך שכל קבוצה, תוכל ללמוד מהקבוצות האחרות תוך שיתוף הידע שלה
-            <br />
-            כאשר המצב שהאתר שואף לקדם הוא העלאת הרמה של כל הקבוצות בארץ
-            <br />
-            בכל הנושאים, מהקמת פרויקטים קהילתיים ומדיה, דרך תוכנה וקוד ועד להנדסת מכונות והנדסה.
-            <br />
-          </p>
-      </div> */}
+      </div>     
 
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
       <a
@@ -66,6 +54,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className="mb-3 text-2xl font-semibold">
+            <FontAwesomeIcon icon={faBolt} className="mr-2" />
             Electrical{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
@@ -83,6 +72,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className="mb-3 text-2xl font-semibold">
+            <FontAwesomeIcon icon={faIndustry} className="mr-2" />
             Manufacturing{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
@@ -100,6 +90,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className="mb-3 text-2xl font-semibold">
+            <FontAwesomeIcon icon={faPencil} className="mr-2" />
             Cad{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
@@ -112,13 +103,14 @@ export default function Home() {
       </div>
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
         <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          href="/community"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
           target="_blank"
           rel="noopener noreferrer"
         >
           <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
+            <FontAwesomeIcon icon={faUsers} className="mr-2" />
+            Community{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -129,13 +121,14 @@ export default function Home() {
         </a>
 
         <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          href="mechanics"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
           target="_blank"
           rel="noopener noreferrer"
         >
           <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
+            <FontAwesomeIcon icon={faWrench} className="mr-2" />
+            Mechanics{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -146,13 +139,14 @@ export default function Home() {
         </a>
 
         <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          href="/contribute"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
           target="_blank"
           rel="noopener noreferrer"
         >
           <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
+            <FontAwesomeIcon icon={faPlus} className="mr-2" />
+            Contribute{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -163,13 +157,14 @@ export default function Home() {
         </a>
 
         <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          href="/contact"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
           target="_blank"
           rel="noopener noreferrer"
         >
           <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
+            <FontAwesomeIcon icon={faStar} className="mr-2" />
+            Contact{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>

@@ -10,7 +10,12 @@ enum Page {
     Home = '',
     programming = '/programming',
     electrical = '/electrical',
-    community = '/community'
+    community = '/community',
+    manufacturing = '/manufacturing',
+    mechanics = '/mechanics',
+    contribute = '/contribute',
+    contact = '/contact',
+    cad = '/cad'
 }
 
 type Props = {}
@@ -34,12 +39,6 @@ export const Navbar = (props: Props) => {
         setCurrentLanguage(savedLanguage);
     }, []);
 
-    // const getButtonClassName = (page: Page) => {
-    //     return currentPage === page 
-    //         ? 'text-red-700 md:text-red-700 dark:text-red-500' 
-    //         : 'text-gray-900 hover:text-red-700 dark:text-white md:dark:hover:text-red-500';
-    // };
-
     const getButtonClassName = (page: Page) => {
         const pageWithLanguage = `/${currentLanguage}${page}`;
         return currentPage === pageWithLanguage 
@@ -56,6 +55,7 @@ export const Navbar = (props: Props) => {
         setIsDarkMode(newMode);
         localStorage.setItem('theme', newMode ? 'dark' : 'light');
         document.documentElement.classList.toggle('dark', newMode);
+        router.refresh();
     };
 
     const toggleLanguageDropdown = () => {
@@ -142,7 +142,7 @@ export const Navbar = (props: Props) => {
 
     return (
         <nav className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 fixed top-0 left-0 right-0 z-50">
-            <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <div className="w-full flex flex-wrap items-center justify-between p-4">
                 <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
                     <img src="/dark_images/ROSI-ONLY.png" className="h-8" alt="ROSI Logo" />
                 </a>
@@ -233,7 +233,7 @@ export const Navbar = (props: Props) => {
                         </div>
                         <input type="text" id="search-navbar" className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" placeholder="Search..." />
                     </div>
-                    <ul className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
+                    <ul className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-4 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
                         <li>
                             <Link href={`/${currentLanguage}${Page.Home}`} className={getButtonClassName(Page.Home)} aria-current="page">Home</Link>
                         </li>
@@ -245,6 +245,21 @@ export const Navbar = (props: Props) => {
                         </li>
                         <li>
                             <Link href={`/${currentLanguage}${Page.community}`} className={getButtonClassName(Page.community)}>Community</Link>
+                        </li>
+                        <li>
+                            <Link href={`/${currentLanguage}${Page.manufacturing}`} className={getButtonClassName(Page.manufacturing)}>Manufacturing</Link>
+                        </li>
+                        <li>
+                            <Link href={`/${currentLanguage}${Page.mechanics}`} className={getButtonClassName(Page.mechanics)}>Mechanics</Link>
+                        </li>
+                        <li>
+                            <Link href={`/${currentLanguage}${Page.cad}`} className={getButtonClassName(Page.cad)}>CAD</Link>
+                        </li>
+                        <li>
+                            <Link href={`/${currentLanguage}${Page.contribute}`} className={getButtonClassName(Page.contribute)}>Contribute</Link>
+                        </li>
+                        <li>
+                            <Link href={`/${currentLanguage}${Page.contact}`} className={getButtonClassName(Page.contact)}>Contact</Link>
                         </li>
                     </ul>
                 </div>

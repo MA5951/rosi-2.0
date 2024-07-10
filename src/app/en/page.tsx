@@ -1,8 +1,19 @@
+"use client"
+
 import Image from "next/image";
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode, faBolt, faUsers, faIndustry, faPencil, faWrench, faPlus, faStar } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const isDark = savedTheme === 'dark';
+    setIsDarkMode(isDark);
+  }, []);
+
   return (      
     <main className="flex min-h-screen flex-col items-center justify-between bg-gray-200 dark:bg-slate-900">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
@@ -10,8 +21,7 @@ export default function Home() {
 
       <div>
         <Image
-          // className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/dark_images/ROSI.png"
+          src={isDarkMode ? "/dark_images/ROSI.png" : "/white_images/ROSI.png"}
           alt="ROSI Logo"
           style={{marginTop: '10%'}}
           width={900}
