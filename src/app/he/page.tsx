@@ -32,7 +32,7 @@ export default function Home() {
 
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
       <a
-        href="/programming"
+        href="/he/programming"
         className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
       >
         <h2 className="mb-3 text-2xl font-semibold">
@@ -48,10 +48,9 @@ export default function Home() {
       </a>
 
         <a
-          href="/electrical"
+          href="/he/electrical"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+
         >
           <h2 className="mb-3 text-2xl font-semibold">
             <FontAwesomeIcon icon={faBolt} className="mr-2" />
@@ -66,10 +65,9 @@ export default function Home() {
         </a>
 
         <a
-          href="/manufacturing"
+          href="/he/manufacturing"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+
         >
           <h2 className="mb-3 text-2xl font-semibold">
             <FontAwesomeIcon icon={faIndustry} className="mr-2" />
@@ -84,10 +82,9 @@ export default function Home() {
         </a>
 
         <a
-          href="/cad"
+          href="/he/cad"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+
         >
           <h2 className="mb-3 text-2xl font-semibold">
             <FontAwesomeIcon icon={faPencil} className="mr-2" />
@@ -103,10 +100,9 @@ export default function Home() {
       </div>
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
         <a
-          href="/community"
+          href="/he/community"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+
         >
           <h2 className="mb-3 text-2xl font-semibold">
             <FontAwesomeIcon icon={faUsers} className="mr-2" />
@@ -121,10 +117,9 @@ export default function Home() {
         </a>
 
         <a
-          href="mechanics"
+          href="/he/mechanics"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+
         >
           <h2 className="mb-3 text-2xl font-semibold">
             <FontAwesomeIcon icon={faWrench} className="mr-2" />
@@ -139,10 +134,9 @@ export default function Home() {
         </a>
 
         <a
-          href="/contribute"
+          href="/he/contribute"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+
         >
           <h2 className="mb-3 text-2xl font-semibold">
             <FontAwesomeIcon icon={faPlus} className="mr-2" />
@@ -157,10 +151,9 @@ export default function Home() {
         </a>
 
         <a
-          href="/contact"
+          href="/he/contact"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+
         >
           <h2 className="mb-3 text-2xl font-semibold">
             <FontAwesomeIcon icon={faStar} className="mr-2" />
