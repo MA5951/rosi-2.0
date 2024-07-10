@@ -10,14 +10,14 @@ export default function Home() {
 
   const [isDarkMode, setIsDarkMode] = useState(false);
 
+  const savedLanguage = localStorage.getItem('language') || 'en';
+  const router = useRouter();
+  router.replace('/' + savedLanguage);
+
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     const isDark = savedTheme === 'dark';
     setIsDarkMode(isDark);
-
-    const savedLanguage = localStorage.getItem('language') || 'en';
-    // const router = useRouter();
-    // router.replace('/' + savedLanguage);
   }, []);
 
   return (      
