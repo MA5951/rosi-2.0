@@ -74,14 +74,14 @@ export const Navbar = (props: Props) => {
         switch (langCode) {
             case 'en':
                 return 'English (US)';
-            case 'de':
-                return 'Deutsch';
-            case 'it':
-                return 'Italiano';
             case 'he':
                 return 'עברית';
             case 'cn':
                 return '中文 (繁體)';
+            case 'de':
+                return 'Deutsch';
+            case 'it':
+                return 'Italiano';
             default:
                 return 'Language';
         }
@@ -188,6 +188,14 @@ export const Navbar = (props: Props) => {
                                         </a>
                                     </li>
                                     <li>
+                                        <a onClick={() => changeLanguage('he')} className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
+                                            <div className="inline-flex items-center">
+                                                {getFlagIcon('he')}
+                                                עברית
+                                            </div>
+                                        </a>
+                                    </li>
+                                    {/* <li>
                                         <a onClick={() => changeLanguage('de')} className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
                                             <div className="inline-flex items-center">
                                                 {getFlagIcon('de')}
@@ -204,21 +212,13 @@ export const Navbar = (props: Props) => {
                                         </a>
                                     </li>
                                     <li>
-                                        <a onClick={() => changeLanguage('he')} className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
-                                            <div className="inline-flex items-center">
-                                                {getFlagIcon('he')}
-                                                עברית
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
                                         <a onClick={() => changeLanguage('cn')} className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
                                             <div className="inline-flex items-center">
                                                 {getFlagIcon('cn')}
                                                 中文 (繁體)
                                             </div>
                                         </a>
-                                    </li>
+                                    </li> */}
                                 </ul>
                             </div>
                         )}

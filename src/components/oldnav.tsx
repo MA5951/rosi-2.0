@@ -16,7 +16,7 @@ enum Page {
     contribute = '/contribute',
     contact = '/contact',
     cad = '/cad'
-  }
+}
 
 type Props = {}
 
@@ -56,7 +56,6 @@ export const Navbar = (props: Props) => {
         localStorage.setItem('theme', newMode ? 'dark' : 'light');
         document.documentElement.classList.toggle('dark', newMode);
         router.refresh();
-        console.log("fdsou");
     };
 
     const toggleLanguageDropdown = () => {
@@ -143,7 +142,7 @@ export const Navbar = (props: Props) => {
 
     return (
         <nav className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 fixed top-0 left-0 right-0 z-50">
-            <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <div className="w-full flex flex-wrap items-center justify-between p-4">
                 <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
                     <img src="/dark_images/ROSI-ONLY.png" className="h-8" alt="ROSI Logo" />
                 </a>
@@ -234,7 +233,7 @@ export const Navbar = (props: Props) => {
                         </div>
                         <input type="text" id="search-navbar" className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" placeholder="Search..." />
                     </div>
-                    <ul className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
+                    <ul className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-4 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
                         <li>
                             <Link href={`/${currentLanguage}${Page.Home}`} className={getButtonClassName(Page.Home)} aria-current="page">Home</Link>
                         </li>
