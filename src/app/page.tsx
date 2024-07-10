@@ -15,9 +15,9 @@ export default function Home() {
     const isDark = savedTheme === 'dark';
     setIsDarkMode(isDark);
 
-    const savedLanguage = localStorage.getItem('language') || 'en';
-    const router = useRouter();
-    router.replace('/' + savedLanguage);
+    // const savedLanguage = localStorage.getItem('language') || 'en';
+    // const router = useRouter();
+    // router.replace('/' + savedLanguage);
   }, []);
 
   return (      
