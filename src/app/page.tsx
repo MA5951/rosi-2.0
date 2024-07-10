@@ -15,10 +15,15 @@ export default function Home() {
   router.replace('/' + savedLanguage);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    const isDark = savedTheme === 'dark';
-    setIsDarkMode(isDark);
-  }, []);
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('theme');
+      const isDark = savedTheme === 'dark';
+      setIsDarkMode(isDark);
+
+      const savedLanguage = localStorage.getItem('language') || 'en';
+      router.replace('/' + savedLanguage);
+    }
+  }, [router]);
 
   return (      
     <main className="flex min-h-screen flex-col items-center justify-between bg-gray-200 dark:bg-slate-900">
