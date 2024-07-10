@@ -4,8 +4,14 @@ import Image from "next/image";
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode, faBolt, faUsers, faIndustry, faPencil, faWrench, faPlus, faStar } from '@fortawesome/free-solid-svg-icons';
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  
+  const savedLanguage = localStorage.getItem('language') || 'en';
+  const router = useRouter();
+  router.replace('/' + savedLanguage);
+
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
