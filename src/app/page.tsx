@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+import { fa-code } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
   return (      
