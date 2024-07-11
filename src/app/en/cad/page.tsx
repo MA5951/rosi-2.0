@@ -1,9 +1,14 @@
-import Image from "next/image";
+"use client"
 
-export default function Home() {
+import ArticlePage from '../articlePage'; 
+
+const Home: React.FC = () => {
+
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between bg-blue-50 dark:bg-slate-900 text-gray-900 dark:text-white">
-      
-    </div>
+    <main>
+      <ArticlePage subject="cad" search="" />
+    </main>
   );
 }
+
+export default Home;

@@ -1,6 +1,6 @@
 "use client"
 
-import ArticlePage from '@/app/he/articlePage'; 
+import ArticlePage from '../articlePage'; 
 
 const Home: React.FC = () => {
 
