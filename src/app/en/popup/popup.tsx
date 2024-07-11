@@ -10,11 +10,12 @@ interface Contact {
 interface PopupProps {
   title: string;
   link: string;
+  description: string;
   contact: Contact;
   onClose: () => void;
 }
 
-const Popup: React.FC<PopupProps> = ({ title, link, contact, onClose }) => {
+const Popup: React.FC<PopupProps> = ({ title, link, contact, description , onClose }) => {
   const [showIframe, setShowIframe] = useState(false);
 
   const toggleIframe = () => {
@@ -30,6 +31,7 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, onClose }) => {
         exit={{ opacity: 0, y: 50 }}
       >
         <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">{title}</h2>
+        <h4 className="font-bold mb-4 text-gray-900 dark:text-white">{description}</h4>
         <div className="flex space-x-4 mb-4">
           <a href={link} target="_blank" rel="noopener noreferrer">
             <button className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700 transition-colors">

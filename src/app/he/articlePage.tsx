@@ -16,7 +16,7 @@ interface Article {
   id: string;
   title: string;
   photo: string;
-  team_num: string;
+  description: string;
   link: string;
   contact: Contact;
 }
@@ -39,7 +39,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({subject, search}) => {
         id: article.id,
         title: article.title,
         photo: article.photo,
-        team_num: "", 
+        description: article.description, 
         link: article.link,
         contact: {
           name: article.author,
@@ -101,7 +101,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({subject, search}) => {
                 <div className="image-container">
                   <img
                     src={article.photo}
-                    alt={article.team_num}
+                    alt={article.description}
                     className="w-full h-full object-contain rounded-t-lg"
                   />
                 </div>
@@ -122,6 +122,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({subject, search}) => {
                 title={selectedArticle.title} 
                 link={selectedArticle.link} 
                 contact={selectedArticle.contact} 
+                description={selectedArticle.description}
                 onClose={closePopup} 
               />
             )}
