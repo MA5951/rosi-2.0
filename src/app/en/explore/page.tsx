@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from 'react';
-import Popup from '@/components/popup/popup';
+import Popup from '../popup/popup';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface Contact {
