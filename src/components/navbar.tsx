@@ -28,6 +28,7 @@ export const Navbar = (props: Props) => {
     const [currentLanguage, setCurrentLanguage] = useState('en');
     const currentPage = usePathname() as Page;
     const router = useRouter();
+    const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
         const savedTheme = localStorage.getItem('theme');
@@ -128,7 +129,7 @@ export const Navbar = (props: Props) => {
                 return (
                     <svg className="w-3.5 h-3.5 rounded-full me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 3900 3900">
                         <path fill="#b22234" d="M0 0h7410v3900H0z"/>
-                        <path d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0" stroke="#fff" stroke-width="300"/>
+                        <path d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0" stroke="#fff" strokeWidth="300"/>
                         <path fill="#3c3b6e" d="M0 0h2964v2100H0z"/>
                         <g fill="#fff"><g id="d"><g id="c"><g id="e"><g id="b"><path id="a" d="M247 90l70.534 217.082-184.66-134.164h228.253L176.466 307.082z"/><use xlinkHref="#a" y="420"/><use xlinkHref="#a" y="840"/><use xlinkHref="#a" y="1260"/></g><use xlinkHref="#a" y="1680"/></g><use xlinkHref="#b" x="247" y="210"/></g><use xlinkHref="#c" x="494"/></g><use xlinkHref="#d" x="988"/><use xlinkHref="#c" x="1976"/><use xlinkHref="#e" x="2470"/></g>
                     </svg>
@@ -144,7 +145,7 @@ export const Navbar = (props: Props) => {
             case 'it':
                 return (
                     <svg className="h-3.5 w-3.5 rounded-full me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-it" viewBox="0 0 512 512">
-                        <g fill-rule="evenodd" stroke-width="1pt">
+                        <g fill-rule="evenodd" strokeWidth="1pt">
                             <path fill="#fff" d="M0 0h512v512H0z"/>
                             <path fill="#009246" d="M0 0h170.7v512H0z"/>
                             <path fill="#ce2b37" d="M341.3 0H512v512H341.3z"/>
@@ -195,7 +196,19 @@ export const Navbar = (props: Props) => {
                             </svg>
                             <span className="sr-only">Search icon</span>
                         </div>
-                        <input type="text" id="search-navbar" className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" placeholder={getLangText("Search...")} />
+                        <form onSubmit={(e) => {
+                            e.preventDefault();
+                            router.push("/" + currentLanguage + "/search/" + searchQuery)}
+                            }>
+                            <input 
+                                type="text" 
+                                id="search-navbar" 
+                                className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" 
+                                placeholder={getLangText("Search...")}
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                            />
+                        </form>
                     </div>
                     <button onClick={toggleMobileMenu} type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-search" aria-expanded={isMobileMenuOpen}>
                         <span className="sr-only">Open main menu</span>

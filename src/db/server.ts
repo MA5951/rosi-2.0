@@ -12,13 +12,14 @@ export async function getAllArticles(lang: String ,subject: string, search: stri
                 language: lang
             };
         } else if (search) {
+            search = decodeURI(search);
             query = {
-                OR: [
-                    { language: lang }, 
+                language: lang,
+                OR: [ 
                     { title: { contains: search, mode: 'insensitive' } },
                     { author: { contains: search, mode: 'insensitive' } },
                     { description: { contains: search, mode: 'insensitive' } },
-                ],
+                ]
             };
         } else {
             query = {
