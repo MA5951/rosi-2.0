@@ -1,0 +1,53 @@
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure the popup is in front */
+  }
+  
+  .popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+  }
+  
+  .popup-content h2 {
+    margin-top: 0;
+  }
+  
+  .popup-content a {
+    color: #ff0000;
+    text-decoration: none;
+  }
+  
+  .popup-content a:hover {
+    text-decoration: underline;
+  }
+  
+  .contact-info {
+    margin-top: 20px;
+  }
+  
+  .popup-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .popup-button:hover {
+    background-color: #ff0000;
+  }
+  
