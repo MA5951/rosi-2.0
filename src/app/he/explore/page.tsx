@@ -1,6 +1,6 @@
 "use client"
 
-import '../explore/style.css'
+import { useEffect, useState } from 'react';
 
 const articles = [
   {
@@ -46,24 +46,48 @@ const articles = [
 ]
 
 export default function Home() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <main className="flex flex-col items-center min-h-screen bg-blue-50 dark:bg-slate-900 text-gray-900 dark:text-white">
-      <div className="articles-container z-10 w-full max-w-5xl mt-8 px-4 flex flex-wrap justify-center items-center gap-6" style={{marginTop: "13vh"}}>
+      <div className="bottom-text-container z-10 w-full max-w-5xl flex justify-center items-center text-3xl" style={{marginTop: "17vh", marginBottom: "5vh"}}>
+        <p className="bottom-text text-center">
+          {articles.length === 0 ? "" : "חקור את האתר"} 
+        </p>
+      </div>
+      <div className="articles-container z-10 w-full max-w-5xl mt-8 px-4 flex flex-wrap justify-center items-center gap-6">
         {articles.map((article, index) => (
-          <div className="article-card p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md" key={index}>
-            <img
-              src={article.photo}
-              alt={article.team_num}
-              className="w-full h-40 object-cover rounded-t-lg"
-            />
+          <div className={isMobile ? "article-card-mobile p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md" : "article-card p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md"} key={index}>
+            <div className="image-container">
+              <img
+                src={article.photo}
+                alt={article.team_num}
+                className="w-full h-full object-contain rounded-t-lg"
+              />
+            </div>
             <div className="p-2 text-center">
-              <p className="font-semibold">{article.title}</p>
+              <p className="font-semibold article-title">{article.title}</p>
             </div>
           </div>
         ))}
       </div>
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        {/* Other content goes here */}
+      <div className="bottom-text-container z-10 w-full max-w-5xl flex justify-center items-center text-xl" style={{marginTop: "10vh", marginBottom: "10vh"}}>
+        <p className="bottom-text text-center">
+          {articles.length === 0 ? "לא נמצאו כתבות" : "לא נמצאו עוד כתבות"}
+        </p>
       </div>
     </main>
   );
