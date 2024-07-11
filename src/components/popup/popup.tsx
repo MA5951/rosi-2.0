@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import './Popup.css';
+import './popup.css';
 
 interface Contact {
   name: string;
