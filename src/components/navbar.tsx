@@ -173,7 +173,7 @@ export const Navbar = (props: Props) => {
     };
 
     return (
-        <nav className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 fixed top-0 left-0 right-0 z-50">
+        <nav className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 fixed top-0 left-0 right-0 z-50" style={{boxShadow: isDarkMode ? "0 0px 0px rgb(255 255 255 / 0)" : "0 3px 20px rgb(0 0 0 / 0.4)"}}>
             <div className="w-full flex flex-wrap items-center justify-between p-4">
                 <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
                     <img src="/images/ROSI-ONLY.png" className="h-8" alt="ROSI Logo" />

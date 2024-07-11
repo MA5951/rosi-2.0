@@ -24,7 +24,7 @@ export default function Home() {
   }, [router]);
 
   return (      
-    <main className="flex min-h-screen flex-col items-center justify-between bg-gray-200 dark:bg-slate-900">
+    <main className="flex min-h-screen flex-col items-center justify-between bg-blue-50 dark:bg-slate-900 text-gray-900 dark:text-white">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
       </div>
 
