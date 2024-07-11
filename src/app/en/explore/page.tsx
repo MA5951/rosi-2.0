@@ -22,7 +22,7 @@ const articles: Article[] = [
     title: "how to turn a team?",
     photo: "https://i.ibb.co/RjSPygV/3.png",
     team_num: "5987",
-    link: "https://example.com/presentation1",
+    link: "https://docs.google.com/presentation/d/e/2PACX-1vTDkqbX56DuBajY5HXBq9jQtyFjOFbtoASoIAJxN0OJqOL4TzlkBCjKnbbXZFCJjnZRm9MlH7DfS6Ln/embed?start=false&loop=false&delayms=60000",
     contact: {
       name: "John Doe",
       phone: "123-456-7890"
@@ -32,7 +32,7 @@ const articles: Article[] = [
     title: "robot code",
     photo: "https://i.ibb.co/m8L87pj/1657.png",
     team_num: "1657",
-    link: "https://example.com/presentation2",
+    link: "https://example.com/",
     contact: {
       name: "Jane Smith",
       phone: "987-654-3210"
@@ -42,7 +42,7 @@ const articles: Article[] = [
     title: "start a community",
     photo: "https://i.ibb.co/Ph11N12/1577.png",
     team_num: "1577",
-    link: "https://example.com/presentation3",
+    link: "https://example.com/",
     contact: {
       name: "Alice Johnson",
       phone: "555-555-5555"
@@ -52,7 +52,7 @@ const articles: Article[] = [
     title: "reobot planning",
     photo: "https://i.ibb.co/tDhgjx7/3339.png",
     team_num: "3339",
-    link: "https://example.com/presentation4",
+    link: "https://example.com/",
     contact: {
       name: "Bob Brown",
       phone: "444-444-4444"
@@ -62,7 +62,7 @@ const articles: Article[] = [
     title: "how to PID?",
     photo: "https://i.ibb.co/GF508qY/3.png",
     team_num: "5951",
-    link: "https://example.com/presentation5",
+    link: "https://example.com/",
     contact: {
       name: "Charlie Davis",
       phone: "333-333-3333"
@@ -72,7 +72,7 @@ const articles: Article[] = [
     title: "agile work guide",
     photo: "https://i.ibb.co/JqzcZvj/first.png",
     team_num: "first",
-    link: "https://example.com/presentation6",
+    link: "https://example.com/",
     contact: {
       name: "Diana Evans",
       phone: "222-222-2222"
@@ -82,7 +82,7 @@ const articles: Article[] = [
     title: "wpilib explenation",
     photo: "https://i.ibb.co/LZSDSKm/3388.png",
     team_num: "3388",
-    link: "https://example.com/presentation7",
+    link: "https://example.com/",
     contact: {
       name: "Frank Green",
       phone: "111-111-1111"
@@ -92,7 +92,7 @@ const articles: Article[] = [
     title: "project managment",
     photo: "https://i.ibb.co/kGK2kqk/image.png",
     team_num: "",
-    link: "https://example.com/presentation8",
+    link: "https://example.com/",
     contact: {
       name: "Grace Harris",
       phone: "000-000-0000"
