@@ -1,6 +1,6 @@
 "use client"
 
-import ArticlePage from '@/app/he/articlePage'; 
+import ArticlePage from '@/components/articlePage'
 
 type Props = {
     params: {
@@ -13,7 +13,7 @@ const page = ({params}: Props) => {
   console.log(params.slug);
   return (
     <main>
-      <ArticlePage subject="" search={params.slug} />
+      <ArticlePage subject="" search={params.slug} language='hebrew' pageTitle={params.slug}/>
     </main>
   );
 }

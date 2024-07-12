@@ -1,12 +1,12 @@
 "use client"
 
-import ArticlePage from '../articlePage'; 
+import ArticlePage from '@/components/articlePage'; 
 
 const Home: React.FC = () => {
 
   return (
     <main>
-      <ArticlePage subject="" search="" />
+      <ArticlePage subject="" search="" language='hebrew' pageTitle='חקור את האתר'/>
     </main>
   );
 }
