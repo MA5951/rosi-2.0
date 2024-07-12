@@ -43,8 +43,9 @@ export default function Home() {
           height={500}
           priority
         />
-      </div>     
-
+      </div>  
+      {!isMobile && (   
+      <div>
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
         <a
           href="/en/programming"
@@ -182,6 +183,8 @@ export default function Home() {
           </p>
         </a>
       </div>
+      </div>
+      )}
     </main>
   );
 }
