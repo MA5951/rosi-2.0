@@ -82,7 +82,7 @@ const AddArticlePage: React.FC = () => {
     };
 
     return (
-        <div className="flex min-h-screen flex-col items-center justify-center bg-blue-50 dark:bg-slate-900 text-gray-900 dark:text-white">
+        <div style={{marginTop: "15vh"}} className="flex min-h-screen flex-col items-center justify-center bg-blue-50 dark:bg-slate-900 text-gray-900 dark:text-white">
             <ToastContainer />
             <form onSubmit={handleSubmit} className="w-full max-w-lg">
                 <h2 className="text-2xl mb-4">Add New Article</h2>
