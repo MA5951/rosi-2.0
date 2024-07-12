@@ -121,6 +121,7 @@ const AddArticlePage: React.FC = () => {
                         <option value="manufacturing">Manufacturing</option>
                         <option value="community">Community</option>
                         <option value="electrical">Electrical</option>
+                        <option value="ftc">FTC</option>
                         <option value="">Other</option>
                     </select>
                 </div>
