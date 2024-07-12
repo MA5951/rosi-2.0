@@ -12,7 +12,7 @@ const page = ({params}: Props) => {
 
   return (
     <main>
-      <ArticlePage subject="" search={params.slug} pageTitle={params.slug} language='english'/>
+      <ArticlePage subject="" search={params.slug} pageTitle={decodeURI(params.slug)} language='english'/>
     </main>
   );
 }

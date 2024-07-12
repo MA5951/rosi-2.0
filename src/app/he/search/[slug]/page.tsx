@@ -13,7 +13,7 @@ const page = ({params}: Props) => {
   console.log(params.slug);
   return (
     <main>
-      <ArticlePage subject="" search={params.slug} language='hebrew' pageTitle={params.slug}/>
+      <ArticlePage subject="" search={params.slug} language='hebrew' pageTitle={decodeURI(params.slug)}/>
     </main>
   );
 }
