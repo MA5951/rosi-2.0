@@ -16,7 +16,8 @@ enum Page {
     contribute = '/contribute',
     contact = '/contact',
     cad = '/cad',
-    explore = '/explore'
+    explore = '/explore',
+    ftc = '/ftc'
 }
 
 type Props = {}
@@ -122,6 +123,8 @@ export const Navbar = (props: Props) => {
                     return 'חיפוש...';
                 case "Explore":
                     return 'חקור';
+                case "FTC":
+                    return 'FTC';
                 default:
                     return 'Language';
             }
@@ -308,6 +311,9 @@ export const Navbar = (props: Props) => {
                         </li>
                         <li>
                             <Link href={`/${currentLanguage}${Page.cad}`} className={getButtonClassName(Page.cad)} onClick={handleLinkClick} >{getLangText('CAD')}</Link>
+                        </li>
+                        <li>
+                            <Link href={`/${currentLanguage}${Page.ftc}`} className={getButtonClassName(Page.ftc)} onClick={handleLinkClick} >{getLangText('FTC')}</Link>
                         </li>
                         <li>
                             <Link href={`/${currentLanguage}${Page.explore}`} className={getButtonClassName(Page.explore)} onClick={handleLinkClick} >{getLangText('Explore')}</Link>
