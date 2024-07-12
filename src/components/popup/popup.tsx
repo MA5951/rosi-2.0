@@ -55,7 +55,7 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
           <div className="mt-4">
             <p className="font-semibold text-gray-700 dark:text-gray-300">Contact Information:</p>
             <p className="text-gray-700 dark:text-gray-300">Name: {contact.name}</p>
-            <p className="text-gray-700 dark:text-gray-300">Phone: {contact.phone}</p>
+            <p className="text-gray-700 dark:text-gray-300">Contact: {contact.phone}</p>
           </div>
           <button
             onClick={onClose}
@@ -95,7 +95,7 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
           <div className="mt-4">
             <p className="font-semibold text-gray-700 dark:text-gray-300">פרטי קשר:</p>
             <p className="text-gray-700 dark:text-gray-300">שם: {contact.name}</p>
-            <p className="text-gray-700 dark:text-gray-300">טלפון: {contact.phone}</p>
+            <p className="text-gray-700 dark:text-gray-300">יצירת קשר: {contact.phone}</p>
           </div>
           <button
             onClick={onClose}
