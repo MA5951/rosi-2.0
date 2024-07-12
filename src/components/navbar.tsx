@@ -30,6 +30,12 @@ export const Navbar = (props: Props) => {
     const router = useRouter();
     const [searchQuery, setSearchQuery] = useState('');
 
+    const handleLinkClick = () => {
+        if (isMobileMenuOpen) {
+            setIsMobileMenuOpen(false);
+        }
+    };
+
     useEffect(() => {
         const savedTheme = localStorage.getItem('theme');
         const savedLanguage = localStorage.getItem('language') || 'en';
@@ -283,34 +289,34 @@ export const Navbar = (props: Props) => {
                     </div>
                     <ul className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-4 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
                         <li>
-                            <Link href={`/${currentLanguage}${Page.Home}`} className={getButtonClassName(Page.Home)} aria-current="page">{getLangText('Home')}</Link>
+                            <Link href={`/${currentLanguage}${Page.Home}`} className={getButtonClassName(Page.Home)} aria-current="page" onClick={handleLinkClick} >{getLangText('Home')}</Link>
                         </li>
                         <li>
-                            <Link href={`/${currentLanguage}${Page.programming}`} className={getButtonClassName(Page.programming)}>{getLangText('Programming')}</Link>
+                            <Link href={`/${currentLanguage}${Page.programming}`} className={getButtonClassName(Page.programming)} onClick={handleLinkClick} >{getLangText('Programming')}</Link>
                         </li>
                         <li>
-                            <Link href={`/${currentLanguage}${Page.electrical}`} className={getButtonClassName(Page.electrical)}>{getLangText('Electrical')}</Link>
+                            <Link href={`/${currentLanguage}${Page.electrical}`} className={getButtonClassName(Page.electrical)} onClick={handleLinkClick} >{getLangText('Electrical')}</Link>
                         </li>
                         <li>
-                            <Link href={`/${currentLanguage}${Page.community}`} className={getButtonClassName(Page.community)}>{getLangText('Community')}</Link>
+                            <Link href={`/${currentLanguage}${Page.community}`} className={getButtonClassName(Page.community)} onClick={handleLinkClick} >{getLangText('Community')}</Link>
                         </li>
                         <li>
-                            <Link href={`/${currentLanguage}${Page.manufacturing}`} className={getButtonClassName(Page.manufacturing)}>{getLangText('Manufacturing')}</Link>
+                            <Link href={`/${currentLanguage}${Page.manufacturing}`} className={getButtonClassName(Page.manufacturing)} onClick={handleLinkClick} >{getLangText('Manufacturing')}</Link>
                         </li>
                         <li>
-                            <Link href={`/${currentLanguage}${Page.mechanics}`} className={getButtonClassName(Page.mechanics)}>{getLangText('Mechanics')}</Link>
+                            <Link href={`/${currentLanguage}${Page.mechanics}`} className={getButtonClassName(Page.mechanics)} onClick={handleLinkClick} >{getLangText('Mechanics')}</Link>
                         </li>
                         <li>
-                            <Link href={`/${currentLanguage}${Page.cad}`} className={getButtonClassName(Page.cad)}>{getLangText('CAD')}</Link>
+                            <Link href={`/${currentLanguage}${Page.cad}`} className={getButtonClassName(Page.cad)} onClick={handleLinkClick} >{getLangText('CAD')}</Link>
                         </li>
                         <li>
-                            <Link href={`/${currentLanguage}${Page.explore}`} className={getButtonClassName(Page.explore)}>{getLangText('Explore')}</Link>
+                            <Link href={`/${currentLanguage}${Page.explore}`} className={getButtonClassName(Page.explore)} onClick={handleLinkClick} >{getLangText('Explore')}</Link>
                         </li>
                         <li>
-                            <Link href={`/${currentLanguage}${Page.contribute}`} className={getButtonClassName(Page.contribute)}>{getLangText('Contribute')}</Link>
+                            <Link href={`/${currentLanguage}${Page.contribute}`} className={getButtonClassName(Page.contribute)} onClick={handleLinkClick} >{getLangText('Contribute')}</Link>
                         </li>
                         <li>
-                            <Link href={`/${currentLanguage}${Page.contact}`} className={getButtonClassName(Page.contact)}>{getLangText('Contact')}</Link>
+                            <Link href={`/${currentLanguage}${Page.contact}`} className={getButtonClassName(Page.contact)} onClick={handleLinkClick} >{getLangText('Contact')}</Link>
                         </li>
                     </ul>
                 </div>
