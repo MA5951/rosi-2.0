@@ -7,12 +7,27 @@ import { faCode, faBolt, faUsers, faIndustry, faPencil, faWrench, faPlus, faStar
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     const isDark = savedTheme === 'dark';
     setIsDarkMode(isDark);
   }, []);
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
 
   return (      
     <main className="flex min-h-screen flex-col items-center justify-between bg-blue-50 dark:bg-slate-900 text-gray-900 dark:text-white">
@@ -23,7 +38,7 @@ export default function Home() {
         <Image
           src={isDarkMode ? "/images/dark_rosi.png" : "/images/light_rosi.png"}
           alt="ROSI Logo"
-          style={{marginTop: '15%'}}
+          style={{marginTop: isMobile ? '20vh' : '15%'}}
           width={900}
           height={500}
           priority
