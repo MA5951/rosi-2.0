@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCode, faBolt, faUsers, faIndustry, faPencil, faWrench, faPlus, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faCode, faBolt, faUsers, faIndustry, faPencil, faWrench, faPlus, faStar, faMicrochip, faBook } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -27,7 +27,6 @@ export default function Home() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
 
   return (      
     <main className="flex min-h-screen flex-col items-center justify-between bg-blue-50 dark:bg-slate-900 text-gray-900 dark:text-white">
@@ -53,72 +52,69 @@ export default function Home() {
             >
               <h2 className="mb-3 text-2xl font-semibold">
                 <FontAwesomeIcon icon={faCode} className="mr-2" />
-                programming{" "}
+                Programming{" "}
                 <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h2>
               <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                Find in-depth information about Next.js features and API.
+                Discover resources and code examples to enhance your team's software skills.
               </p>
             </a>
 
-              <a
-                href="/en/electrical"
-                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+            <a
+              href="/en/electrical"
+              className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+            >
+              <h2 className="mb-3 text-2xl font-semibold">
+                <FontAwesomeIcon icon={faBolt} className="mr-2" />
+                Electrical{" "}
+                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h2>
+              <p className="m-0 max-w-[30ch] text-sm opacity-50">
+                Learn about electrical systems and components through shared experiences.
+              </p>
+            </a>
 
-              >
-                <h2 className="mb-3 text-2xl font-semibold">
-                  <FontAwesomeIcon icon={faBolt} className="mr-2" />
-                  Electrical{" "}
-                  <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-                    -&gt;
-                  </span>
-                </h2>
-                <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                  Learn about Next.js in an interactive course with&nbsp;quizzes!
-                </p>
-              </a>
+            <a
+              href="/en/manufacturing"
+              className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+            >
+              <h2 className="mb-3 text-2xl font-semibold">
+                <FontAwesomeIcon icon={faIndustry} className="mr-2" />
+                Manufacturing{" "}
+                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h2>
+              <p className="m-0 max-w-[30ch] text-sm opacity-50">
+                Access manufacturing techniques and best practices from other teams.
+              </p>
+            </a>
 
-              <a
-                href="/en/manufacturing"
-                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-
-              >
-                <h2 className="mb-3 text-2xl font-semibold">
-                  <FontAwesomeIcon icon={faIndustry} className="mr-2" />
-                  Manufacturing{" "}
-                  <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-                    -&gt;
-                  </span>
-                </h2>
-                <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                  Explore starter templates for Next.js.
-                </p>
-              </a>
-
-              <a
-                href="/en/cad"
-                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-
-              >
-                <h2 className="mb-3 text-2xl font-semibold">
-                  <FontAwesomeIcon icon={faPencil} className="mr-2" />
-                  Cad{" "}
-                  <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-                    -&gt;
-                  </span>
-                </h2>
-                <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-                  Instantly deploy your Next.js site to a shareable URL with Vercel.
-                </p>
-              </a>
+            <a
+              href="/en/cad"
+              className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+            >
+              <h2 className="mb-3 text-2xl font-semibold">
+                <FontAwesomeIcon icon={faPencil} className="mr-2" />
+                CAD{" "}
+                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h2>
+              <p className="m-0 max-w-[30ch] text-sm opacity-50">
+                Share and explore CAD designs to enhance engineering collaboration.
+              </p>
+            </a>
           </div>
+
           <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
             <a
               href="/en/community"
               className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-
             >
               <h2 className="mb-3 text-2xl font-semibold">
                 <FontAwesomeIcon icon={faUsers} className="mr-2" />
@@ -128,14 +124,13 @@ export default function Home() {
                 </span>
               </h2>
               <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                Find in-depth information about Next.js features and API.
+                Engage with the global ROSI community to improve your community program.
               </p>
             </a>
 
             <a
               href="/en/mechanics"
               className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-
             >
               <h2 className="mb-3 text-2xl font-semibold">
                 <FontAwesomeIcon icon={faWrench} className="mr-2" />
@@ -145,14 +140,49 @@ export default function Home() {
                 </span>
               </h2>
               <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                Learn about Next.js in an interactive course with&nbsp;quizzes!
+                Dive into mechanical engineering projects and share your innovations.
               </p>
             </a>
 
             <a
+              href="/en/ftc"
+              className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+            >
+              <h2 className="mb-3 text-2xl font-semibold">
+                <FontAwesomeIcon icon={faMicrochip} className="mr-2" />
+                FTC{" "}
+                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h2>
+              <p className="m-0 max-w-[30ch] text-sm opacity-50">
+                Access resources and experiences tailored for FIRST Tech Challenge teams.
+              </p>
+            </a>
+            <a
+              href="/en/other"
+              className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+            >
+              <h2 className="mb-3 text-2xl font-semibold">
+                <FontAwesomeIcon icon={faBook} className="mr-2" />
+                Other{" "}
+                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h2>
+              <p className="m-0 max-w-[30ch] text-sm opacity-50">
+                Explore diverse topics and innovative projects beyond the core categories.
+              </p>
+            </a>
+          </div>
+        
+          <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
+            <a>
+            </a>
+            
+            <a
               href="/en/contribute"
               className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-
             >
               <h2 className="mb-3 text-2xl font-semibold">
                 <FontAwesomeIcon icon={faPlus} className="mr-2" />
@@ -162,14 +192,13 @@ export default function Home() {
                 </span>
               </h2>
               <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                Explore starter templates for Next.js.
+                Share your knowledge and help improve the resources available to all teams.
               </p>
             </a>
 
             <a
               href="/en/contact"
               className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-
             >
               <h2 className="mb-3 text-2xl font-semibold">
                 <FontAwesomeIcon icon={faStar} className="mr-2" />
@@ -178,13 +207,15 @@ export default function Home() {
                   -&gt;
                 </span>
               </h2>
-              <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-                Instantly deploy your Next.js site to a shareable URL with Vercel.
+              <p className="m-0 max-w-[30ch] text-sm opacity-50">
+                Get in touch with us to learn more or to provide feedback.
               </p>
             </a>
           </div>
         </div>
-      )} {isMobile && ( 
+      )}
+      
+      {isMobile && ( 
         <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
           <a
             href="/en/programming"
@@ -192,13 +223,13 @@ export default function Home() {
           >
             <h2 className="mb-3 text-2xl font-semibold">
               <FontAwesomeIcon icon={faCode} className="mr-2" />
-              programming{" "}
+              Programming{" "}
               <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                 -&gt;
               </span>
             </h2>
             <p className="m-0 max-w-[30ch] text-sm opacity-50">
-              Find in-depth information about Next.js features and API.
+              Discover resources and code examples to enhance your team's software skills.
             </p>
           </a>
           <a
@@ -213,7 +244,7 @@ export default function Home() {
               </span>
             </h2>
             <p className="m-0 max-w-[30ch] text-sm opacity-50">
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
+              Learn about electrical systems and components through shared experiences.
             </p>
           </a>
           <a
@@ -228,7 +259,7 @@ export default function Home() {
               </span>
             </h2>
             <p className="m-0 max-w-[30ch] text-sm opacity-50">
-              Explore starter templates for Next.js.
+              Access manufacturing techniques and best practices from other teams.
             </p>
           </a>
           <a
@@ -237,19 +268,18 @@ export default function Home() {
           >
             <h2 className="mb-3 text-2xl font-semibold">
               <FontAwesomeIcon icon={faPencil} className="mr-2" />
-              Cad{" "}
+              CAD{" "}
               <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                 -&gt;
               </span>
             </h2>
-            <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-              Instantly deploy your Next.js site to a shareable URL with Vercel.
+            <p className="m-0 max-w-[30ch] text-sm opacity-50">
+              Share and explore CAD designs to enhance engineering collaboration.
             </p>
           </a>
           <a
             href="/en/community"
             className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-
           >
             <h2 className="mb-3 text-2xl font-semibold">
               <FontAwesomeIcon icon={faUsers} className="mr-2" />
@@ -259,7 +289,7 @@ export default function Home() {
               </span>
             </h2>
             <p className="m-0 max-w-[30ch] text-sm opacity-50">
-              Find in-depth information about Next.js features and API.
+              Engage with the global ROSI community to improve your community program.
             </p>
           </a>
           <a
@@ -274,7 +304,37 @@ export default function Home() {
               </span>
             </h2>
             <p className="m-0 max-w-[30ch] text-sm opacity-50">
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
+              Dive into mechanical engineering projects and share your innovations.
+            </p>
+          </a>
+          <a
+            href="/en/ftc"
+            className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+          >
+            <h2 className="mb-3 text-2xl font-semibold">
+              <FontAwesomeIcon icon={faMicrochip} className="mr-2" />
+              FTC{" "}
+              <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                -&gt;
+              </span>
+            </h2>
+            <p className="m-0 max-w-[30ch] text-sm opacity-50">
+              Access resources and experiences tailored for FIRST Tech Challenge teams.
+            </p>
+          </a>
+          <a
+            href="/en/other"
+            className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+          >
+            <h2 className="mb-3 text-2xl font-semibold">
+              <FontAwesomeIcon icon={faBook} className="mr-2" />
+              Other{" "}
+              <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                -&gt;
+              </span>
+            </h2>
+            <p className="m-0 max-w-[30ch] text-sm opacity-50">
+              Explore diverse topics and innovative projects beyond the core categories.
             </p>
           </a>
           <a
@@ -289,7 +349,7 @@ export default function Home() {
               </span>
             </h2>
             <p className="m-0 max-w-[30ch] text-sm opacity-50">
-              Explore starter templates for Next.js.
+              Share your knowledge and help improve the resources available to all teams.
             </p>
           </a>
           <a
@@ -303,8 +363,8 @@ export default function Home() {
                 -&gt;
               </span>
             </h2>
-            <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-              Instantly deploy your Next.js site to a shareable URL with Vercel.
+            <p className="m-0 max-w-[30ch] text-sm opacity-50">
+              Get in touch with us to learn more or to provide feedback.
             </p>
           </a>
         </div>
