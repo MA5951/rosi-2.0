@@ -8,13 +8,13 @@ import 'react-toastify/dist/ReactToastify.css';
 interface FormData {
     title: string;
     author: string;
-    status: string;
     phone: string;
     description: string;
     subject: string;
     photo: string;
     link: string;
     language: string;
+    status: string;
 }
 
 const AddArticlePage: React.FC = () => {
@@ -23,14 +23,13 @@ const AddArticlePage: React.FC = () => {
         author: '',
         phone: '',
         description: '',
-        status: '',
         subject: '',
         photo: '',
         link: '',
-        language: ''
+        language: '',
+        status: 'pending'
     });
 
-    const [password, setPassword] = useState<string>('');
     const [errorMessage, setErrorMessage] = useState<string>('');
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -41,16 +40,8 @@ const AddArticlePage: React.FC = () => {
         });
     };
 
-    const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setPassword(e.target.value);
-    };
-
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (password !== 'team5951') {
-            setErrorMessage('Invalid password');
-            return;
-        }
         setErrorMessage('');
 
         const promise = addArticle(formData)
@@ -60,13 +51,12 @@ const AddArticlePage: React.FC = () => {
                     author: '',
                     phone: '',
                     description: '',
-                    status: '',
                     subject: '',
                     photo: '',
                     link: '',
-                    language: ''
+                    language: '',
+                    status: 'pending'
                 });
-                setPassword('');
             })
             .catch((error) => {
                 console.error('Failed to add article:', error);
@@ -129,22 +119,6 @@ const AddArticlePage: React.FC = () => {
                     </select>
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" htmlFor="subject">
-                        status
-                    </label>
-                    <select
-                        name="subject"
-                        id="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
-                        required
-                    >
-                        <option value="">Select Subject</option>
-                        <option value="approved">approved</option>
-                    </select>
-                </div>
-                <div className="mb-4">
                     <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" htmlFor="language">
                         Language
                     </label>
@@ -160,20 +134,6 @@ const AddArticlePage: React.FC = () => {
                         <option value="english">English</option>
                         <option value="hebrew">Hebrew</option>
                     </select>
-                </div>
-                <div className="mb-4">
-                    <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" htmlFor="password">
-                        Password
-                    </label>
-                    <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        value={password}
-                        onChange={handlePasswordChange}
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
-                        required
-                    />
                 </div>
                 {errorMessage && (
                     <p className="text-red-500 text-xs italic mb-4">{errorMessage}</p>
