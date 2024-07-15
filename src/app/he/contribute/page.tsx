@@ -130,7 +130,7 @@ const AddArticlePage: React.FC = () => {
                         <option value="programming">תכנות</option>
                         <option value="manufacturing">ייצור</option>
                         <option value="community">קהילה</option>
-                        <option value="electrical">חשמל</option>
+                        <option value="electrical">אלקטרוניקה</option>
                         <option value="ftc">FTC</option>
                         <option value="other">אחר</option>
                     </select>
