@@ -17,6 +17,21 @@ export async function updateArticleStatus(articleId: string, newStatus: string) 
     }
 }
 
+export async function updateArticlePhoto(articleId: string, newPhoto: string) {
+    try {
+        const updatedArticle = await prisma.articles.update({
+            where: { id: articleId },
+            data: { photo: newPhoto }
+        });
+        return updatedArticle;
+    } catch (error) {
+        console.error("Error updating article photo: ", error);
+        throw new Error("Error updating article photo");
+    } finally {
+        await prisma.$disconnect();
+    }
+}
+
 export async function deleteArticle(articleId: string) {
     try {
         await prisma.articles.delete({

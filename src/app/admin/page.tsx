@@ -14,7 +14,6 @@ interface FormData {
     photo: string;
     link: string;
     language: string;
-    status: string;
 }
 
 const AddArticlePage: React.FC = () => {
@@ -26,10 +25,10 @@ const AddArticlePage: React.FC = () => {
         subject: '',
         photo: '',
         link: '',
-        language: '',
-        status: 'pending'
+        language: ''
     });
 
+    const [password, setPassword] = useState<string>('');
     const [errorMessage, setErrorMessage] = useState<string>('');
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -40,11 +39,24 @@ const AddArticlePage: React.FC = () => {
         });
     };
 
+    const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setPassword(e.target.value);
+    };
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (password !== 'team5951') {
+            setErrorMessage('Invalid password');
+            return;
+        }
         setErrorMessage('');
 
-        const promise = addArticle(formData)
+        const updatedFormData = {
+            ...formData,
+            status: 'approved'
+        };
+
+        const promise = addArticle(updatedFormData)
             .then(() => {
                 setFormData({
                     title: '',
@@ -54,9 +66,9 @@ const AddArticlePage: React.FC = () => {
                     subject: '',
                     photo: '',
                     link: '',
-                    language: '',
-                    status: 'pending'
+                    language: ''
                 });
+                setPassword('');
             })
             .catch((error) => {
                 console.error('Failed to add article:', error);
@@ -134,6 +146,20 @@ const AddArticlePage: React.FC = () => {
                         <option value="english">English</option>
                         <option value="hebrew">Hebrew</option>
                     </select>
+                </div>
+                <div className="mb-4">
+                    <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" htmlFor="password">
+                        Password
+                    </label>
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        value={password}
+                        onChange={handlePasswordChange}
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+                        required
+                    />
                 </div>
                 {errorMessage && (
                     <p className="text-red-500 text-xs italic mb-4">{errorMessage}</p>

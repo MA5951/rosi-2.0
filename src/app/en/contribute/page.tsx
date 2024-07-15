@@ -1,68 +1,148 @@
 "use client"
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { addArticle } from '@/db/addArticle';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-export default function Home() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    const isDark = savedTheme === 'dark';
-    setIsDarkMode(isDark);
-  }, []);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  return (
-    <div className="flex min-h-screen flex-col items-center justify-between bg-blue-50 dark:bg-slate-900 text-gray-900 dark:text-white">
-      <style jsx>{`
-        @keyframes skeleton-gradient-light {
-          0% {
-            background-position: -200% 0;
-          }
-          100% {
-            background-position: 200% 0;
-          }
-        }
-
-        @keyframes skeleton-gradient-dark {
-          0% {
-            background-position: -200% 0;
-          }
-          100% {
-            background-position: 200% 0;
-          }
-        }
-
-        .skeleton-background-light {
-          background: linear-gradient(90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
-          background-size: 200% 100%;
-          animation: skeleton-gradient-light 1.5s infinite;
-        }
-
-        .skeleton-background-dark {
-          background: linear-gradient(90deg, #3a3a3a 25%, #4a4a4a 50%, #3a3a3a 75%);
-          background-size: 200% 100%;
-          animation: skeleton-gradient-dark 1.5s infinite;
-        }
-      `}</style>
-      <iframe 
-        src="https://docs.google.com/forms/d/e/1FAIpQLSfRPlzpHLt8n8kSAgucbgZLZiD3Z_Zd5s1NWPU93XD-Wd6HyQ/viewform"
-        className={isDarkMode ? 'skeleton-background-dark' : 'skeleton-background-light'}
-        style={{height: isMobile ? "70vh" : "80vh", width: isMobile ? "80vw" : "40vw", marginTop: "15vh", borderRadius: "20px", boxShadow: isDarkMode ? "0 3px 50px rgb(255 255 255 / 0.4)" : "0 3px 50px rgb(0 0 0 / 0.4)"}}
-      />
-    </div>
-  );
+interface FormData {
+    title: string;
+    author: string;
+    phone: string;
+    description: string;
+    subject: string;
+    link: string;
+    language: string;
+    status: string;
 }
+
+const AddArticlePage: React.FC = () => {
+    const [formData, setFormData] = useState<FormData>({
+        title: '',
+        author: '',
+        phone: '',
+        description: '',
+        subject: '',
+        link: '',
+        language: '',
+        status: 'pending'
+    });
+
+    const [errorMessage, setErrorMessage] = useState<string>('');
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setErrorMessage('');
+
+        const formDataWithPhoto = { ...formData, photo: "https://i.ibb.co/7WGzjsv/2.png" };
+
+        const promise = addArticle(formDataWithPhoto)
+            .then(() => {
+                setFormData({
+                    title: '',
+                    author: '',
+                    phone: '',
+                    description: '',
+                    subject: '',
+                    link: '',
+                    language: '',
+                    status: 'pending'
+                });
+            })
+            .catch((error) => {
+                console.error('Failed to add article:', error);
+                throw new Error('Failed to add article');
+            });
+
+        toast.promise(
+            promise,
+            {
+                pending: 'Adding article...',
+                success: 'Article added successfully!',
+                error: 'Failed to add article.'
+            },
+            { theme: 'dark', position: 'top-right' }
+        );
+    };
+
+    return (
+        <div className="flex min-h-screen flex-col items-center justify-center bg-blue-50 dark:bg-slate-900 text-gray-900 dark:text-white">
+            <ToastContainer />
+            <form onSubmit={handleSubmit} className="w-full max-w-lg">
+                <h2 style={{marginTop: "15vh"}} className="text-2xl mb-4">Add New Article</h2>
+                {['title', 'author', 'phone', 'description', 'link'].map((field) => (
+                    <div key={field} className="mb-4">
+                        <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" htmlFor={field}>
+                            {field.charAt(0).toUpperCase() + field.slice(1)}
+                        </label>
+                        <input
+                            type="text"
+                            name={field}
+                            id={field}
+                            value={formData[field as keyof FormData]} // Cast to keyof FormData
+                            onChange={handleChange}
+                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+                            required
+                        />
+                    </div>
+                ))}
+                <div className="mb-4">
+                    <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" htmlFor="subject">
+                        Subject
+                    </label>
+                    <select
+                        name="subject"
+                        id="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+                        required
+                    >
+                        <option value="">Select Subject</option>
+                        <option value="cad">CAD</option>
+                        <option value="mechanics">Mechanics</option>
+                        <option value="programming">Programming</option>
+                        <option value="manufacturing">Manufacturing</option>
+                        <option value="community">Community</option>
+                        <option value="electrical">Electrical</option>
+                        <option value="ftc">FTC</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div className="mb-4">
+                    <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" htmlFor="language">
+                        Language
+                    </label>
+                    <select
+                        name="language"
+                        id="language"
+                        value={formData.language}
+                        onChange={handleChange}
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+                        required
+                    >
+                        <option value="">Select Language</option>
+                        <option value="english">English</option>
+                        <option value="hebrew">Hebrew</option>
+                    </select>
+                </div>
+                {errorMessage && (
+                    <p className="text-red-500 text-xs italic mb-4">{errorMessage}</p>
+                )}
+                <button type="submit" className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    Add Article
+                </button>
+            </form>
+        </div>
+    );
+}
+
+export default AddArticlePage;

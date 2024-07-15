@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import './popup.css';
-import { updateArticleStatus, deleteArticle } from '@/db/server'; // Import the functions
+import { updateArticleStatus, deleteArticle, updateArticlePhoto } from '@/db/server'; // Import the functions
 import { useRouter } from 'next/navigation'; // Import useRouter
 
 interface Contact {
@@ -27,6 +27,7 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
   const [isUpdating, setIsUpdating] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [password, setPassword] = useState('');
+  const [photoLink, setPhotoLink] = useState(''); // New state for photo link
 
   const toggleIframe = () => {
     setShowIframe(!showIframe);
@@ -41,11 +42,12 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
     setIsUpdating(true);
     try {
       await updateArticleStatus(articleId, 'approved');
-      alert('Article approved successfully!');
+      await updateArticlePhoto(articleId, photoLink);
+      alert('Article approved and photo updated successfully!');
       window.location.reload(); // Full page reload
     } catch (error) {
-      console.error('Error approving article:', error);
-      alert('Failed to approve article.');
+      console.error('Error approving article or updating photo:', error);
+      alert('Failed to approve article or update photo.');
     } finally {
       setIsUpdating(false);
     }
@@ -113,6 +115,15 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
               className="px-4 py-2 border rounded w-full text-gray-700"
             />
           </div>
+          <div className="mt-4">
+            <input
+              type="text"
+              placeholder="Enter new photo link"
+              value={photoLink}
+              onChange={(e) => setPhotoLink(e.target.value)}
+              className="px-4 py-2 border rounded w-full text-gray-700"
+            />
+          </div>
           <div className="mt-4 flex space-x-4">
             <button
               onClick={handleApprove}
@@ -176,6 +187,15 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
                 placeholder="הזן סיסמה"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                className="px-4 py-2 border rounded w-full text-gray-700"
+              />
+            </div>
+            <div className="mt-4">
+              <input
+                type="text"
+                placeholder="הזן קישור לתמונה חדשה"
+                value={photoLink}
+                onChange={(e) => setPhotoLink(e.target.value)}
                 className="px-4 py-2 border rounded w-full text-gray-700"
               />
             </div>
