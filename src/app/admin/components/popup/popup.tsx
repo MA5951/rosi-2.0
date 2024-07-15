@@ -42,7 +42,7 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
     try {
       await updateArticleStatus(articleId, 'approved');
       alert('Article approved successfully!');
-      router.refresh(); // Refresh the page
+      window.location.reload(); // Full page reload
     } catch (error) {
       console.error('Error approving article:', error);
       alert('Failed to approve article.');
@@ -61,7 +61,7 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
     try {
       await deleteArticle(articleId);
       alert('Article deleted successfully!');
-      router.refresh(); // Refresh the page
+      window.location.reload(); // Full page reload
     } catch (error) {
       console.error('Error deleting article:', error);
       alert('Failed to delete article.');
@@ -172,7 +172,7 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
             </div>
             <div className="mt-4">
               <input
-                type="password"
+                type="text"
                 placeholder="הזן סיסמה"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
