@@ -6,6 +6,7 @@ export async function addArticle(data: {
     title: string,
     author: string,
     phone: string,
+    status: string,
     description: string,
     subject: string,
     photo: string,

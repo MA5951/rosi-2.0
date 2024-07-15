@@ -1,5 +1,3 @@
-"use client"
-
 import { useEffect, useState } from 'react';
 import Popup from './popup/popup';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -35,7 +33,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({subject, search, pageTitle, la
 
   useEffect(() => {
     const fetchArticles = async () => {
-      const fetchedArticles = await getAllArticles(language, subject, search, "approved");
+      const fetchedArticles = await getAllArticles(language, subject, search, "pending");
       const formattedArticles = fetchedArticles.map((article) => ({
         id: article.id,
         title: article.title,
@@ -139,6 +137,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({subject, search, pageTitle, la
             contact={selectedArticle.contact} 
             description={selectedArticle.description}
             language={language}
+            articleId={selectedArticle.id} // Pass the articleId to the Popup
             onClose={closePopup} 
           />
         )}

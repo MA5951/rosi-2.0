@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 interface FormData {
     title: string;
     author: string;
+    status: string;
     phone: string;
     description: string;
     subject: string;
@@ -22,6 +23,7 @@ const AddArticlePage: React.FC = () => {
         author: '',
         phone: '',
         description: '',
+        status: '',
         subject: '',
         photo: '',
         link: '',
@@ -58,6 +60,7 @@ const AddArticlePage: React.FC = () => {
                     author: '',
                     phone: '',
                     description: '',
+                    status: '',
                     subject: '',
                     photo: '',
                     link: '',
@@ -123,6 +126,22 @@ const AddArticlePage: React.FC = () => {
                         <option value="electrical">Electrical</option>
                         <option value="ftc">FTC</option>
                         <option value="other">Other</option>
+                    </select>
+                </div>
+                <div className="mb-4">
+                    <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" htmlFor="subject">
+                        status
+                    </label>
+                    <select
+                        name="subject"
+                        id="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+                        required
+                    >
+                        <option value="">Select Subject</option>
+                        <option value="approved">approved</option>
                     </select>
                 </div>
                 <div className="mb-4">
