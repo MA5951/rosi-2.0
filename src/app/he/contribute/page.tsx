@@ -125,7 +125,7 @@ const AddArticlePage: React.FC = () => {
                         required
                     >
                         <option value="">בחר נושא</option>
-                        <option value="cad">תכנון בעזרת מחשב</option>
+                        <option value="cad">שרטוט</option>
                         <option value="mechanics">מכניקה</option>
                         <option value="programming">תכנות</option>
                         <option value="manufacturing">ייצור</option>
