@@ -16,7 +16,7 @@ const Contact = () => {
     name: form.name,
     email: form.email,
     subject: form.subject,
-    message: 'Name: ' + form.name + '\nEmail: ' + form.email + '\nSubject: ' + form.subject + '\n\n' + form.message + '\n'
+    message: 'New entry from contact form\n' + 'Name: ' + form.name + '\nEmail: ' + form.email + '\nSubject: ' + form.subject + '\n\n' + form.message + '\n'
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from 'react';
+import emailjs from 'emailjs-com';
 import { addArticle } from '@/db/addArticle';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -38,6 +39,22 @@ const AddArticlePage: React.FC = () => {
         });
     };
 
+    const sendEmailNotification = async (formData: FormData) => {
+        const emailParams = {
+            title: formData.title,
+            author: formData.author,
+            phone: formData.phone,
+            description: formData.description,
+            subject: formData.subject,
+            link: formData.link,
+            language: formData.language,
+            status: formData.status,
+            message: `מאמר חדש נוסף:\nכותרת: ${formData.title}\nמחבר: ${formData.author}\nטלפון: ${formData.phone}\nתיאור: ${formData.description}\nנושא: ${formData.subject}\nקישור: ${formData.link}\nשפה: ${formData.language}\nסטטוס: ${formData.status}`
+        };
+
+        return emailjs.send('service_0qihfrd', 'template_wxwi7c9', emailParams, 'Ca63K4j5TSK6Ls7c2');
+    };
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setErrorMessage('');
@@ -56,6 +73,7 @@ const AddArticlePage: React.FC = () => {
                     language: '',
                     status: 'pending'
                 });
+                return sendEmailNotification(formDataWithPhoto);
             })
             .catch((error) => {
                 console.error('Failed to add article:', error);
@@ -66,8 +84,8 @@ const AddArticlePage: React.FC = () => {
             promise,
             {
                 pending: 'מוסיף מאמר...',
-                success: 'המאמר נוסף בהצלחה!',
-                error: 'הוספת המאמר נכשלה.'
+                success: 'מאמר נוסף בהצלחה!',
+                error: 'נכשל להוסיף מאמר.'
             },
             { theme: 'dark', position: 'top-right' }
         );
@@ -81,11 +99,7 @@ const AddArticlePage: React.FC = () => {
                 {['title', 'author', 'phone', 'description', 'link'].map((field) => (
                     <div key={field} className="mb-4">
                         <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" htmlFor={field}>
-                            {field === 'title' ? 'כותרת' : 
-                             field === 'author' ? 'מחבר' : 
-                             field === 'phone' ? 'טלפון' : 
-                             field === 'description' ? 'תיאור' : 
-                             'קישור'}
+                            {field.charAt(0).toUpperCase() + field.slice(1)}
                         </label>
                         <input
                             type="text"
@@ -111,7 +125,7 @@ const AddArticlePage: React.FC = () => {
                         required
                     >
                         <option value="">בחר נושא</option>
-                        <option value="cad">CAD</option>
+                        <option value="cad">תכנון בעזרת מחשב</option>
                         <option value="mechanics">מכניקה</option>
                         <option value="programming">תכנות</option>
                         <option value="manufacturing">ייצור</option>
