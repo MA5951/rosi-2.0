@@ -30,7 +30,7 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const promise = emailjs.send(process.env.EMAIL_SERVICE_ID!, process.env.EMAIL_TEMPLATE_ID!, finalForm, process.env.EMAIL_SERVICE_ID!)
+    const promise = emailjs.send(process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID?? "", process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID?? "", finalForm, process.env.NEXT_PUBLIC_EMAIL_USER_ID?? "")
       .then(() => {
         setForm({ name: '', email: '', subject: '', message: '' });
       })

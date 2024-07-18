@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import emailjs from 'emailjs-com';
 import { toast } from 'react-toastify';
+import 'dotenv'
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -30,7 +31,7 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const promise = emailjs.send(process.env.EMAIL_SERVICE_ID!, process.env.EMAIL_TEMPLATE_ID!, finalForm, process.env.EMAIL_USER_ID!)
+    const promise = emailjs.send(process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID?? "", process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID?? "", finalForm, process.env.NEXT_PUBLIC_EMAIL_USER_ID?? "YOUR_USER_ID")
       .then(() => {
         setForm({ name: '', email: '', subject: '', message: '' });
       })

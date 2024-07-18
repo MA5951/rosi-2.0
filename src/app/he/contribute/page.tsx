@@ -52,7 +52,7 @@ const AddArticlePage: React.FC = () => {
             message: `מאמר חדש נוסף:\nכותרת: ${formData.title}\nמחבר: ${formData.author}\nטלפון: ${formData.phone}\nתיאור: ${formData.description}\nנושא: ${formData.subject}\nקישור: ${formData.link}\nשפה: ${formData.language}\nסטטוס: ${formData.status}`
         };
 
-        return emailjs.send(process.env.EMAIL_SERVICE_ID!, process.env.EMAIL_TEMPLATE_ID!, emailParams, process.env.EMAIL_SERVICE_ID!);
+        return emailjs.send(process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID?? "", process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID?? "", emailParams, process.env.NEXT_PUBLIC_EMAIL_USER_ID?? "");
     };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
