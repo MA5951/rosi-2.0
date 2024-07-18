@@ -52,7 +52,7 @@ const AddArticlePage: React.FC = () => {
             message: `New article added:\nTitle: ${formData.title}\nAuthor: ${formData.author}\nPhone: ${formData.phone}\nDescription: ${formData.description}\nSubject: ${formData.subject}\nLink: ${formData.link}\nLanguage: ${formData.language}\nStatus: ${formData.status}`
         };
 
-        return emailjs.send(process.env.EMAIL_SERVICE_ID!, 'template_wxwi7c9', emailParams, process.env.EMAIL_SERVICE_ID!);
+        return emailjs.send(process.env.EMAIL_SERVICE_ID!, process.env.EMAIL_TEMPLATE_ID!, emailParams, process.env.EMAIL_SERVICE_ID!);
     };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
