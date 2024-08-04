@@ -38,7 +38,7 @@ export default function Home() {
           src={isDarkMode ? "/images/dark_rosi.png" : "/images/light_rosi.png"}
           alt="ROSI Logo"
           style={{marginTop: isMobile ? '20vh' : '15%'}}
-          width={900}
+          width={600}
           height={500}
           priority
         />
@@ -46,290 +46,254 @@ export default function Home() {
 
       {!isMobile && ( 
         <div>
-          <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-right">
+          <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-center">
             <a
               href="/he/programming"
-              className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
             >
               <h2 className="mb-3 text-2xl font-semibold">
-                <FontAwesomeIcon icon={faCode} className="mr-2" />
+                <FontAwesomeIcon icon={faCode} className="mb-1 text-9xl text-red-700" />
+                <br />
                 {" "}תוכנה{" "}
                 <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h2>
-              <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                גלו משאבים ודוגמאות קוד לשיפור מיומנויות התוכנה של הקבוצה שלכם.
-              </p>
             </a>
             <a
               href="/he/electrical"
-              className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
             >
               <h2 className="mb-3 text-2xl font-semibold">
-                <FontAwesomeIcon icon={faBolt} className="mr-2" />
+                <FontAwesomeIcon icon={faBolt} className="mb-1 text-9xl text-red-700" />
+                <br />
                 {" "}אלקטרוניקה{" "}
                 <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h2>
-              <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                למדו על מערכות ורכיבים אלקטרוניים דרך חוויות משותפות.
-              </p>
             </a>
             <a
               href="/he/manufacturing"
-              className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
             >
               <h2 className="mb-3 text-2xl font-semibold">
-                <FontAwesomeIcon icon={faIndustry} className="mr-2" />
+                <FontAwesomeIcon icon={faIndustry} className="mb-1 text-9xl text-red-700" />
+                <br />
                 {" "}ייצור{" "}
                 <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h2>
-              <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                גשו לטכניקות ייצור ופרקטיקות מיטביות מקבוצות אחרות.
-              </p>
             </a>
             <a
               href="/he/cad"
-              className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
             >
               <h2 className="mb-3 text-2xl font-semibold">
-                <FontAwesomeIcon icon={faPencil} className="mr-2" />
+                <FontAwesomeIcon icon={faPencil} className="mb-1 text-9xl text-red-700" />
+                <br />
                 {" "}שרטוט{" "}
                 <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h2>
-              <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                שתפו וגלו עיצובים ב-CAD לשיפור שיתוף הפעולה ההנדסי.
-              </p>
             </a>
           </div>
-          <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-right">
+          <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-center">
             <a
               href="/he/community"
-              className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
             >
               <h2 className="mb-3 text-2xl font-semibold">
-                <FontAwesomeIcon icon={faUsers} className="mr-2" />
+                <FontAwesomeIcon icon={faUsers} className="mb-1 text-9xl text-red-700" />
+                <br />
                 {" "}קהילה{" "}
                 <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h2>
-              <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                התחברו עם קהילת ROSI העולמית לשיפור תוכנית הקהילה שלכם.
-              </p>
             </a>
             <a
               href="/he/mechanics"
-              className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
             >
               <h2 className="mb-3 text-2xl font-semibold">
-                <FontAwesomeIcon icon={faWrench} className="mr-2" />
+                <FontAwesomeIcon icon={faWrench} className="mb-1 text-9xl text-red-700" />
+                <br />
                 {" "}מכניקה{" "}
                 <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h2>
-              <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                העמיקו בפרויקטים הנדסיים מכניים ושתפו את החידושים שלכם.
-              </p>
             </a>
             <a
               href="/he/ftc"
-              className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
             >
               <h2 className="mb-3 text-2xl font-semibold">
-                <FontAwesomeIcon icon={faMicrochip} className="mr-2" />
+                <FontAwesomeIcon icon={faMicrochip} className="mb-1 text-9xl text-red-700" />
+                <br />
                 {" "}FTC{" "}
                 <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h2>
-              <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                גשו למשאבים וחוויות מותאמות לקבוצות FIRST Tech Challenge.
-              </p>
             </a>
             <a
               href="/he/other"
-              className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
             >
               <h2 className="mb-3 text-2xl font-semibold">
-                <FontAwesomeIcon icon={faBook} className="mr-2" />
+                <FontAwesomeIcon icon={faBook} className="mb-1 text-9xl text-red-700" />
+                <br />
                 {" "}אחר{" "}
                 <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h2>
-              <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                גלו נושאים מגוונים ופרויקטים חדשניים מעבר לקטגוריות המרכזיות.
-              </p>
             </a>
           </div>
-          <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-right justify-center">
+          <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-center justify-center">
             <a>
             </a>
             <a
               href="/he/contribute"
-              className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
             >
               <h2 className="mb-3 text-2xl font-semibold">
-                <FontAwesomeIcon icon={faPlus} className="mr-2" />
+                <FontAwesomeIcon icon={faPlus} className="mb-1 text-9xl text-red-700" />
+                <br />
                 {" "}העלת תוכן{" "}
                 <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h2>
-              <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                שתפו את הידע שלכם ועזרו לשפר את המשאבים הזמינים לכל הקבוצות.
-              </p>
             </a>
             <a
               href="/he/contact"
-              className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
             >
               <h2 className="mb-3 text-2xl font-semibold">
-                <FontAwesomeIcon icon={faStar} className="mr-2" />
+                <FontAwesomeIcon icon={faStar} className="mb-1 text-9xl text-red-700" />
+                <br />
                 {" "}צור קשר{" "}
                 <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h2>
-              <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                צרו קשר איתנו למידע נוסף או למתן משוב.
-              </p>
             </a>
           </div>
         </div>
       )} {isMobile && (
         <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
           <a
-            href="/he/programming"
-            className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          >
-            <h2 className="mb-3 text-2xl font-semibold">
-              <FontAwesomeIcon icon={faCode} className="mr-2" />
-              תוכנה{" "}
-              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
-                -&gt;
-              </span>
-            </h2>
-            <p className="m-0 max-w-[30ch] text-sm opacity-50">
-              גלו משאבים ודוגמאות קוד לשיפור מיומנויות התוכנה של הקבוצה שלכם.
-            </p>
-          </a>
+              href="/he/programming"
+              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+            >
+              <h2 className="mb-3 text-2xl font-semibold">
+                <FontAwesomeIcon icon={faCode} className="mb-1 text-9xl text-red-700" />
+                <br />
+                {" "}תוכנה{" "}
+                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h2>
+            </a>
+            <a
+              href="/he/electrical"
+              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+            >
+              <h2 className="mb-3 text-2xl font-semibold">
+                <FontAwesomeIcon icon={faBolt} className="mb-1 text-9xl text-red-700" />
+                <br />
+                {" "}אלקטרוניקה{" "}
+                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h2>
+            </a>
+            <a
+              href="/he/manufacturing"
+              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+            >
+              <h2 className="mb-3 text-2xl font-semibold">
+                <FontAwesomeIcon icon={faIndustry} className="mb-1 text-9xl text-red-700" />
+                <br />
+                {" "}ייצור{" "}
+                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h2>
+            </a>
+            <a
+              href="/he/cad"
+              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+            >
+              <h2 className="mb-3 text-2xl font-semibold">
+                <FontAwesomeIcon icon={faPencil} className="mb-1 text-9xl text-red-700" />
+                <br />
+                {" "}שרטוט{" "}
+                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h2>
+            </a>
           <a
-            href="/he/electrical"
-            className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          >
-            <h2 className="mb-3 text-2xl font-semibold">
-              <FontAwesomeIcon icon={faBolt} className="mr-2" />
-              אלקטרוניקה{" "}
-              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
-                -&gt;
-              </span>
-            </h2>
-            <p className="m-0 max-w-[30ch] text-sm opacity-50">
-              למדו על מערכות ורכיבים אלקטרוניים דרך חוויות משותפות.
-            </p>
-          </a>
-          <a
-            href="/he/manufacturing"
-            className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          >
-            <h2 className="mb-3 text-2xl font-semibold">
-              <FontAwesomeIcon icon={faIndustry} className="mr-2" />
-              ייצור{" "}
-              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
-                -&gt;
-              </span>
-            </h2>
-            <p className="m-0 max-w-[30ch] text-sm opacity-50">
-              גשו לטכניקות ייצור ופרקטיקות מיטביות מקבוצות אחרות.
-            </p>
-          </a>
-          <a
-            href="/he/cad"
-            className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          >
-            <h2 className="mb-3 text-2xl font-semibold">
-              <FontAwesomeIcon icon={faPencil} className="mr-2" />
-              שרטוט{" "}
-              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
-                -&gt;
-              </span>
-            </h2>
-            <p className="m-0 max-w-[30ch] text-sm opacity-50">
-              שתפו וגלו עיצובים ב-CAD לשיפור שיתוף הפעולה ההנדסי.
-            </p>
-          </a>
-          <a
-            href="/he/community"
-            className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          >
-            <h2 className="mb-3 text-2xl font-semibold">
-              <FontAwesomeIcon icon={faUsers} className="mr-2" />
-              קהילה{" "}
-              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
-                -&gt;
-              </span>
-            </h2>
-            <p className="m-0 max-w-[30ch] text-sm opacity-50">
-              התחברו עם קהילת ROSI העולמית לשיפור תוכנית הקהילה שלכם.
-            </p>
-          </a>
-          <a
-            href="/he/mechanics"
-            className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          >
-            <h2 className="mb-3 text-2xl font-semibold">
-              <FontAwesomeIcon icon={faWrench} className="mr-2" />
-              מכניקה{" "}
-              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
-                -&gt;
-              </span>
-            </h2>
-            <p className="m-0 max-w-[30ch] text-sm opacity-50">
-              העמיקו בפרויקטים הנדסיים מכניים ושתפו את החידושים שלכם.
-            </p>
-          </a>
-          <a
-            href="/he/ftc"
-            className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          >
-            <h2 className="mb-3 text-2xl font-semibold">
-              <FontAwesomeIcon icon={faMicrochip} className="mr-2" />
-              FTC{" "}
-              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
-                -&gt;
-              </span>
-            </h2>
-            <p className="m-0 max-w-[30ch] text-sm opacity-50">
-              גשו למשאבים וחוויות מותאמות לקבוצות FIRST Tech Challenge.
-            </p>
-          </a>
-          <a
-            href="/he/other"
-            className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          >
-            <h2 className="mb-3 text-2xl font-semibold">
-              <FontAwesomeIcon icon={faBook} className="mr-2" />
-              אחר{" "}
-              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
-                -&gt;
-              </span>
-            </h2>
-            <p className="m-0 max-w-[30ch] text-sm opacity-50">
-              גלו נושאים מגוונים ופרויקטים חדשניים מעבר לקטגוריות המרכזיות.
-            </p>
-          </a>
+              href="/he/community"
+              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+            >
+              <h2 className="mb-3 text-2xl font-semibold">
+                <FontAwesomeIcon icon={faUsers} className="mb-1 text-9xl text-red-700" />
+                <br />
+                {" "}קהילה{" "}
+                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h2>
+            </a>
+            <a
+              href="/he/mechanics"
+              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+            >
+              <h2 className="mb-3 text-2xl font-semibold">
+                <FontAwesomeIcon icon={faWrench} className="mb-1 text-9xl text-red-700" />
+                <br />
+                {" "}מכניקה{" "}
+                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h2>
+            </a>
+            <a
+              href="/he/ftc"
+              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+            >
+              <h2 className="mb-3 text-2xl font-semibold">
+                <FontAwesomeIcon icon={faMicrochip} className="mb-1 text-9xl text-red-700" />
+                <br />
+                {" "}FTC{" "}
+                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h2>
+            </a>
+            <a
+              href="/he/other"
+              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+            >
+              <h2 className="mb-3 text-2xl font-semibold">
+                <FontAwesomeIcon icon={faBook} className="mb-1 text-9xl text-red-700" />
+                <br />
+                {" "}אחר{" "}
+                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h2>
+            </a>
           <a
             href="/he/contribute"
-            className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+            className="group rounded-lg px-5 py-4 transition-colors border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-gray-300 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
           >
             <h2 className="mb-3 text-2xl font-semibold">
               <FontAwesomeIcon icon={faPlus} className="mr-2" />
@@ -338,13 +302,13 @@ export default function Home() {
                 -&gt;
               </span>
             </h2>
-            <p className="m-0 max-w-[30ch] text-sm opacity-50">
+            <p className="m-0 max-w-[30ch] text-sm opacity-100">
               שתפו את הידע שלכם ועזרו לשפר את המשאבים הזמינים לכל הקבוצות.
             </p>
           </a>
           <a
             href="/he/contact"
-            className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+            className="group rounded-lg px-5 py-4 transition-colors border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-gray-300 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
           >
             <h2 className="mb-3 text-2xl font-semibold">
               <FontAwesomeIcon icon={faStar} className="mr-2" />
@@ -353,7 +317,7 @@ export default function Home() {
                 -&gt;
               </span>
             </h2>
-            <p className="m-0 max-w-[30ch] text-sm opacity-50">
+            <p className="m-0 max-w-[30ch] text-sm opacity-100">
               צרו קשר איתנו למידע נוסף או למתן משוב.
             </p>
           </a>
