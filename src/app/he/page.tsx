@@ -29,7 +29,7 @@ export default function Home() {
   }, []);
 
   return (      
-    <main className="flex min-h-screen flex-col items-center justify-between bg-blue-50 dark:bg-slate-900 text-gray-900 dark:text-white">
+    <main dir="rtl" className="flex min-h-screen flex-col items-center justify-between bg-blue-50 dark:bg-slate-900 text-gray-900 dark:text-white">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
       </div>
 
@@ -46,15 +46,15 @@ export default function Home() {
 
       {!isMobile && ( 
         <div>
-          <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
+          <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-right">
             <a
               href="/he/programming"
               className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
             >
               <h2 className="mb-3 text-2xl font-semibold">
                 <FontAwesomeIcon icon={faCode} className="mr-2" />
-                תוכנה{" "}
-                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                {" "}תוכנה{" "}
+                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h2>
@@ -68,8 +68,8 @@ export default function Home() {
             >
               <h2 className="mb-3 text-2xl font-semibold">
                 <FontAwesomeIcon icon={faBolt} className="mr-2" />
-                אלקטרוניקה{" "}
-                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                {" "}אלקטרוניקה{" "}
+                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h2>
@@ -83,8 +83,8 @@ export default function Home() {
             >
               <h2 className="mb-3 text-2xl font-semibold">
                 <FontAwesomeIcon icon={faIndustry} className="mr-2" />
-                ייצור{" "}
-                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                {" "}ייצור{" "}
+                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h2>
@@ -98,8 +98,8 @@ export default function Home() {
             >
               <h2 className="mb-3 text-2xl font-semibold">
                 <FontAwesomeIcon icon={faPencil} className="mr-2" />
-                שרטוט{" "}
-                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                {" "}שרטוט{" "}
+                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h2>
@@ -108,15 +108,15 @@ export default function Home() {
               </p>
             </a>
           </div>
-          <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
+          <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-right">
             <a
               href="/he/community"
               className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
             >
               <h2 className="mb-3 text-2xl font-semibold">
                 <FontAwesomeIcon icon={faUsers} className="mr-2" />
-                קהילה{" "}
-                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                {" "}קהילה{" "}
+                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h2>
@@ -130,8 +130,8 @@ export default function Home() {
             >
               <h2 className="mb-3 text-2xl font-semibold">
                 <FontAwesomeIcon icon={faWrench} className="mr-2" />
-                מכניקה{" "}
-                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                {" "}מכניקה{" "}
+                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h2>
@@ -145,8 +145,8 @@ export default function Home() {
             >
               <h2 className="mb-3 text-2xl font-semibold">
                 <FontAwesomeIcon icon={faMicrochip} className="mr-2" />
-                FTC{" "}
-                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                {" "}FTC{" "}
+                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h2>
@@ -160,8 +160,8 @@ export default function Home() {
             >
               <h2 className="mb-3 text-2xl font-semibold">
                 <FontAwesomeIcon icon={faBook} className="mr-2" />
-                אחר{" "}
-                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                {" "}אחר{" "}
+                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h2>
@@ -170,7 +170,7 @@ export default function Home() {
               </p>
             </a>
           </div>
-          <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left justify-center">
+          <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-right justify-center">
             <a>
             </a>
             <a
@@ -179,8 +179,8 @@ export default function Home() {
             >
               <h2 className="mb-3 text-2xl font-semibold">
                 <FontAwesomeIcon icon={faPlus} className="mr-2" />
-                העלת תוכן{" "}
-                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                {" "}העלת תוכן{" "}
+                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h2>
@@ -194,8 +194,8 @@ export default function Home() {
             >
               <h2 className="mb-3 text-2xl font-semibold">
                 <FontAwesomeIcon icon={faStar} className="mr-2" />
-                צור קשר{" "}
-                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                {" "}צור קשר{" "}
+                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
               </h2>
@@ -214,7 +214,7 @@ export default function Home() {
             <h2 className="mb-3 text-2xl font-semibold">
               <FontAwesomeIcon icon={faCode} className="mr-2" />
               תוכנה{" "}
-              <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                 -&gt;
               </span>
             </h2>
@@ -229,7 +229,7 @@ export default function Home() {
             <h2 className="mb-3 text-2xl font-semibold">
               <FontAwesomeIcon icon={faBolt} className="mr-2" />
               אלקטרוניקה{" "}
-              <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                 -&gt;
               </span>
             </h2>
@@ -244,7 +244,7 @@ export default function Home() {
             <h2 className="mb-3 text-2xl font-semibold">
               <FontAwesomeIcon icon={faIndustry} className="mr-2" />
               ייצור{" "}
-              <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                 -&gt;
               </span>
             </h2>
@@ -259,7 +259,7 @@ export default function Home() {
             <h2 className="mb-3 text-2xl font-semibold">
               <FontAwesomeIcon icon={faPencil} className="mr-2" />
               שרטוט{" "}
-              <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                 -&gt;
               </span>
             </h2>
@@ -274,7 +274,7 @@ export default function Home() {
             <h2 className="mb-3 text-2xl font-semibold">
               <FontAwesomeIcon icon={faUsers} className="mr-2" />
               קהילה{" "}
-              <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                 -&gt;
               </span>
             </h2>
@@ -289,7 +289,7 @@ export default function Home() {
             <h2 className="mb-3 text-2xl font-semibold">
               <FontAwesomeIcon icon={faWrench} className="mr-2" />
               מכניקה{" "}
-              <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                 -&gt;
               </span>
             </h2>
@@ -304,7 +304,7 @@ export default function Home() {
             <h2 className="mb-3 text-2xl font-semibold">
               <FontAwesomeIcon icon={faMicrochip} className="mr-2" />
               FTC{" "}
-              <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                 -&gt;
               </span>
             </h2>
@@ -319,7 +319,7 @@ export default function Home() {
             <h2 className="mb-3 text-2xl font-semibold">
               <FontAwesomeIcon icon={faBook} className="mr-2" />
               אחר{" "}
-              <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                 -&gt;
               </span>
             </h2>
@@ -334,7 +334,7 @@ export default function Home() {
             <h2 className="mb-3 text-2xl font-semibold">
               <FontAwesomeIcon icon={faPlus} className="mr-2" />
               העלת תוכן{" "}
-              <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                 -&gt;
               </span>
             </h2>
@@ -349,7 +349,7 @@ export default function Home() {
             <h2 className="mb-3 text-2xl font-semibold">
               <FontAwesomeIcon icon={faStar} className="mr-2" />
               צור קשר{" "}
-              <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                 -&gt;
               </span>
             </h2>

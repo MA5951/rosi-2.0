@@ -16,7 +16,6 @@ enum Page {
     contribute = '/contribute',
     contact = '/contact',
     cad = '/cad',
-    explore = '/explore',
     ftc = '/ftc',
     other = '/other',
 }
@@ -122,8 +121,6 @@ export const Navbar = (props: Props) => {
                     return 'צור קשר';
                 case "Search...":
                     return 'חיפוש...';
-                case "Explore":
-                    return 'חקור';
                 case "FTC":
                     return 'FTC';
                 case "Other":
@@ -320,9 +317,6 @@ export const Navbar = (props: Props) => {
                         </li>
                         <li>
                             <Link href={`/${currentLanguage}${Page.other}`} className={getButtonClassName(Page.other)} onClick={handleLinkClick} >{getLangText('Other')}</Link>
-                        </li>
-                        <li>
-                            <Link href={`/${currentLanguage}${Page.explore}`} className={getButtonClassName(Page.explore)} onClick={handleLinkClick} >{getLangText('Explore')}</Link>
                         </li>
                         <li>
                             <Link href={`/${currentLanguage}${Page.contribute}`} className={getButtonClassName(Page.contribute)} onClick={handleLinkClick} >{getLangText('Contribute')}</Link>
