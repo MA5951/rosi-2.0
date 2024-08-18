@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './popup.css';
 
@@ -18,15 +18,44 @@ interface PopupProps {
 
 const Popup: React.FC<PopupProps> = ({ title, link, contact, description, language, onClose }) => {
   const [showIframe, setShowIframe] = useState(false);
+  const popupRef = useRef<HTMLDivElement>(null);
 
   const toggleIframe = () => {
     setShowIframe(!showIframe);
   };
 
+  const handleShare = () => {
+    const baseUrl = window.location.origin;
+    const shareUrl = `${baseUrl}/${language === 'hebrew' ? 'he' : 'en'}/search/${encodeURIComponent(title)}`;
+    if (navigator.share) {
+      navigator.share({
+        title: 'Check out this article',
+        url: shareUrl,
+      }).catch(console.error);
+    } else {
+      // Fallback for browsers that do not support the Web Share API
+      alert(`Share this URL: ${shareUrl}`);
+    }
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [onClose]);
+
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       {language === "english" && (
         <motion.div
+          ref={popupRef}
           className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-lg max-w-md w-full"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -45,6 +74,12 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
               className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition-colors"
             >
               Preview
+            </button>
+            <button
+              onClick={handleShare}
+              className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-700 transition-colors"
+            >
+              Share
             </button>
           </div>
           {showIframe && (
@@ -67,6 +102,7 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
       )}
       {language === "hebrew" && (
         <motion.div
+          ref={popupRef}
           className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-lg max-w-md w-full"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -86,6 +122,12 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
                 className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition-colors mx-4"
               > 
                 תצוגה מקדימה
+              </button>
+              <button
+                onClick={handleShare}
+                className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-700 transition-colors"
+              >
+                שתף
               </button>
             </div>
             {showIframe && (
