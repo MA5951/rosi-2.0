@@ -92,11 +92,11 @@ const AddArticlePage: React.FC = () => {
     };
 
     return (
-        <div className="flex min-h-screen flex-col items-center justify-center bg-blue-50 dark:bg-slate-900 text-gray-900 dark:text-white">
+        <div dir="rtl" className="flex min-h-screen flex-col items-center justify-center bg-blue-50 dark:bg-slate-900 text-gray-900 dark:text-white">
             <ToastContainer />
             <form onSubmit={handleSubmit} className="w-full max-w-lg">
                 <h2 style={{marginTop: "15vh"}} className="text-2xl mb-4">הוסף מאמר חדש</h2>
-                {['title', 'author', 'phone', 'description', 'link'].map((field) => (
+                {['כותרת', 'מחבר', 'טלפון או מייל', 'תיאור', 'קישור'].map((field) => (
                     <div key={field} className="mb-4">
                         <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" htmlFor={field}>
                             {field.charAt(0).toUpperCase() + field.slice(1)}

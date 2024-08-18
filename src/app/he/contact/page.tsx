@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import emailjs from 'emailjs-com';
 import { toast } from 'react-toastify';
-import 'dotenv'
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -31,7 +30,7 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const promise = emailjs.send(process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID?? "", process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID?? "", finalForm, process.env.NEXT_PUBLIC_EMAIL_USER_ID?? "YOUR_USER_ID")
+    const promise = emailjs.send(process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID?? "", process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID?? "", finalForm, process.env.NEXT_PUBLIC_EMAIL_USER_ID?? "")
       .then(() => {
         setForm({ name: '', email: '', subject: '', message: '' });
       })
@@ -52,7 +51,7 @@ const Contact = () => {
   };
 
   return (
-    <div dir="rtl" className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+    <div dir="rtl"className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-lg w-full space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">
@@ -62,7 +61,7 @@ const Contact = () => {
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
-              <label htmlFor="name" className="sr-only">שם</label>
+              <label htmlFor="name" className="sr-only">Name</label>
               <input
                 id="name"
                 name="name"
@@ -75,7 +74,7 @@ const Contact = () => {
               />
             </div>
             <div>
-              <label htmlFor="email" className="sr-only">מייל</label>
+              <label htmlFor="email" className="sr-only">Email</label>
               <input
                 id="email"
                 name="email"
@@ -88,7 +87,7 @@ const Contact = () => {
               />
             </div>
             <div>
-              <label htmlFor="subject" className="sr-only">נושא</label>
+              <label htmlFor="subject" className="sr-only">Subject</label>
               <input
                 id="subject"
                 name="subject"
@@ -101,7 +100,7 @@ const Contact = () => {
               />
             </div>
             <div>
-              <label htmlFor="message" className="sr-only">הודעה</label>
+              <label htmlFor="message" className="sr-only">Message</label>
               <textarea
                 id="message"
                 name="message"
@@ -120,10 +119,23 @@ const Contact = () => {
               type="submit"
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
             >
-              שלח
+              שלח הודעה
             </button>
           </div>
         </form>
+
+        <p className="text-center text-sm text-gray-600 dark:text-gray-400">
+          Makers Assemble 5951 | {'ma-5951@tichonet.com'} | +972545551994
+          <a href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`} className="text-red-600 hover:text-red-700">
+            {process.env.NEXT_PUBLIC_EMAIL}
+          </a>
+        </p>
+        <p className="text-center text-sm text-gray-600 dark:text-gray-400">
+          Miscar 1574 | {'contact@miscar1574.org'} | +97246986502
+          <a href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`} className="text-red-600 hover:text-red-700">
+            {process.env.NEXT_PUBLIC_EMAIL}
+          </a>
+        </p>
       </div>
     </div>
   );
