@@ -207,7 +207,7 @@ export const Navbar = (props: Props) => {
                                 <span className="sr-only">Search icon</span>
                             </div>
                             <form onSubmit={(e) => {
-                                e.preventDefault();
+                                e.preventDefault()
                                 router.push("/" + currentLanguage + "/search/" + searchQuery)}
                                 }>
                                 <input 
@@ -390,7 +390,7 @@ export const Navbar = (props: Props) => {
                                 <span className="sr-only">Search icon</span>
                             </div>
                             <form onSubmit={(e) => {
-                                e.preventDefault();
+                                e.preventDefault()
                                 router.push("/" + currentLanguage + "/search/" + searchQuery)}
                                 }>
                                 <input 
@@ -469,7 +469,7 @@ export const Navbar = (props: Props) => {
                         <img src="/images/ROSI-ONLY.png" className="h-8" alt="ROSI Logo" />
                     </a>
                 </div>
-            )};
+            )}
         </nav>
     );
 }

@@ -30,7 +30,7 @@ export default function Home() {
 
   return (      
     <main dir="ltr" className="flex min-h-screen flex-col items-center justify-between bg-blue-50 dark:bg-slate-900 text-gray-900 dark:text-white">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
+      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex mt-16">
       </div>
 
       <div>
@@ -42,11 +42,41 @@ export default function Home() {
           height={500}
           priority
         />
-      </div>     
+      </div>
+
+      {!isMobile && (
+        <div className="mt-5 mb-5 ml-96 mr-96 rounded-lg px-5 py-4 transition-colors text-gray-800 dark:text-white bg-white dark:bg-gray-600/30">
+          <h1 className="text-4xl font-bold text-center">
+            What is ROSI?
+          </h1>
+          <p className="text-lg text-center">
+            ROSI - Robotics Open Source Israel
+            Is an Open Source project aimed at creating a common infrastructure among all FIRST teams internationally.
+            You can upload presentations, CAD files, code scenes, photographed lectures and more.
+            So that any team can learn from the other teams while sharing its knowledge
+            When the situation the site strives to promote is raising the level of all teams internationally.
+            In all topics, from the establishment of community and media projects, through software and code to Manufacturing and engineering.
+          </p>
+        </div>
+      )} {isMobile && (
+        <div className="ml-10 mr-10 rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30">
+          <h1 className="text-4xl font-bold text-center">
+            What is ROSI?
+          </h1>
+          <p className="text-lg text-center">
+            ROSI - Robotics Open Source Israel
+            Is an Open Source project aimed at creating a common infrastructure among all FIRST teams internationally.
+            You can upload presentations, CAD files, code scenes, photographed lectures and more.
+            So that any team can learn from the other teams while sharing its knowledge
+            When the situation the site strives to promote is raising the level of all teams internationally.
+            In all topics, from the establishment of community and media projects, through software and code to Manufacturing and engineering.
+          </p>
+        </div>
+      )}
 
       {!isMobile && ( 
-        <div>
-          <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-center">
+        <div style={{marginBottom: "100px"}}>
+          <div className="grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-center">
             <a
               href="/en/programming"
               className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
@@ -186,7 +216,7 @@ export default function Home() {
           </div>
         </div>
       )} {isMobile && (
-        <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
+        <div className="mb-62 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
           <a
               href="/en/programming"
               className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"

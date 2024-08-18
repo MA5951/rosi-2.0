@@ -4,6 +4,7 @@ import "./globals.css";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Navbar } from "../components/navbar";
+import { Footer } from "../components/footer";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 
@@ -27,6 +28,7 @@ export default function RootLayout({
         <SpeedInsights/>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
