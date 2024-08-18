@@ -32,6 +32,96 @@ export async function updateArticlePhoto(articleId: string, newPhoto: string) {
     }
 }
 
+export async function updateArticleLink(articleId: string, newLink: string) {
+    try {
+        const updatedArticle = await prisma.articles.update({
+            where: { id: articleId },
+            data: { link: newLink }
+        });
+        return updatedArticle;
+    } catch (error) {
+        console.error("Error updating article link: ", error);
+        throw new Error("Error updating article link");
+    } finally {
+        await prisma.$disconnect();
+    }
+}
+
+export async function updateArticleDescription(articleId: string, newDescription: string) {
+    try {
+        const updatedArticle = await prisma.articles.update({
+            where: { id: articleId },
+            data: { description: newDescription }
+        });
+        return updatedArticle;
+    } catch (error) {
+        console.error("Error updating article description: ", error);
+        throw new Error("Error updating article description");
+    } finally {
+        await prisma.$disconnect();
+    }
+}
+
+export async function updateArticleAuthor(articleId: string, newAuthor: string) {
+    try {
+        const updatedArticle = await prisma.articles.update({
+            where: { id: articleId },
+            data: { author: newAuthor }
+        });
+        return updatedArticle;
+    } catch (error) {
+        console.error("Error updating article author: ", error);
+        throw new Error("Error updating article author");
+    } finally {
+        await prisma.$disconnect();
+    }
+}
+
+export async function updateArticlePhone(articleId: string, newPhone: string) {
+    try {
+        const updatedArticle = await prisma.articles.update({
+            where: { id: articleId },
+            data: { phone: newPhone }
+        });
+        return updatedArticle;
+    } catch (error) {
+        console.error("Error updating article phone: ", error);
+        throw new Error("Error updating article phone");
+    } finally {
+        await prisma.$disconnect();
+    }
+}
+
+export async function updateArticleSubject(articleId: string, newSubject: string) {
+    try {
+        const updatedArticle = await prisma.articles.update({
+            where: { id: articleId },
+            data: { subject: newSubject }
+        });
+        return updatedArticle;
+    } catch (error) {
+        console.error("Error updating article subject: ", error);
+        throw new Error("Error updating article subject");
+    } finally {
+        await prisma.$disconnect();
+    }
+}
+
+export async function updateArticleTitle(articleId: string, newTitle: string) {
+    try {
+        const updatedArticle = await prisma.articles.update({
+            where: { id: articleId },
+            data: { title: newTitle }
+        });
+        return updatedArticle;
+    } catch (error) {
+        console.error("Error updating article title: ", error);
+        throw new Error("Error updating article title");
+    } finally {
+        await prisma.$disconnect();
+    }
+}
+
 export async function deleteArticle(articleId: string) {
     try {
         await prisma.articles.delete({

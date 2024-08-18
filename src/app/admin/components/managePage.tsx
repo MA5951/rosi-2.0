@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Popup from './popup/pendingPopup';
+import Popup from './popup/managePopup';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getAllArticles } from '@/db/server';
 import { Skeleton } from '@mui/material';
@@ -32,8 +32,8 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ pageTitle }) => {
   useEffect(() => {
     const fetchArticles = async () => {
       const [englishArticles, hebrewArticles] = await Promise.all([
-        getAllArticles('english', '', '', 'pending'),
-        getAllArticles('hebrew', '', '', 'pending')
+        getAllArticles('english', '', '', 'approved'),
+        getAllArticles('hebrew', '', '', 'approved')
       ]);
 
       const formatArticles = (fetchedArticles: any[], language: string) =>
