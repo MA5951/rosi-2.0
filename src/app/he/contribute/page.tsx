@@ -14,6 +14,8 @@ interface FormData {
     subject: string;
     link: string;
     language: string;
+    teamnumber: string;
+    tags: string;
     status: string;
 }
 
@@ -26,6 +28,8 @@ const AddArticlePage: React.FC = () => {
         subject: '',
         link: '',
         language: '',
+        teamnumber: '',
+        tags: '',
         status: 'pending'
     });
 
@@ -71,6 +75,8 @@ const AddArticlePage: React.FC = () => {
                     subject: '',
                     link: '',
                     language: '',
+                    teamnumber: '',
+                    tags: '',
                     status: 'pending'
                 });
                 return sendEmailNotification(formDataWithPhoto);
