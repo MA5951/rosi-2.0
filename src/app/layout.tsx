@@ -27,6 +27,7 @@ export default function RootLayout({
         <Analytics />
         <SpeedInsights/>
         <Navbar />
+        <div className="mt-10"></div>
         {children}
         <Footer />
       </body>
