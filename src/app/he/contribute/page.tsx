@@ -90,7 +90,7 @@ const AddArticlePage: React.FC = () => {
             promise,
             {
                 pending: 'מוסיף מאמר...',
-                success: 'מאמר נוסף בהצלחה!',
+                success: 'המאמר נוסף בהצלחה!',
                 error: 'נכשל להוסיף מאמר.'
             },
             { theme: 'dark', position: 'top-right' }
@@ -98,26 +98,58 @@ const AddArticlePage: React.FC = () => {
     };
 
     return (
-        <div dir="rtl" className="flex min-h-screen flex-col items-center justify-center bg-blue-50 dark:bg-slate-900 text-gray-900 dark:text-white">
+        <div className="flex min-h-screen flex-col items-center justify-center bg-blue-50 dark:bg-slate-900 text-gray-900 dark:text-white" dir="rtl">
             <ToastContainer />
             <form onSubmit={handleSubmit} className="w-full max-w-lg">
                 <h2 style={{marginTop: "15vh"}} className="text-2xl mb-4">הוסף מאמר חדש</h2>
-                {['כותרת', 'מחבר', 'טלפון או מייל', 'תיאור', 'קישור'].map((field) => (
+                {['title', 'author', 'phone', 'description', 'link'].map((field) => (
                     <div key={field} className="mb-4">
                         <label className="block text-sm font-bold mb-2 dark:text-white" htmlFor={field}>
-                            {field.charAt(0).toUpperCase() + field.slice(1)}
+                            {field === 'title' ? 'כותרת' : 
+                             field === 'author' ? 'מחבר' : 
+                             field === 'phone' ? 'טלפון' : 
+                             field === 'description' ? 'תיאור' : 
+                             'קישור'}
                         </label>
                         <input
                             type="text"
                             name={field}
                             id={field}
-                            value={formData[field as keyof FormData]} 
+                            value={formData[field as keyof FormData]} // Cast to keyof FormData
                             onChange={handleChange}
                             className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 dark:bg-gray-600 border-0 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
                             required
                         />
                     </div>
                 ))}
+                <div className="mb-4">
+                    <label className="block text-sm font-bold mb-2 dark:text-white" htmlFor="teamnumber">
+                        מספר קבוצה
+                    </label>
+                    <input
+                        type="text"
+                        name="teamnumber"
+                        id="teamnumber"
+                        value={formData.teamnumber}
+                        onChange={handleChange}
+                        className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 dark:bg-gray-600 border-0 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
+                        required
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-sm font-bold mb-2 dark:text-white" htmlFor="tags">
+                        תגיות (מופרדות בפסיק)
+                    </label>
+                    <input
+                        type="text"
+                        name="tags"
+                        id="tags"
+                        value={formData.tags}
+                        onChange={handleChange}
+                        className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 dark:bg-gray-600 border-0 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
+                        required
+                    />
+                </div>
                 <div className="mb-4">
                     <label className="block text-sm font-bold mb-2 dark:text-white" htmlFor="subject">
                         נושא
@@ -131,12 +163,12 @@ const AddArticlePage: React.FC = () => {
                         required
                     >
                         <option value="">בחר נושא</option>
-                        <option value="cad">שרטוט</option>
+                        <option value="cad">CAD</option>
                         <option value="mechanics">מכניקה</option>
                         <option value="programming">תכנות</option>
                         <option value="manufacturing">ייצור</option>
                         <option value="community">קהילה</option>
-                        <option value="electrical">אלקטרוניקה</option>
+                        <option value="electrical">חשמל</option>
                         <option value="ftc">FTC</option>
                         <option value="other">אחר</option>
                     </select>

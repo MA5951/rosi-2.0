@@ -16,8 +16,13 @@ export async function addArticle(data: {
     language: string
 }) {
     try {
+        const processedTags = data.tags.replace(/\s*,\s*/g, ',');
+        
         const newArticle = await prisma.articles.create({
-            data
+            data: {
+                ...data,
+                tags: processedTags
+            }
         });
         return newArticle;
     } catch (error) {

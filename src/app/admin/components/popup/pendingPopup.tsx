@@ -16,12 +16,14 @@ interface PopupProps {
   link: string;
   language: string;
   description: string;
+  teamnumber: string;
+  tags: string; // list of tags seperated by comma
   contact: Contact;
   onClose: () => void;
   articleId: string; // Add articleId to props
 }
 
-const Popup: React.FC<PopupProps> = ({ title, link, contact, description, language, onClose, articleId }) => {
+const Popup: React.FC<PopupProps> = ({ title, link, contact, description, teamnumber, tags, language, onClose, articleId }) => {
   const router = useRouter(); // Initialize router
   const [showIframe, setShowIframe] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
@@ -29,12 +31,16 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
   const [password, setPassword] = useState('');
   const [photoLink, setPhotoLink] = useState(''); // New state for photo link
 
+  // convert tags string to array
+  let tagsArr = tags.split(',');
+  tagsArr = tagsArr.map(tag => tag.trim());
+
   const toggleIframe = () => {
     setShowIframe(!showIframe);
   };
 
   const handleApprove = async () => {
-    if (password !== 'team5951') {
+    if (password !== "team5951") {
       alert('Incorrect password.');
       return;
     }
@@ -54,7 +60,7 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
   };
 
   const handleDelete = async () => {
-    if (password !== 'team5951') {
+    if (password !== "team5951") {
       alert('Incorrect password.');
       return;
     }
@@ -103,8 +109,18 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
           )}
           <div className="mt-4">
             <p className="font-semibold text-gray-700 dark:text-gray-300">Contact Information:</p>
+            <p className="text-gray-700 dark:text-gray-300">Team: {teamnumber}</p>
             <p className="text-gray-700 dark:text-gray-300">Name: {contact.name}</p>
             <p className="text-gray-700 dark:text-gray-300">Contact: {contact.phone}</p>
+          </div>
+          <div className="mt-4">
+            <div className="flex flex-wrap gap-2">
+              {tagsArr.map((tag, index) => (
+                <div key={index} className="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">
+                  {tag}
+                </div>
+              ))}
+            </div>
           </div>
           <div className="mt-4">
             <input
@@ -137,7 +153,7 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
               className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700 transition-colors"
               disabled={isUpdating || isDeleting}
             >
-              {isDeleting ? 'Deleting...' : 'Deni'}
+              {isDeleting ? 'Deleting...' : 'Deny'}
             </button>
             <button
               onClick={onClose}
@@ -182,8 +198,17 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
               <p className="text-gray-700 dark:text-gray-300">יצירת קשר: {contact.phone}</p>
             </div>
             <div className="mt-4">
+              <div className="flex flex-wrap gap-2">
+                {tagsArr.map((tag, index) => (
+                  <div key={index} className="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">
+                    {tag}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="mt-4">
               <input
-                type="text"
+                type="password"
                 placeholder="הזן סיסמה"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

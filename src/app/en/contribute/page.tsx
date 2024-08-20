@@ -119,6 +119,34 @@ const AddArticlePage: React.FC = () => {
                     </div>
                 ))}
                 <div className="mb-4">
+                    <label className="block text-sm font-bold mb-2 dark:text-white" htmlFor="teamnumber">
+                        מספר קבוצה
+                    </label>
+                    <input
+                        type="text"
+                        name="teamnumber"
+                        id="teamnumber"
+                        value={formData.teamnumber}
+                        onChange={handleChange}
+                        className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 dark:bg-gray-600 border-0 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
+                        required
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-sm font-bold mb-2 dark:text-white" htmlFor="tags">
+                        תגיות (מופרדות בפסיק)
+                    </label>
+                    <input
+                        type="text"
+                        name="tags"
+                        id="tags"
+                        value={formData.tags}
+                        onChange={handleChange}
+                        className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 dark:bg-gray-600 border-0 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
+                        required
+                    />
+                </div>
+                <div className="mb-4">
                     <label className="block text-sm font-bold mb-2 dark:text-white" htmlFor="subject">
                         Subject
                     </label>

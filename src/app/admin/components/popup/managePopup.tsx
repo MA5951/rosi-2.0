@@ -39,7 +39,7 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, tags, 
   };
 
   const handleApprove = async () => {
-    if (password !== 'team5951') {
+    if (password !== "team5951") {
       alert('Incorrect password.');
       return;
     }
@@ -85,7 +85,7 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, tags, 
   };
 
   const handleDelete = async () => {
-    if (password !== 'team5951') {
+    if (password !== "team5951") {
       alert('Incorrect password.');
       return;
     }
