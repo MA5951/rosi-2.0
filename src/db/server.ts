@@ -154,6 +154,7 @@ export async function getAllArticles(lang: String ,subject: string, search: stri
                     { title: { contains: search, mode: 'insensitive' } },
                     { author: { contains: search, mode: 'insensitive' } },
                     { description: { contains: search, mode: 'insensitive' } },
+                    { tags: { contains: search, mode: 'insensitive' } }
                 ]
             };
         } else {
@@ -162,7 +163,6 @@ export async function getAllArticles(lang: String ,subject: string, search: stri
                 status: status
             }
         }
-        // Fetch articles based on the constructed query
         const articles = await prisma.articles.findMany({
             where: query,
             select: {
@@ -174,11 +174,11 @@ export async function getAllArticles(lang: String ,subject: string, search: stri
                 subject: true,
                 photo: true,
                 link: true,
+                tags: true,
                 language: true
             }
         });
 
-        // Return the list of articles
         return articles;
     } catch (error) {
         console.error("Error fetching articles: ", error);
