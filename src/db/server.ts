@@ -62,6 +62,36 @@ export async function updateArticleDescription(articleId: string, newDescription
     }
 }
 
+export async function updateArticleTags(articleId: string, newTags: string) {
+    try {
+        const updatedArticle = await prisma.articles.update({
+            where: { id: articleId },
+            data: { tags: newTags }
+        });
+        return updatedArticle;
+    } catch (error) {
+        console.error("Error updating article tags: ", error);
+        throw new Error("Error updating article tags");
+    } finally {
+        await prisma.$disconnect();
+    }
+}
+
+export async function updateArticleTeamNumber(articleId: string, newTeamNumber: string) {
+    try {
+        const updatedArticle = await prisma.articles.update({
+            where: { id: articleId },
+            data: { teamnumber: newTeamNumber }
+        });
+        return updatedArticle;
+    } catch (error) {
+        console.error("Error updating article team number: ", error);
+        throw new Error("Error updating article team number");
+    } finally {
+        await prisma.$disconnect();
+    }
+}
+
 export async function updateArticleAuthor(articleId: string, newAuthor: string) {
     try {
         const updatedArticle = await prisma.articles.update({

@@ -15,6 +15,8 @@ interface Article {
   photo: string;
   description: string;
   link: string;
+  teamnumber: string;
+  tags: string;
   contact: Contact;
   language: string;
 }
@@ -43,6 +45,8 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ pageTitle }) => {
           photo: article.photo,
           description: article.description,
           link: article.link,
+          teamnumber: article.teamnumber,
+          tags: article.tags,
           contact: {
             name: article.author,
             phone: article.phone
@@ -146,7 +150,9 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ pageTitle }) => {
             contact={selectedArticle.contact}
             description={selectedArticle.description}
             language={selectedArticle.language}
-            articleId={selectedArticle.id} // Pass the articleId to the Popup
+            tags={selectedArticle.tags}
+            teamnumber={selectedArticle.teamnumber}
+            articleId={selectedArticle.id}
             onClose={closePopup}
           />
         )}

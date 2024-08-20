@@ -10,6 +10,8 @@ export async function addArticle(data: {
     description: string,
     subject: string,
     photo: string,
+    tags: string,
+    teamnumber: string,
     link: string,
     language: string
 }) {

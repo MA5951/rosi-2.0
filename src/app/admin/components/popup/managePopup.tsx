@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import './popup.css';
-import { updateArticleStatus, updateArticlePhoto, updateArticleLink, updateArticleDescription, updateArticleAuthor, deleteArticle, updateArticleSubject } from '@/db/server';
+import { updateArticleStatus, updateArticlePhoto, updateArticleLink, updateArticleDescription, updateArticleAuthor, deleteArticle, updateArticleSubject, updateArticleTags, updateArticleTeamNumber } from '@/db/server';
 
 interface Contact {
   name: string;
@@ -15,12 +15,14 @@ interface PopupProps {
   link: string;
   language: string;
   description: string;
+  tags: string; // list of tags seperated by comma
+  teamnumber: string;
   contact: Contact;
   onClose: () => void;
   articleId: string;
 }
 
-const Popup: React.FC<PopupProps> = ({ title, link, contact, description, language, onClose, articleId }) => {
+const Popup: React.FC<PopupProps> = ({ title, link, contact, description, tags, teamnumber, language, onClose, articleId }) => {
   const [showIframe, setShowIframe] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -28,6 +30,10 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
   const [newValue, setNewValue] = useState('');
   const [selectedProperty, setSelectedProperty] = useState('status');
 
+  // convert tags string to array
+  let tagsArr = tags.split(',');
+  tagsArr = tagsArr.map(tag => tag.trim());
+  
   const toggleIframe = () => {
     setShowIframe(!showIframe);
   };
@@ -58,6 +64,12 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
           break;
         case 'subject':
           await updateArticleSubject(articleId, newValue);
+          break;
+        case 'tags':
+          await updateArticleTags(articleId, newValue);
+          break;
+        case 'teamnumber':
+          await updateArticleTeamNumber(articleId, newValue);
           break;
         default:
           throw new Error('Invalid property selected');
@@ -122,8 +134,18 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
           )}
           <div className="mt-4">
             <p className="font-semibold text-gray-700 dark:text-gray-300">Contact Information:</p>
+            <p className="text-gray-700 dark:text-gray-300">Team: {teamnumber}</p>
             <p className="text-gray-700 dark:text-gray-300">Name: {contact.name}</p>
             <p className="text-gray-700 dark:text-gray-300">Contact: {contact.phone}</p>
+          </div>
+          <div className="mt-4">
+            <div className="flex flex-wrap gap-2">
+              {tagsArr.map((tag, index) => (
+                <div key={index} className="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">
+                  {tag}
+                </div>
+              ))}
+            </div>
           </div>
           <div className="mt-4">
             <input
@@ -146,6 +168,8 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
               <option value="description">Description</option>
               <option value="author">Author</option>
               <option value="subject">Subject</option>
+              <option value="tags">Tags</option>
+              <option value="teamnumber">Team Number</option>
             </select>
           </div>
           <div className="mt-4">
