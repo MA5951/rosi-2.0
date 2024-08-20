@@ -340,38 +340,38 @@ export const Navbar = (props: Props) => {
                             <input type="text" id="search-navbar" className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" placeholder={getLangText("Search...")} />
                         </div>
                         <ul className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-4 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">    
-                            <li>
-                                <Link href={`/${currentLanguage}${Page.contact}`} className={getButtonClassName(Page.contact)} onClick={handleLinkClick} >{getLangText('Contact')}</Link>
-                            </li>
-                            <li>
-                                <Link href={`/${currentLanguage}${Page.contribute}`} className={getButtonClassName(Page.contribute)} onClick={handleLinkClick} >{getLangText('Contribute')}</Link>
-                            </li>
-                            <li>
-                                <Link href={`/${currentLanguage}${Page.other}`} className={getButtonClassName(Page.other)} onClick={handleLinkClick} >{getLangText('Other')}</Link>
-                            </li>
-                            <li>
-                                <Link href={`/${currentLanguage}${Page.ftc}`} className={getButtonClassName(Page.ftc)} onClick={handleLinkClick} >{getLangText('FTC')}</Link>
-                            </li>
-                            <li>
-                                <Link href={`/${currentLanguage}${Page.cad}`} className={getButtonClassName(Page.cad)} onClick={handleLinkClick} >{getLangText('CAD')}</Link>
-                            </li>
-                            <li>
-                                <Link href={`/${currentLanguage}${Page.mechanics}`} className={getButtonClassName(Page.mechanics)} onClick={handleLinkClick} >{getLangText('Mechanics')}</Link>
-                            </li>
-                            <li>
-                                <Link href={`/${currentLanguage}${Page.manufacturing}`} className={getButtonClassName(Page.manufacturing)} onClick={handleLinkClick} >{getLangText('Manufacturing')}</Link>
-                            </li>
-                            <li>
-                                <Link href={`/${currentLanguage}${Page.community}`} className={getButtonClassName(Page.community)} onClick={handleLinkClick} >{getLangText('Community')}</Link>
-                            </li>
-                            <li>
-                                <Link href={`/${currentLanguage}${Page.electrical}`} className={getButtonClassName(Page.electrical)} onClick={handleLinkClick} >{getLangText('Electrical')}</Link>
+                        <li>
+                                <Link href={`/${currentLanguage}${Page.Home}`} className={getButtonClassName(Page.Home)} aria-current="page" onClick={handleLinkClick} >{getLangText('Home')}</Link>
                             </li>
                             <li>
                                 <Link href={`/${currentLanguage}${Page.programming}`} className={getButtonClassName(Page.programming)} onClick={handleLinkClick} >{getLangText('Programming')}</Link>
                             </li>
                             <li>
-                                <Link href={`/${currentLanguage}${Page.Home}`} className={getButtonClassName(Page.Home)} aria-current="page" onClick={handleLinkClick} >{getLangText('Home')}</Link>
+                                <Link href={`/${currentLanguage}${Page.electrical}`} className={getButtonClassName(Page.electrical)} onClick={handleLinkClick} >{getLangText('Electrical')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.community}`} className={getButtonClassName(Page.community)} onClick={handleLinkClick} >{getLangText('Community')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.manufacturing}`} className={getButtonClassName(Page.manufacturing)} onClick={handleLinkClick} >{getLangText('Manufacturing')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.mechanics}`} className={getButtonClassName(Page.mechanics)} onClick={handleLinkClick} >{getLangText('Mechanics')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.cad}`} className={getButtonClassName(Page.cad)} onClick={handleLinkClick} >{getLangText('CAD')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.ftc}`} className={getButtonClassName(Page.ftc)} onClick={handleLinkClick} >{getLangText('FTC')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.other}`} className={getButtonClassName(Page.other)} onClick={handleLinkClick} >{getLangText('Other')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.contribute}`} className={getButtonClassName(Page.contribute)} onClick={handleLinkClick} >{getLangText('Contribute')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.contact}`} className={getButtonClassName(Page.contact)} onClick={handleLinkClick} >{getLangText('Contact')}</Link>
                             </li>
                         </ul>
                     </div>
