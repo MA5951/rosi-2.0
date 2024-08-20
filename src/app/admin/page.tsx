@@ -13,6 +13,8 @@ interface FormData {
     subject: string;
     photo: string;
     link: string;
+    teamnumber: string;
+    tags: string;
     language: string;
 }
 
@@ -25,6 +27,8 @@ const AddArticlePage: React.FC = () => {
         subject: '',
         photo: '',
         link: '',
+        teamnumber: '',
+        tags: '',
         language: ''
     });
 
@@ -66,6 +70,8 @@ const AddArticlePage: React.FC = () => {
                     subject: '',
                     photo: '',
                     link: '',
+                    teamnumber: '',
+                    tags: '',
                     language: ''
                 });
                 setPassword('');
