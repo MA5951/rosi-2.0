@@ -42,7 +42,37 @@ export default function Home() {
           height={500}
           priority
         />
-      </div>     
+      </div>   
+
+      {!isMobile && (
+        <div className="mt-5 mb-5 ml-48 mr-48 rounded-lg px-5 py-4 transition-colors text-gray-800 dark:text-white bg-white dark:bg-gray-600/30">
+          <h1 className="text-4xl font-bold text-center">
+            מי אנחנו
+          </h1>
+          <p className="text-lg text-center">
+            ROSI - Robotics Open Source Israel
+            הוא פרויקט אופן סורס שמטרתו יצירת תשתית משותפת בין כל קבוצות FIRST בארץ.
+            לאתר שלנו אפשר להעלות מצגות, קבצי CAD, קטעי קוד, הרצאות מצולמות ועוד.
+            כך שכל קבוצה, תוכל ללמוד מהקבוצות האחרות תוך שיתוף הידע שלה
+            כאשר המצב שהאתר שואף לקדם הוא העלאת הרמה של כל הקבוצות בארץ
+            בכל הנושאים, מהקמת פרויקטים קהילתיים ומדיה, דרך תוכנה וקוד ועד להנדסת מכונות והנדסה.
+          </p>
+        </div>
+      )} {isMobile && (
+        <div className="ml-10 mr-10 rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30">
+          <h1 className="text-4xl font-bold text-center">
+            What is ROSI?
+          </h1>
+          <p className="text-lg text-center">
+            ROSI - Robotics Open Source Israel
+            הוא פרויקט אופן סורס שמטרתו יצירת תשתית משותפת בין כל קבוצות FIRST בארץ.
+            לאתר שלנו אפשר להעלות מצגות, קבצי CAD, קטעי קוד, הרצאות מצולמות ועוד.
+            כך שכל קבוצה, תוכל ללמוד מהקבוצות האחרות תוך שיתוף הידע שלה
+            כאשר המצב שהאתר שואף לקדם הוא העלאת הרמה של כל הקבוצות בארץ
+            בכל הנושאים, מהקמת פרויקטים קהילתיים ומדיה, דרך תוכנה וקוד ועד להנדסת מכונות והנדסה.
+          </p>
+        </div>
+      )}  
 
       {!isMobile && ( 
         <div>

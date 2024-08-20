@@ -45,7 +45,7 @@ export default function Home() {
       </div>
 
       {!isMobile && (
-        <div className="mt-5 mb-5 ml-96 mr-96 rounded-lg px-5 py-4 transition-colors text-gray-800 dark:text-white bg-white dark:bg-gray-600/30">
+        <div className="mt-5 mb-5 ml-48 mr-48 rounded-lg px-5 py-4 transition-colors text-gray-800 dark:text-white bg-white dark:bg-gray-600/30">
           <h1 className="text-4xl font-bold text-center">
             What is ROSI?
           </h1>
