@@ -154,7 +154,8 @@ export async function getAllArticles(lang: String ,subject: string, search: stri
                     { title: { contains: search, mode: 'insensitive' } },
                     { author: { contains: search, mode: 'insensitive' } },
                     { description: { contains: search, mode: 'insensitive' } },
-                    { tags: { contains: search, mode: 'insensitive' } }
+                    { tags: { contains: search, mode: 'insensitive' } },
+                    { teamnumber: { contains: search, mode: 'insensitive' } }
                 ]
             };
         } else {
@@ -175,6 +176,7 @@ export async function getAllArticles(lang: String ,subject: string, search: stri
                 photo: true,
                 link: true,
                 tags: true,
+                teamnumber: true,
                 language: true
             }
         });

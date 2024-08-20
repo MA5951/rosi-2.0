@@ -12,12 +12,13 @@ interface PopupProps {
   link: string;
   language: string;
   description: string;
+  teamnumber: string;
   tags: string; // list of tags seperated by comma
   contact: Contact;
   onClose: () => void;
 }
 
-const Popup: React.FC<PopupProps> = ({ title, link, contact, description, language, tags, onClose }) => {
+const Popup: React.FC<PopupProps> = ({ title, link, contact, teamnumber, description, language, tags, onClose }) => {
   const [showIframe, setShowIframe] = useState(false);
   const popupRef = useRef<HTMLDivElement>(null);
 
@@ -93,11 +94,11 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
           )}
           <div className="mt-4">
             <p className="font-semibold text-gray-700 dark:text-gray-300">Contact Information:</p>
+            <p className="text-gray-700 dark:text-gray-300">team: {teamnumber}</p>
             <p className="text-gray-700 dark:text-gray-300">Name: {contact.name}</p>
             <p className="text-gray-700 dark:text-gray-300">Contact: {contact.phone}</p>
           </div>
           <div className="mt-4">
-            <p className="font-semibold text-gray-700 dark:text-gray-300">Tags:</p>
             <div className="flex flex-wrap gap-2">
               {tagsArr.map((tag, index) => (
                 <div key={index} className="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">
@@ -151,11 +152,11 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, langua
             )}
             <div className="mt-4">
               <p className="font-semibold text-gray-700 dark:text-gray-300">פרטי קשר:</p>
+              <p className="text-gray-700 dark:text-gray-300">קבוצה: {teamnumber}</p>
               <p className="text-gray-700 dark:text-gray-300">שם: {contact.name}</p>
               <p className="text-gray-700 dark:text-gray-300">יצירת קשר: {contact.phone}</p>
             </div>
             <div className='mt-4'>
-              <p className="font-semibold text-gray-700 dark:text-gray-300">תגיות:</p>
               <div className="flex flex-wrap gap-2">
                 {tagsArr.map((tag, index) => (
                   <div key={index} className="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">

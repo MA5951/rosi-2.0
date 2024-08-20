@@ -22,4 +22,5 @@ model articles {
   photo       String
   link        String
   tags        String
+  teamnumber  String
 }

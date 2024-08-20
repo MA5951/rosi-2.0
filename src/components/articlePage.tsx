@@ -18,6 +18,7 @@ interface Article {
   description: string;
   link: string;
   tags: string;
+  teamnumber: string;
   contact: Contact;
 }
 
@@ -44,6 +45,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({subject, search, pageTitle, la
         description: article.description, 
         link: article.link,
         tags: article.tags,
+        teamnumber: article.teamnumber,
         contact: {
           name: article.author,
           phone: article.phone
@@ -142,6 +144,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({subject, search, pageTitle, la
             description={selectedArticle.description}
             language={language}
             tags={selectedArticle.tags}
+            teamnumber={selectedArticle.teamnumber}
             onClose={closePopup} 
           />
         )}
