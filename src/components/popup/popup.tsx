@@ -94,7 +94,7 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, teamnumber, descrip
           )}
           <div className="mt-4">
             <p className="font-semibold text-gray-700 dark:text-gray-300">Contact Information:</p>
-            <p className="text-gray-700 dark:text-gray-300">team: {teamnumber}</p>
+            <p className="text-gray-700 dark:text-gray-300">Team: {teamnumber}</p>
             <p className="text-gray-700 dark:text-gray-300">Name: {contact.name}</p>
             <p className="text-gray-700 dark:text-gray-300">Contact: {contact.phone}</p>
           </div>
