@@ -40,7 +40,7 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, teamnu
   };
 
   const handleApprove = async () => {
-    if (password !== "team5951") {
+    if (password !== process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
       alert('Incorrect password.');
       return;
     }
@@ -60,7 +60,7 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, teamnu
   };
 
   const handleDelete = async () => {
-    if (password !== "team5951") {
+    if (password !== process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
       alert('Incorrect password.');
       return;
     }

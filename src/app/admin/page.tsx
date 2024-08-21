@@ -49,7 +49,7 @@ const AddArticlePage: React.FC = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (password !== "team5951") {
+        if (password !== process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
             setErrorMessage('Invalid password');
             return;
         }

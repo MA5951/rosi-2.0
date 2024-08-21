@@ -1,6 +1,7 @@
 "use server"
 
 import { prisma } from '@/db/index';
+import axios from 'axios';
 
 export async function updateArticleStatus(articleId: string, newStatus: string) {
     try {
@@ -215,6 +216,56 @@ export async function getAllArticles(lang: String ,subject: string, search: stri
     } catch (error) {
         console.error("Error fetching articles: ", error);
         throw new Error("Error fetching articles");
+    } finally {
+        await prisma.$disconnect();
+    }
+}
+
+export async function getAllContacts(lang: string, status: string) {
+    try {
+        let query: any = {
+            language: lang,
+            status: status
+        };
+
+        const articles = await prisma.articles.findMany({
+            where: query,
+            select: {
+                author: true,
+                phone: true,
+                teamnumber: true
+            },
+            distinct: ['author', 'phone']
+        });
+
+        const contactsWithCountry = await Promise.all(
+            articles.map(async (contact) => {
+                if (contact.teamnumber) {
+                    try {
+                        const response = await axios.get(`https://www.thebluealliance.com/api/v3/team/frc${contact.teamnumber}`, {
+                            headers: {
+                                'X-TBA-Auth-Key': process.env.NEXT_PUBLIC_TBA_AUTH_KEY ?? ''
+                            }
+                        });
+                        const { country } = response.data;
+
+                        return {
+                            ...contact,
+                            country: country || 'Unknown'
+                        };
+                    } catch (error) {
+                        console.error(`Error fetching country for team ${contact.teamnumber}:`, error);
+                        return { ...contact, country: 'Unknown' };
+                    }
+                }
+                return { ...contact, country: 'Unknown' };
+            })
+        );
+
+        return contactsWithCountry;
+    } catch (error) {
+        console.error("Error fetching contacts: ", error);
+        throw new Error("Error fetching contacts");
     } finally {
         await prisma.$disconnect();
     }
