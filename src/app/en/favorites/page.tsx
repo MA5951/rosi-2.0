@@ -6,7 +6,7 @@ const Home: React.FC = () => {
 
   return (
     <main>
-      <FavoritesPage language='hebrew' pageTitle='favorites'/>
+      <FavoritesPage language='english' pageTitle='Favorites'/>
     </main>
   );
 }

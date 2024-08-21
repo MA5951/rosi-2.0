@@ -145,6 +145,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({subject, search, pageTitle, la
             language={language}
             tags={selectedArticle.tags}
             teamnumber={selectedArticle.teamnumber}
+            id={selectedArticle.id}
             onClose={closePopup} 
           />
         )}

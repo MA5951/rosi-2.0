@@ -107,7 +107,7 @@ const AddArticlePage: React.FC = () => {
                         <label className="block text-sm font-bold mb-2 dark:text-white" htmlFor={field}>
                             {field === 'title' ? 'כותרת' : 
                              field === 'author' ? 'מחבר' : 
-                             field === 'phone' ? 'טלפון' : 
+                             field === 'phone' ? 'טלפון או מייל' : 
                              field === 'description' ? 'תיאור' : 
                              'קישור'}
                         </label>
