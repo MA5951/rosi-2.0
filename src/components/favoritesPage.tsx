@@ -22,14 +22,15 @@ interface Article {
   contact: Contact;
 }
 
-interface ArticlePageProps {
-  subject: string;
-  search: string;
+interface FavoritesPageProps {
   pageTitle: string;
   language: string;
 }
 
-const ArticlePage: React.FC<ArticlePageProps> = ({subject, search, pageTitle, language}) => {
+const FavoritesPage: React.FC<FavoritesPageProps> = ({ pageTitle, language }) => {
+  // Get favorite article IDs from localStorage
+  const favoriteIds = JSON.parse(localStorage.getItem('favorites') || '[]') as string[];
+
   const [isMobile, setIsMobile] = useState(false);
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const [articles, setArticles] = useState<Article[]>([]);
@@ -37,12 +38,17 @@ const ArticlePage: React.FC<ArticlePageProps> = ({subject, search, pageTitle, la
 
   useEffect(() => {
     const fetchArticles = async () => {
-      const fetchedArticles = await getAllArticles(language, subject, search, "approved");
+      if (favoriteIds.length === 0) {
+        setIsLoading(false);
+        return;
+      }
+
+      const fetchedArticles = await getAllArticles(language, favoriteIds.join(','), "", "approved");
       const formattedArticles = fetchedArticles.map((article) => ({
         id: article.id,
         title: article.title,
         photo: article.photo,
-        description: article.description, 
+        description: article.description,
         link: article.link,
         tags: article.tags,
         teamnumber: article.teamnumber,
@@ -56,7 +62,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({subject, search, pageTitle, la
     };
 
     fetchArticles();
-  }, [subject, search]);
+  }, [favoriteIds, language]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -100,7 +106,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({subject, search, pageTitle, la
           ))}
         </div>
       )}
-      {isLoading === false && (
+      {!isLoading && (
         <motion.div 
           initial={{ opacity: 0 }} 
           animate={{ opacity: 1 }} 
@@ -153,4 +159,4 @@ const ArticlePage: React.FC<ArticlePageProps> = ({subject, search, pageTitle, la
   );
 }
 
-export default ArticlePage;
+export default FavoritesPage;
