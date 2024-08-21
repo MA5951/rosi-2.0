@@ -78,7 +78,7 @@ const Popup: React.FC<PopupProps> = ({ id, title, link, contact, teamnumber, des
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      { language === 'en' ? (
+      { language === 'english' ? (
         <motion.div
           ref={popupRef}
           className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-lg max-w-md w-full"
