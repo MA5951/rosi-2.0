@@ -200,7 +200,7 @@ const Popup: React.FC<PopupProps> = ({ id, title, link, contact, teamnumber, des
             onClick={onClose}
             className="mt-6 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700 transition-colors"
           >
-            Close
+            סגור
           </button>
         </motion.div>
       )}
