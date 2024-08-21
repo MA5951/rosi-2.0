@@ -99,7 +99,7 @@ const AddArticlePage: React.FC = () => {
                 <h2 style={{marginTop: "15vh"}} className="text-2xl mb-4">Add New Article</h2>
                 {['title', 'author', 'phone', 'description', 'photo', 'link'].map((field) => (
                     <div key={field} className="mb-4">
-                        <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" htmlFor={field}>
+                        <label className="block text-sm font-bold mb-2 dark:text-white" htmlFor={field}>
                             {field.charAt(0).toUpperCase() + field.slice(1)}
                         </label>
                         <input
@@ -108,13 +108,41 @@ const AddArticlePage: React.FC = () => {
                             id={field}
                             value={formData[field as keyof FormData]} // Cast to keyof FormData
                             onChange={handleChange}
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+                            className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 dark:bg-gray-600 border-0 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
                             required
                         />
                     </div>
                 ))}
                 <div className="mb-4">
-                    <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" htmlFor="subject">
+                    <label className="block text-sm font-bold mb-2 dark:text-white" htmlFor="teamnumber">
+                        Team number
+                    </label>
+                    <input
+                        type="text"
+                        name="teamnumber"
+                        id="teamnumber"
+                        value={formData.teamnumber}
+                        onChange={handleChange}
+                        className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 dark:bg-gray-600 border-0 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
+                        required
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-sm font-bold mb-2 dark:text-white" htmlFor="tags">
+                        Tags (separated by commas)
+                    </label>
+                    <input
+                        type="text"
+                        name="tags"
+                        id="tags"
+                        value={formData.tags}
+                        onChange={handleChange}
+                        className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 dark:bg-gray-600 border-0 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
+                        required
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-sm font-bold mb-2 dark:text-white" htmlFor="subject">
                         Subject
                     </label>
                     <select
@@ -122,7 +150,7 @@ const AddArticlePage: React.FC = () => {
                         id="subject"
                         value={formData.subject}
                         onChange={handleChange}
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+                        className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 dark:bg-gray-600 border-0 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
                         required
                     >
                         <option value="">Select Subject</option>
@@ -137,7 +165,7 @@ const AddArticlePage: React.FC = () => {
                     </select>
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" htmlFor="language">
+                    <label className="block text-sm font-bold mb-2 dark:text-white" htmlFor="language">
                         Language
                     </label>
                     <select
@@ -145,7 +173,7 @@ const AddArticlePage: React.FC = () => {
                         id="language"
                         value={formData.language}
                         onChange={handleChange}
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+                        className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 dark:bg-gray-600 border-0 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
                         required
                     >
                         <option value="">Select Language</option>
@@ -154,7 +182,7 @@ const AddArticlePage: React.FC = () => {
                     </select>
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" htmlFor="password">
+                    <label className="block text-sm font-bold mb-2 dark:text-white" htmlFor="password">
                         Password
                     </label>
                     <input
@@ -163,7 +191,7 @@ const AddArticlePage: React.FC = () => {
                         id="password"
                         value={password}
                         onChange={handlePasswordChange}
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+                        className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 dark:bg-gray-600 border-0 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
                         required
                     />
                 </div>
