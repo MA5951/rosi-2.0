@@ -39,7 +39,7 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, tags, 
   };
 
   const handleApprove = async () => {
-    if (password !== "team5951") {
+    if (password !== process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
       alert('Incorrect password.');
       return;
     }
@@ -85,7 +85,7 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, tags, 
   };
 
   const handleDelete = async () => {
-    if (password !== "team5951") {
+    if (password !== process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
       alert('Incorrect password.');
       return;
     }
@@ -240,7 +240,7 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, tags, 
             </div>
             <div className="mt-4">
               <input
-                type="text"
+                type="password"
                 placeholder="הזן סיסמה"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

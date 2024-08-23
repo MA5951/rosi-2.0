@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCode, faBolt, faUsers, faIndustry, faPencil, faWrench, faPlus, faStar, faMicrochip, faBook } from '@fortawesome/free-solid-svg-icons';
+import { faCode, faBolt, faUsers, faIndustry, faPencil, faWrench, faPlus, faStar, faMicrochip, faBook, faUserCircle, faBell } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -185,7 +185,18 @@ export default function Home() {
             </a>
           </div>
           <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-center justify-center">
-            <a>
+            <a
+              href="/en/directory"
+              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+            >
+              <h2 className="mb-3 text-2xl font-semibold">
+                <FontAwesomeIcon icon={faUserCircle} className="mb-1 text-9xl text-red-700" />
+                <br />
+                {" "}Directory{" "}
+                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h2>
             </a>
             <a
               href="/en/contribute"
@@ -205,9 +216,22 @@ export default function Home() {
               className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
             >
               <h2 className="mb-3 text-2xl font-semibold">
-                <FontAwesomeIcon icon={faStar} className="mb-1 text-9xl text-red-700" />
+                <FontAwesomeIcon icon={faBell} className="mb-1 text-9xl text-red-700" />
                 <br />
                 {" "}Contact{" "}
+                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h2>
+            </a>
+            <a
+              href="/en/favorites"
+              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+            >
+              <h2 className="mb-3 text-2xl font-semibold">
+                <FontAwesomeIcon icon={faStar} className="mb-1 text-9xl text-red-700" />
+                <br />
+                {" "}Favorites{" "}
                 <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
@@ -321,7 +345,33 @@ export default function Home() {
                 </span>
               </h2>
             </a>
-          <a
+            <a
+              href="/en/directory"
+              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+            >
+              <h2 className="mb-3 text-2xl font-semibold">
+                <FontAwesomeIcon icon={faUserCircle} className="mb-1 text-9xl text-red-700" />
+                <br />
+                {" "}Directory{" "}
+                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h2>
+            </a>
+            <a
+              href="/en/favorites"
+              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+            >
+              <h2 className="mb-3 text-2xl font-semibold">
+                <FontAwesomeIcon icon={faStar} className="mb-1 text-9xl text-red-700" />
+                <br />
+                {" "}Favorites{" "}
+                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h2>
+            </a>
+            <a
               href="/en/contribute"
               className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
             >
@@ -339,7 +389,7 @@ export default function Home() {
               className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
             >
               <h2 className="mb-3 text-2xl font-semibold">
-                <FontAwesomeIcon icon={faStar} className="mb-1 text-9xl text-red-700" />
+                <FontAwesomeIcon icon={faBell} className="mb-1 text-9xl text-red-700" />
                 <br />
                 {" "}Contact{" "}
                 <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">

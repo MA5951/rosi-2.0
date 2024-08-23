@@ -18,6 +18,8 @@ enum Page {
     cad = '/cad',
     ftc = '/ftc',
     other = '/other',
+    favorite = '/favorites',
+    directory = '/directory',
 }
 
 type Props = {}
@@ -46,7 +48,7 @@ export const Navbar = (props: Props) => {
             document.documentElement.classList.toggle('dark', isDark);
         }
         setCurrentLanguage(savedLanguage);
-        document.documentElement.lang = savedLanguage; // Set the lang attribute
+        document.documentElement.lang = savedLanguage; 
     }, []);
 
     const getButtonClassName = (page: Page) => {
@@ -125,6 +127,10 @@ export const Navbar = (props: Props) => {
                     return 'FTC';
                 case "Other":
                     return 'אחר';
+                case "Favorites":
+                    return 'מועדפים';
+                case "Directory":
+                    return 'דף קשר';
                 default:
                     return 'Language';
             }
@@ -320,6 +326,12 @@ export const Navbar = (props: Props) => {
                                 <Link href={`/${currentLanguage}${Page.other}`} className={getButtonClassName(Page.other)} onClick={handleLinkClick} >{getLangText('Other')}</Link>
                             </li>
                             <li>
+                                <Link href={`/${currentLanguage}${Page.favorite}`} className={getButtonClassName(Page.favorite)} onClick={handleLinkClick} >{getLangText('Favorites')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.directory}`} className={getButtonClassName(Page.directory)} onClick={handleLinkClick} >{getLangText('Directory')}</Link>
+                            </li>
+                            <li>
                                 <Link href={`/${currentLanguage}${Page.contribute}`} className={getButtonClassName(Page.contribute)} onClick={handleLinkClick} >{getLangText('Contribute')}</Link>
                             </li>
                             <li>
@@ -366,6 +378,12 @@ export const Navbar = (props: Props) => {
                             </li>
                             <li>
                                 <Link href={`/${currentLanguage}${Page.other}`} className={getButtonClassName(Page.other)} onClick={handleLinkClick} >{getLangText('Other')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.favorite}`} className={getButtonClassName(Page.favorite)} onClick={handleLinkClick} >{getLangText('Favorites')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.directory}`} className={getButtonClassName(Page.directory)} onClick={handleLinkClick} >{getLangText('Directory')}</Link>
                             </li>
                             <li>
                                 <Link href={`/${currentLanguage}${Page.contribute}`} className={getButtonClassName(Page.contribute)} onClick={handleLinkClick} >{getLangText('Contribute')}</Link>

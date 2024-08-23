@@ -120,7 +120,7 @@ const AddArticlePage: React.FC = () => {
                 ))}
                 <div className="mb-4">
                     <label className="block text-sm font-bold mb-2 dark:text-white" htmlFor="teamnumber">
-                        מספר קבוצה
+                        Team number
                     </label>
                     <input
                         type="text"
@@ -134,7 +134,7 @@ const AddArticlePage: React.FC = () => {
                 </div>
                 <div className="mb-4">
                     <label className="block text-sm font-bold mb-2 dark:text-white" htmlFor="tags">
-                        תגיות (מופרדות בפסיק)
+                        Tags (separated by commas)
                     </label>
                     <input
                         type="text"
