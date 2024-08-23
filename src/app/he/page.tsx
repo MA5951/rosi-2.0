@@ -205,7 +205,7 @@ export default function Home() {
               <h2 className="mb-3 text-2xl font-semibold">
                 <FontAwesomeIcon icon={faPlus} className="mb-1 text-9xl text-red-700" />
                 <br />
-                {" "}העלת תוכן{" "}
+                {" "}העלאת תוכן{" "}
                 <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
