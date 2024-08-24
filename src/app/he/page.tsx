@@ -61,7 +61,7 @@ export default function Home() {
       )} {isMobile && (
         <div className="ml-10 mr-10 rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30">
           <h1 className="text-4xl font-bold text-center">
-            What is ROSI?
+            מי אנחנו
           </h1>
           <p className="text-lg text-center">
             ROSI - Robotics Open Source Israel
