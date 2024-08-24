@@ -173,7 +173,7 @@ const Popup: React.FC<PopupProps> = ({ id, title, link, contact, teamnumber, des
               onClick={handleFavoriteToggle}
               className={`px-4 py-2 rounded transition-colors ${isFavorite ? 'bg-red-500 hover:bg-red-700' : 'bg-gray-500 hover:bg-gray-700'} text-white`}
             >
-              {isFavorite ? 'הסר מהמועדפים' : 'הוסף למעודפים'}
+              {isFavorite ? 'הסר מהמועדפים' : 'הוסף למועדפים'}
             </button>
           </div>
           {showIframe && (
