@@ -63,7 +63,7 @@ const AddArticlePage: React.FC = () => {
         e.preventDefault();
         setErrorMessage('');
 
-        const formDataWithPhoto = { ...formData, photo: "https://i.ibb.co/7WGzjsv/2.png" };
+        const formDataWithPhoto = { ...formData, photo: "https://i.ibb.co/JqzcZvj/first.png" };
 
         const promise = addArticle(formDataWithPhoto)
             .then(() => {
