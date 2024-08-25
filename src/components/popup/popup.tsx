@@ -124,7 +124,8 @@ const Popup: React.FC<PopupProps> = ({ id, title, link, contact, teamnumber, des
             <p className="text-gray-700 dark:text-gray-300">Name: {contact.name}</p>
             <p className="text-gray-700 dark:text-gray-300">Contact: {contact.phone}</p>
           </div>
-          <div className="mt-4">
+          {/* uncomment the part below to bring back the display of tags */}
+          {/* <div className="mt-4">
             <div className="flex flex-wrap gap-2">
               {tagsArr.map((tag, index) => (
                 <div key={index} className="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">
@@ -132,7 +133,7 @@ const Popup: React.FC<PopupProps> = ({ id, title, link, contact, teamnumber, des
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
           <button
             onClick={onClose}
             className="mt-6 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700 transition-colors"
@@ -187,7 +188,8 @@ const Popup: React.FC<PopupProps> = ({ id, title, link, contact, teamnumber, des
             <p className="text-gray-700 dark:text-gray-300">שם: {contact.name}</p>
             <p className="text-gray-700 dark:text-gray-300">דרך קשר: {contact.phone}</p>
           </div>
-          <div className="mt-4">
+          {/* uncomment the part below to bring back the display of tags */}
+          {/* <div className="mt-4">
             <div className="flex flex-wrap gap-2">
               {tagsArr.map((tag, index) => (
                 <div key={index} className="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">
@@ -195,7 +197,7 @@ const Popup: React.FC<PopupProps> = ({ id, title, link, contact, teamnumber, des
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
           <button
             onClick={onClose}
             className="mt-6 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700 transition-colors"
