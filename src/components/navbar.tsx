@@ -31,7 +31,7 @@ export const Navbar = (props: Props) => {
     const [currentLanguage, setCurrentLanguage] = useState('en');
     const currentPage = usePathname() as Page;
     const router = useRouter();
-    const [searchQuery, setSearchQuery] = useState('');
+    const [searchQuery, setSearchQuery] = useState("");
 
     const handleLinkClick = () => {
         if (isMobileMenuOpen) {
@@ -50,6 +50,15 @@ export const Navbar = (props: Props) => {
         setCurrentLanguage(savedLanguage);
         document.documentElement.lang = savedLanguage; 
     }, []);
+
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            const input = document.getElementById('search-navbar');
+            if (input) {
+                input.focus();
+            }
+        }
+    }, [isMobileMenuOpen]);
 
     const getButtonClassName = (page: Page) => {
         const pageWithLanguage = `/${currentLanguage}${page}`;
@@ -210,19 +219,21 @@ export const Navbar = (props: Props) => {
                                 <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                                 </svg>
-                                <span className="sr-only">Search icon</span>
                             </div>
                             <form onSubmit={(e) => {
-                                e.preventDefault()
-                                router.push("/" + currentLanguage + "/search/" + searchQuery)}
-                                }>
+                                e.preventDefault();
+                                router.push("/" + currentLanguage + "/search/" + searchQuery);
+                            }}>
                                 <input 
                                     type="text" 
                                     id="search-navbar" 
                                     className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-xl bg-gray-50 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" 
                                     placeholder={getLangText("Search...")}
                                     value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    onChange={(e) => {
+                                        setSearchQuery(e.target.value);
+                                        console.log(searchQuery);
+                                    }}
                                 />
                             </form>
                         </div>
@@ -295,7 +306,22 @@ export const Navbar = (props: Props) => {
                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                                 </svg>
                             </div>
-                            <input type="text" id="search-navbar" className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-xl bg-gray-50 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" placeholder={getLangText("Search...")} />
+                            <form onSubmit={(e) => {
+                                e.preventDefault();
+                                router.push("/" + currentLanguage + "/search/" + searchQuery);
+                                setIsMobileMenuOpen(false);
+                            }}>
+                                <input 
+                                    type="text" 
+                                    id="search-navbar" 
+                                    className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-xl bg-gray-50 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" 
+                                    placeholder={getLangText("Search...")}
+                                    value={searchQuery}
+                                    onChange={(e) => {
+                                        setSearchQuery(e.target.value);
+                                    }}
+                                />
+                            </form>
                         </div>
                         <ul className="flex flex-col font-medium mt-4 rounded-xl bg-gray-50 2xl:space-x-4 rtl:space-x-reverse 2xl:flex-row 2xl:mt-0 2xl:border-0 2xl:bg-transparent dark:bg-gray-800 2xl:dark:bg-transparent dark:border-gray-700">
                             <li>
@@ -342,57 +368,7 @@ export const Navbar = (props: Props) => {
                 </div>
             ) : (
                 <div dir="rtl" className="w-full flex flex-wrap items-center justify-between p-4">
-                    <div className={`items-center justify-between ${isMobileMenuOpen ? 'block' : 'hidden'} w-full xl:flex xl:w-auto xl:order-1`} id="navbar-search">
-                        <div className="relative mt-3 xl:hidden">
-                            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                                <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                                </svg>
-                            </div>
-                            <input type="text" id="search-navbar" className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-xl bg-gray-50 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" placeholder={getLangText("Search...")} />
-                        </div>
-                        <ul className="flex flex-col font-medium mt-4 rounded-xl bg-gray-50 xl:space-x-4 rtl:space-x-reverse xl:flex-row xl:mt-0 xl:border-0 xl:bg-transparent dark:bg-gray-800 xl:dark:bg-transparent dark:border-gray-700">    
-                        <li>
-                                <Link href={`/${currentLanguage}${Page.Home}`} className={getButtonClassName(Page.Home)} aria-current="page" onClick={handleLinkClick} >{getLangText('Home')}</Link>
-                            </li>
-                            <li>
-                                <Link href={`/${currentLanguage}${Page.programming}`} className={getButtonClassName(Page.programming)} onClick={handleLinkClick} >{getLangText('Programming')}</Link>
-                            </li>
-                            <li>
-                                <Link href={`/${currentLanguage}${Page.electrical}`} className={getButtonClassName(Page.electrical)} onClick={handleLinkClick} >{getLangText('Electrical')}</Link>
-                            </li>
-                            <li>
-                                <Link href={`/${currentLanguage}${Page.community}`} className={getButtonClassName(Page.community)} onClick={handleLinkClick} >{getLangText('Community')}</Link>
-                            </li>
-                            <li>
-                                <Link href={`/${currentLanguage}${Page.manufacturing}`} className={getButtonClassName(Page.manufacturing)} onClick={handleLinkClick} >{getLangText('Manufacturing')}</Link>
-                            </li>
-                            <li>
-                                <Link href={`/${currentLanguage}${Page.mechanics}`} className={getButtonClassName(Page.mechanics)} onClick={handleLinkClick} >{getLangText('Mechanics')}</Link>
-                            </li>
-                            <li>
-                                <Link href={`/${currentLanguage}${Page.cad}`} className={getButtonClassName(Page.cad)} onClick={handleLinkClick} >{getLangText('CAD')}</Link>
-                            </li>
-                            <li>
-                                <Link href={`/${currentLanguage}${Page.ftc}`} className={getButtonClassName(Page.ftc)} onClick={handleLinkClick} >{getLangText('FTC')}</Link>
-                            </li>
-                            <li>
-                                <Link href={`/${currentLanguage}${Page.other}`} className={getButtonClassName(Page.other)} onClick={handleLinkClick} >{getLangText('Other')}</Link>
-                            </li>
-                            <li>
-                                <Link href={`/${currentLanguage}${Page.favorite}`} className={getButtonClassName(Page.favorite)} onClick={handleLinkClick} >{getLangText('Favorites')}</Link>
-                            </li>
-                            <li>
-                                <Link href={`/${currentLanguage}${Page.directory}`} className={getButtonClassName(Page.directory)} onClick={handleLinkClick} >{getLangText('Directory')}</Link>
-                            </li>
-                            <li>
-                                <Link href={`/${currentLanguage}${Page.contribute}`} className={getButtonClassName(Page.contribute)} onClick={handleLinkClick} >{getLangText('Contribute')}</Link>
-                            </li>
-                            <li>
-                                <Link href={`/${currentLanguage}${Page.contact}`} className={getButtonClassName(Page.contact)} onClick={handleLinkClick} >{getLangText('Contact')}</Link>
-                            </li>
-                        </ul>
-                    </div>
+                    
                     <div className="flex xl:order-2">
                         <button type="button" aria-controls="navbar-search" aria-expanded={isMobileMenuOpen} onClick={toggleMobileMenu} className="xl:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-xl text-sm p-2.5 me-1">
                             <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -483,9 +459,74 @@ export const Navbar = (props: Props) => {
                             )}
                         </div>
                     </div>
+                    
                     <a href={`/${currentLanguage}${Page.Home}`} className="flex items-center space-x-3 rtl:space-x-reverse">
                         <img src="/images/ROSI-ONLY.png" className="h-8" alt="ROSI Logo" />
                     </a>
+                    <div className={`items-center justify-between ${isMobileMenuOpen ? 'block' : 'hidden'} w-full xl:flex xl:w-auto xl:order-1`} id="navbar-search">
+                        <div className="relative mt-3 xl:hidden">
+                            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                </svg>
+                            </div>
+                            <form onSubmit={(e) => {
+                                e.preventDefault()
+                                router.push("/" + currentLanguage + "/search/" + searchQuery)
+                                setIsMobileMenuOpen(false);
+                            }}>
+                                <input 
+                                    type="text" 
+                                    id="search-navbar" 
+                                    className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-xl bg-gray-50 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" 
+                                    placeholder={getLangText("Search...")}
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                />
+                            </form>
+                        </div>
+                        <ul className="flex flex-col font-medium mt-4 rounded-xl bg-gray-50 xl:space-x-4 rtl:space-x-reverse xl:flex-row xl:mt-0 xl:border-0 xl:bg-transparent dark:bg-gray-800 xl:dark:bg-transparent dark:border-gray-700">    
+                        <li>
+                                <Link href={`/${currentLanguage}${Page.Home}`} className={getButtonClassName(Page.Home)} aria-current="page" onClick={handleLinkClick} >{getLangText('Home')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.programming}`} className={getButtonClassName(Page.programming)} onClick={handleLinkClick} >{getLangText('Programming')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.electrical}`} className={getButtonClassName(Page.electrical)} onClick={handleLinkClick} >{getLangText('Electrical')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.community}`} className={getButtonClassName(Page.community)} onClick={handleLinkClick} >{getLangText('Community')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.manufacturing}`} className={getButtonClassName(Page.manufacturing)} onClick={handleLinkClick} >{getLangText('Manufacturing')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.mechanics}`} className={getButtonClassName(Page.mechanics)} onClick={handleLinkClick} >{getLangText('Mechanics')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.cad}`} className={getButtonClassName(Page.cad)} onClick={handleLinkClick} >{getLangText('CAD')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.ftc}`} className={getButtonClassName(Page.ftc)} onClick={handleLinkClick} >{getLangText('FTC')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.other}`} className={getButtonClassName(Page.other)} onClick={handleLinkClick} >{getLangText('Other')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.favorite}`} className={getButtonClassName(Page.favorite)} onClick={handleLinkClick} >{getLangText('Favorites')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.directory}`} className={getButtonClassName(Page.directory)} onClick={handleLinkClick} >{getLangText('Directory')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.contribute}`} className={getButtonClassName(Page.contribute)} onClick={handleLinkClick} >{getLangText('Contribute')}</Link>
+                            </li>
+                            <li>
+                                <Link href={`/${currentLanguage}${Page.contact}`} className={getButtonClassName(Page.contact)} onClick={handleLinkClick} >{getLangText('Contact')}</Link>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             )}
         </nav>
