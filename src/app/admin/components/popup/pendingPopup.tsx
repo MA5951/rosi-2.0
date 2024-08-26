@@ -24,8 +24,6 @@ interface PopupProps {
 }
 
 const Popup: React.FC<PopupProps> = ({ title, link, contact, description, teamnumber, tags, language, onClose, articleId }) => {
-  const router = useRouter(); // Initialize router
-  const [showIframe, setShowIframe] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [password, setPassword] = useState('');
@@ -34,10 +32,6 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, teamnu
   // convert tags string to array
   let tagsArr = tags.split(',');
   tagsArr = tagsArr.map(tag => tag.trim());
-
-  const toggleIframe = () => {
-    setShowIframe(!showIframe);
-  };
 
   const handleApprove = async () => {
     if (password !== process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
@@ -91,22 +85,11 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, teamnu
           <h4 className="font-bold mb-4 text-gray-900 dark:text-white">{description}</h4>
           <div className="flex space-x-4 mb-4">
             <a href={link} target="_blank" rel="noopener noreferrer">
-              <button className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700 transition-colors">
+              <button className="text-white bg-gradient-to-br from-green-500 to-blue-700 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 ease-in-out transform hover:scale-105 shadow-md">
                 Open Source
               </button>
             </a>
-            <button
-              onClick={toggleIframe}
-              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition-colors"
-            >
-              Preview
-            </button>
           </div>
-          {showIframe && (
-            <div className="iframe-container mt-4">
-              <iframe src={link} className="w-full h-64 border rounded"></iframe>
-            </div>
-          )}
           <div className="mt-4">
             <p className="font-semibold text-gray-700 dark:text-gray-300">Contact Information:</p>
             <p className="text-gray-700 dark:text-gray-300">Team: {teamnumber}</p>
@@ -143,21 +126,21 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, teamnu
           <div className="mt-4 flex space-x-4">
             <button
               onClick={handleApprove}
-              className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700 transition-colors"
+              className="mt-6 text-white bg-gradient-to-br from-green-500 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 ease-in-out transform hover:scale-105 shadow-md"
               disabled={isUpdating || isDeleting}
             >
               {isUpdating ? 'Approving...' : 'Approve'}
             </button>
             <button
               onClick={handleDelete}
-              className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700 transition-colors"
+              className="mt-6 text-white bg-gradient-to-br from-red-500 to-red-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 ease-in-out transform hover:scale-105 shadow-md"
               disabled={isUpdating || isDeleting}
             >
               {isDeleting ? 'Deleting...' : 'Deny'}
             </button>
             <button
               onClick={onClose}
-              className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-700 transition-colors"
+              className="mt-6 text-white bg-gradient-to-br from-gray-500 to-gray-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 ease-in-out transform hover:scale-105 shadow-md"
             >
               Close
             </button>
@@ -176,22 +159,11 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, teamnu
             <h4 className="font-bold mb-4 text-gray-900 dark:text-white">{description}</h4>
             <div className="flex mb-4">
               <a href={link} target="_blank" rel="noopener noreferrer">
-                <button className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700 transition-colors">
+                <button className="text-white bg-gradient-to-br from-green-500 to-blue-700 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 ease-in-out transform hover:scale-105 shadow-md">
                   פתח מקור
                 </button>
               </a>
-              <button
-                onClick={toggleIframe}
-                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition-colors mx-4"
-              >
-                תצוגה מקדימה
-              </button>
             </div>
-            {showIframe && (
-              <div className="iframe-container mt-4">
-                <iframe src={link} className="w-full h-64 border rounded"></iframe>
-              </div>
-            )}
             <div className="mt-4">
               <p className="font-semibold text-gray-700 dark:text-gray-300">פרטי קשר:</p>
               <p className="text-gray-700 dark:text-gray-300">שם: {contact.name}</p>
@@ -227,21 +199,21 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, teamnu
             <div className="mt-4 flex space-x-4">
               <button
                 onClick={handleApprove}
-                className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700 transition-colors"
+                className="mt-6 text-white bg-gradient-to-br from-green-500 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 ease-in-out transform hover:scale-105 shadow-md"
                 disabled={isUpdating || isDeleting}
               >
                 {isUpdating ? 'מאשר...' : 'אשר'}
               </button>
               <button
                 onClick={handleDelete}
-                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700 transition-colors"
+                className="mt-6 text-white bg-gradient-to-br from-red-500 to-red-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 ease-in-out transform hover:scale-105 shadow-md"
                 disabled={isUpdating || isDeleting}
               >
                 {isDeleting ? 'מוחק...' : 'מחק'}
               </button>
               <button
                 onClick={onClose}
-                className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-700 transition-colors"
+                className="mt-6 text-white bg-gradient-to-br from-gray-500 to-gray-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 ease-in-out transform hover:scale-105 shadow-md"
               >
                 סגור
               </button>

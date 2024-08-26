@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 import { getAllContacts } from '@/db/server';
 
 interface Contact {
     author: string;
+    authorEnglish: string;
     phone: string;
     teamnumber: string;
     country: string;
@@ -19,8 +21,14 @@ const ContactsPage: React.FC = () => {
     useEffect(() => {
         const fetchContacts = async () => {
             try {
-                const fetchedContacts = await getAllContacts('english', 'approved');
-                const validatedContacts = validateAndDeduplicateContacts(fetchedContacts);
+                // Fetch both English and Hebrew contacts
+                const englishContacts = await getAllContacts('english', 'approved');
+                const hebrewContacts = await getAllContacts('hebrew', 'approved');
+
+                // Merge and deduplicate contacts
+                const allContacts = [...englishContacts, ...hebrewContacts];
+                const validatedContacts = validateAndDeduplicateContacts(allContacts);
+
                 setContacts(validatedContacts);
             } catch (error) {
                 console.error('Error fetching contacts:', error);
@@ -43,7 +51,7 @@ const ContactsPage: React.FC = () => {
     };
 
     const normalizeName = (name: string) => {
-        return name.trim().toLowerCase(); // Trim whitespace and convert to lowercase
+        return name.trim().toLowerCase();
     };
 
     const getNormalizedContact = (contact: string) => {
@@ -53,18 +61,20 @@ const ContactsPage: React.FC = () => {
     const validateAndDeduplicateContacts = (contacts: Contact[]) => {
         const seen = new Map<string, Contact>();
 
-        contacts.forEach(contact => {
-            const normalizedAuthor = normalizeName(contact.author);
+        for (const contact of contacts) {
+            let authorEnglish = contact.authorEnglish;
+
+            const normalizedAuthor = normalizeName(authorEnglish);
             const normalizedPhone = getNormalizedContact(contact.phone);
 
             // Ensure neither the author nor the phone is empty after normalization
             if (normalizedAuthor && normalizedPhone) {
                 const key = `${normalizedAuthor}-${normalizedPhone}`;
                 if (!seen.has(key)) {
-                    seen.set(key, contact);
+                    seen.set(key, { ...contact, authorEnglish });
                 }
             }
-        });
+        }
 
         return Array.from(seen.values());
     };

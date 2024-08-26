@@ -17,6 +17,7 @@ interface FormData {
     teamnumber: string;
     tags: string;
     status: string;
+    authorEnglish: string;
 }
 
 const AddArticlePage: React.FC = () => {
@@ -30,6 +31,7 @@ const AddArticlePage: React.FC = () => {
         language: '',
         teamnumber: '',
         tags: '',
+        authorEnglish: '',
         status: 'pending'
     });
 
@@ -77,6 +79,7 @@ const AddArticlePage: React.FC = () => {
                     language: '',
                     teamnumber: '',
                     tags: '',
+                    authorEnglish: formData.author,
                     status: 'pending'
                 });
                 return sendEmailNotification(formDataWithPhoto);
@@ -111,7 +114,7 @@ const AddArticlePage: React.FC = () => {
                             type="text"
                             name={field}
                             id={field}
-                            value={formData[field as keyof FormData]} // Cast to keyof FormData
+                            value={formData[field as keyof FormData]} 
                             onChange={handleChange}
                             className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 dark:bg-gray-600 border-0 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
                             required

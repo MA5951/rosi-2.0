@@ -108,6 +108,21 @@ export async function updateArticleAuthor(articleId: string, newAuthor: string) 
     }
 }
 
+export async function updateArticleAuthorEnglish(articleId: string, newAuthorEnglish: string) {
+    try {
+        const updatedArticle = await prisma.articles.update({
+            where: { id: articleId },
+            data: { authorEnglish: newAuthorEnglish }
+        });
+        return updatedArticle;
+    } catch (error) {
+        console.error("Error updating article authorEnglish: ", error);
+        throw new Error("Error updating article authorEnglish");
+    } finally {
+        await prisma.$disconnect();
+    }
+}
+
 export async function updateArticlePhone(articleId: string, newPhone: string) {
     try {
         const updatedArticle = await prisma.articles.update({
@@ -208,7 +223,8 @@ export async function getAllArticles(lang: String ,subject: string, search: stri
                 link: true,
                 tags: true,
                 teamnumber: true,
-                language: true
+                language: true,
+                authorEnglish: true,
             }
         });
 
@@ -232,6 +248,7 @@ export async function getAllContacts(lang: string, status: string) {
             where: query,
             select: {
                 author: true,
+                authorEnglish: true,
                 phone: true,
                 teamnumber: true
             },

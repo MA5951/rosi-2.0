@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 interface FormData {
     title: string;
     author: string;
+    authorEnglish: string;
     phone: string;
     description: string;
     subject: string;
@@ -22,6 +23,7 @@ const AddArticlePage: React.FC = () => {
     const [formData, setFormData] = useState<FormData>({
         title: '',
         author: '',
+        authorEnglish: '',
         phone: '',
         description: '',
         subject: '',
@@ -65,6 +67,7 @@ const AddArticlePage: React.FC = () => {
                 setFormData({
                     title: '',
                     author: '',
+                    authorEnglish: '',
                     phone: '',
                     description: '',
                     subject: '',
@@ -97,7 +100,7 @@ const AddArticlePage: React.FC = () => {
             <ToastContainer />
             <form onSubmit={handleSubmit} className="w-full max-w-lg">
                 <h2 style={{marginTop: "15vh"}} className="text-2xl mb-4">Add New Article</h2>
-                {['title', 'author', 'phone', 'description', 'photo', 'link'].map((field) => (
+                {['title', 'author', 'authorEnglish', 'phone', 'description', 'photo', 'link'].map((field) => (
                     <div key={field} className="mb-4">
                         <label className="block text-sm font-bold mb-2 dark:text-white" htmlFor={field}>
                             {field.charAt(0).toUpperCase() + field.slice(1)}

@@ -11,16 +11,17 @@ datasource db {
 }
 
 model articles {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  language    String
-  status      String
-  title       String
-  author      String
-  phone       String
-  description String
-  subject     String
-  photo       String
-  link        String
-  tags        String
-  teamnumber  String
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  language      String
+  status        String
+  title         String
+  author        String
+  phone         String
+  description   String
+  subject       String
+  photo         String
+  link          String
+  tags          String
+  teamnumber    String
+  authorEnglish String
 }

@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import './popup.css';
-import { updateArticleStatus, updateArticlePhoto, updateArticleLink, updateArticleDescription, updateArticleAuthor, deleteArticle, updateArticleSubject, updateArticleTags, updateArticleTeamNumber } from '@/db/server';
+import { updateArticleAuthorEnglish, updateArticleStatus, updateArticlePhoto, updateArticleLink, updateArticleDescription, updateArticleAuthor, deleteArticle, updateArticleSubject, updateArticleTags, updateArticleTeamNumber } from '@/db/server';
 
 interface Contact {
   name: string;
@@ -15,15 +15,15 @@ interface PopupProps {
   link: string;
   language: string;
   description: string;
-  tags: string; // list of tags seperated by comma
+  tags: string; // list of tags separated by commas
   teamnumber: string;
+  authorEnglish: string;
   contact: Contact;
   onClose: () => void;
   articleId: string;
 }
 
-const Popup: React.FC<PopupProps> = ({ title, link, contact, description, tags, teamnumber, language, onClose, articleId }) => {
-  const [showIframe, setShowIframe] = useState(false);
+const Popup: React.FC<PopupProps> = ({ title, link, contact, description, tags, teamnumber, language, onClose, articleId, authorEnglish }) => {
   const [isUpdating, setIsUpdating] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [password, setPassword] = useState('');
@@ -33,10 +33,6 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, tags, 
   // convert tags string to array
   let tagsArr = tags.split(',');
   tagsArr = tagsArr.map(tag => tag.trim());
-  
-  const toggleIframe = () => {
-    setShowIframe(!showIframe);
-  };
 
   const handleApprove = async () => {
     if (password !== process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
@@ -70,6 +66,9 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, tags, 
           break;
         case 'teamnumber':
           await updateArticleTeamNumber(articleId, newValue);
+          break;
+        case 'authorEnglish':
+          await updateArticleAuthorEnglish(articleId, newValue);
           break;
         default:
           throw new Error('Invalid property selected');
@@ -116,36 +115,17 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, tags, 
           <h4 className="font-bold mb-4 text-gray-900 dark:text-white">{description}</h4>
           <div className="flex space-x-4 mb-4">
             <a href={link} target="_blank" rel="noopener noreferrer">
-              <button className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700 transition-colors">
+              <button className="text-white bg-gradient-to-br from-green-500 to-blue-700 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 ease-in-out transform hover:scale-105 shadow-md">
                 Open Source
               </button>
             </a>
-            <button
-              onClick={toggleIframe}
-              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition-colors"
-            >
-              Preview
-            </button>
           </div>
-          {showIframe && (
-            <div className="iframe-container mt-4">
-              <iframe src={link} className="w-full h-64 border rounded"></iframe>
-            </div>
-          )}
           <div className="mt-4">
             <p className="font-semibold text-gray-700 dark:text-gray-300">Contact Information:</p>
             <p className="text-gray-700 dark:text-gray-300">Team: {teamnumber}</p>
             <p className="text-gray-700 dark:text-gray-300">Name: {contact.name}</p>
+            <p className="text-gray-700 dark:text-gray-300">English name: {authorEnglish}</p>
             <p className="text-gray-700 dark:text-gray-300">Contact: {contact.phone}</p>
-          </div>
-          <div className="mt-4">
-            <div className="flex flex-wrap gap-2">
-              {tagsArr.map((tag, index) => (
-                <div key={index} className="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">
-                  {tag}
-                </div>
-              ))}
-            </div>
           </div>
           <div className="mt-4">
             <input
@@ -167,6 +147,7 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, tags, 
               <option value="link">Link</option>
               <option value="description">Description</option>
               <option value="author">Author</option>
+              <option value="authorEnglish">Author English</option>
               <option value="subject">Subject</option>
               <option value="tags">Tags</option>
               <option value="teamnumber">Team Number</option>
@@ -184,21 +165,21 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, tags, 
           <div className="mt-4 flex space-x-4">
             <button
               onClick={handleApprove}
-              className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700 transition-colors"
+              className="mt-6 text-white bg-gradient-to-br from-green-500 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 ease-in-out transform hover:scale-105 shadow-md"
               disabled={isUpdating || isDeleting}
             >
               {isUpdating ? 'Approving...' : 'Approve'}
             </button>
             <button
               onClick={handleDelete}
-              className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700 transition-colors"
+              className="mt-6 text-white bg-gradient-to-br from-red-500 to-red-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 ease-in-out transform hover:scale-105 shadow-md"
               disabled={isUpdating || isDeleting}
             >
               {isDeleting ? 'Deleting...' : 'Delete'}
             </button>
             <button
               onClick={onClose}
-              className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-700 transition-colors"
+              className="mt-6 text-white bg-gradient-to-br from-gray-500 to-gray-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 ease-in-out transform hover:scale-105 shadow-md"
             >
               Close
             </button>
@@ -211,87 +192,80 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, tags, 
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
+          dir="rtl"
         >
-          <div dir={"rtl"}>
-            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">{title}</h2>
-            <h4 className="font-bold mb-4 text-gray-900 dark:text-white">{description}</h4>
-            <div className="flex mb-4">
-              <a href={link} target="_blank" rel="noopener noreferrer">
-                <button className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700 transition-colors">
-                  פתח מקור
-                </button>
-              </a>
-              <button
-                onClick={toggleIframe}
-                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition-colors mx-4"
-              >
-                תצוגה מקדימה
+          <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">{title}</h2>
+          <h4 className="font-bold mb-4 text-gray-900 dark:text-white">{description}</h4>
+          <div className="flex mb-4">
+            <a href={link} target="_blank" rel="noopener noreferrer">
+              <button className="ml-4 text-white bg-gradient-to-br from-green-500 to-blue-700 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 ease-in-out transform hover:scale-105 shadow-md">
+                פתח מקור
               </button>
-            </div>
-            {showIframe && (
-              <div className="iframe-container mt-4">
-                <iframe src={link} className="w-full h-64 border rounded"></iframe>
-              </div>
-            )}
-            <div className="mt-4">
-              <p className="font-semibold text-gray-700 dark:text-gray-300">פרטי קשר:</p>
-              <p className="text-gray-700 dark:text-gray-300">שם: {contact.name}</p>
-              <p className="text-gray-700 dark:text-gray-300">יצירת קשר: {contact.phone}</p>
-            </div>
-            <div className="mt-4">
-              <input
-                type="password"
-                placeholder="הזן סיסמה"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="px-4 py-2 border rounded w-full text-gray-700"
-              />
-            </div>
-            <div className="mt-4">
-              <select
-                value={selectedProperty}
-                onChange={(e) => setSelectedProperty(e.target.value)}
-                className="px-4 py-2 border rounded w-full text-gray-700"
-              >
-                <option value="status">סטטוס</option>
-                <option value="photo">תמונה</option>
-                <option value="link">קישור</option>
-                <option value="description">תיאור</option>
-                <option value="author">מחבר</option>
-                <option value="subject">נושא</option>
-              </select>
-            </div>
-            <div className="mt-4">
-              <input
-                type="text"
-                placeholder={`הזן ${selectedProperty} חדש`}
-                value={newValue}
-                onChange={(e) => setNewValue(e.target.value)}
-                className="px-4 py-2 border rounded w-full text-gray-700"
-              />
-            </div>
-            <div className="mt-4 flex space-x-4">
-              <button
-                onClick={handleApprove}
-                className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700 transition-colors"
-                disabled={isUpdating || isDeleting}
-              >
-                {isUpdating ? 'מאשר...' : 'אשר'}
-              </button>
-              <button
-                onClick={handleDelete}
-                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700 transition-colors"
-                disabled={isUpdating || isDeleting}
-              >
-                {isDeleting ? 'מוחק...' : 'מחק'}
-              </button>
-              <button
-                onClick={onClose}
-                className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-700 transition-colors"
-              >
-                סגור
-              </button>
-            </div>
+            </a>
+          </div>
+          <div className="mt-4">
+            <p className="font-semibold text-gray-700 dark:text-gray-300">פרטי קשר:</p>
+            <p className="text-gray-700 dark:text-gray-300">קבוצה: {teamnumber}</p>
+            <p className="text-gray-700 dark:text-gray-300">שם: {contact.name}</p>
+            <p className="text-gray-700 dark:text-gray-300">שם באנגלית: {authorEnglish}</p>
+            <p className="text-gray-700 dark:text-gray-300">דרך קשר: {contact.phone}</p>
+          </div>
+          <div className="mt-4">
+            <input
+              type="password"
+              placeholder="הזן סיסמה"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="px-4 py-2 border rounded w-full text-gray-700"
+            />
+          </div>
+          <div className="mt-4">
+            <select
+              value={selectedProperty}
+              onChange={(e) => setSelectedProperty(e.target.value)}
+              className="px-4 py-2 border rounded w-full text-gray-700"
+            >
+              <option value="status">סטטוס</option>
+              <option value="photo">תמונה</option>
+              <option value="link">קישור</option>
+              <option value="description">תיאור</option>
+              <option value="author">מחבר</option>
+              <option value="authorEnglish">מחבר באנגלית</option>
+              <option value="subject">נושא</option>
+              <option value="tags">תגים</option>
+              <option value="teamnumber">מספר קבוצה</option>
+            </select>
+          </div>
+          <div className="mt-4">
+            <input
+              type="text"
+              placeholder={`הזן ${selectedProperty} חדש`}
+              value={newValue}
+              onChange={(e) => setNewValue(e.target.value)}
+              className="px-4 py-2 border rounded w-full text-gray-700"
+            />
+          </div>
+          <div className="mt-4 flex space-x-4">
+            <button
+              onClick={handleApprove}
+              className="mt-6 text-white bg-gradient-to-br from-green-500 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 ease-in-out transform hover:scale-105 shadow-md"
+              disabled={isUpdating || isDeleting}
+            >
+              {isUpdating ? 'מאשר...' : 'אשר'}
+            </button>
+            <button
+              onClick={handleDelete}
+              className="mt-6 text-white bg-gradient-to-br from-red-500 to-red-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 ease-in-out transform hover:scale-105 shadow-md"
+              disabled={isUpdating || isDeleting}
+            >
+              {isDeleting ? 'מוחק...' : 'מחק'}
+            </button>
+            <button
+              onClick={onClose}
+              className="mt-6 text-white bg-gradient-to-br from-gray-500 to-gray-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 ease-in-out transform hover:scale-105 shadow-md"
+            >
+              סגור
+            </button>
           </div>
         </motion.div>
       )}

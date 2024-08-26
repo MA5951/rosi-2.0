@@ -13,7 +13,8 @@ export async function addArticle(data: {
     tags: string,
     teamnumber: string,
     link: string,
-    language: string
+    language: string,
+    authorEnglish: string
 }) {
     try {
         const processedTags = data.tags.replace(/\s*,\s*/g, ',');

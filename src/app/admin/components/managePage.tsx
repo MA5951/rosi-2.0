@@ -13,6 +13,7 @@ interface Article {
   id: string;
   title: string;
   photo: string;
+  authorEnglish: string;
   description: string;
   link: string;
   teamnumber: string;
@@ -47,6 +48,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ pageTitle }) => {
           link: article.link,
           teamnumber: article.teamnumber,
           tags: article.tags,
+          authorEnglish: article.authorEnglish,
           contact: {
             name: article.author,
             phone: article.phone
@@ -148,6 +150,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ pageTitle }) => {
             title={selectedArticle.title}
             link={selectedArticle.link}
             contact={selectedArticle.contact}
+            authorEnglish={selectedArticle.authorEnglish}
             description={selectedArticle.description}
             language={selectedArticle.language}
             tags={selectedArticle.tags}

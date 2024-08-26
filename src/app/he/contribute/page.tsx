@@ -17,6 +17,7 @@ interface FormData {
     teamnumber: string;
     tags: string;
     status: string;
+    authorEnglish: string;
 }
 
 const AddArticlePage: React.FC = () => {
@@ -30,6 +31,7 @@ const AddArticlePage: React.FC = () => {
         language: '',
         teamnumber: '',
         tags: '',
+        authorEnglish: '',
         status: 'pending'
     });
 
@@ -77,6 +79,7 @@ const AddArticlePage: React.FC = () => {
                     language: '',
                     teamnumber: '',
                     tags: '',
+                    authorEnglish: '',
                     status: 'pending'
                 });
                 return sendEmailNotification(formDataWithPhoto);
@@ -102,11 +105,12 @@ const AddArticlePage: React.FC = () => {
             <ToastContainer />
             <form onSubmit={handleSubmit} className="w-full max-w-lg">
                 <h2 style={{marginTop: "15vh"}} className="text-2xl mb-4">הוסף מאמר חדש</h2>
-                {['title', 'author', 'phone', 'description', 'link'].map((field) => (
+                {['title', 'author', ,'authorEnglish', 'phone', 'description', 'link'].map((field) => (
                     <div key={field} className="mb-4">
                         <label className="block text-sm font-bold mb-2 dark:text-white" htmlFor={field}>
                             {field === 'title' ? 'כותרת' : 
                              field === 'author' ? 'מחבר' : 
+                             field === 'authorEnglish' ? 'שם מחבר באנגלית' :
                              field === 'phone' ? 'טלפון או מייל' : 
                              field === 'description' ? 'תיאור' : 
                              'קישור'}
