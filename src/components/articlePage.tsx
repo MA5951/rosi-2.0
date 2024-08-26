@@ -80,7 +80,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({subject, search, pageTitle, la
   };
 
   return (
-    <main className="flex flex-col items-center min-h-screen bg-blue-50 dark:bg-slate-900 text-gray-900 dark:text-white">
+    <main dir={language === 'he' ? 'rtl' : 'ltr'} className="flex flex-col items-center min-h-screen bg-blue-50 dark:bg-slate-900 text-gray-900 dark:text-white">
       <div className="bottom-text-container z-10 w-full max-w-5xl flex justify-center items-center text-3xl" style={{marginTop: "17vh", marginBottom: "5vh"}}>
         <p className="bottom-text text-center">
           {articles.length === 0 && !isLoading ? "" : pageTitle} 

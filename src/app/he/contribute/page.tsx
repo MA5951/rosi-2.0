@@ -63,7 +63,7 @@ const AddArticlePage: React.FC = () => {
         e.preventDefault();
         setErrorMessage('');
 
-        const formDataWithPhoto = { ...formData, photo: "https://i.ibb.co/7WGzjsv/2.png" };
+        const formDataWithPhoto = { ...formData, photo: "https://i.ibb.co/JqzcZvj/first.png" };
 
         const promise = addArticle(formDataWithPhoto)
             .then(() => {
@@ -193,7 +193,7 @@ const AddArticlePage: React.FC = () => {
                 {errorMessage && (
                     <p className="text-red-500 text-xs italic mb-4">{errorMessage}</p>
                 )}
-                <button type="submit" className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                <button type="submit" className="bg-gradient-to-br from-red-500 to-red-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-300 text-white font-bold py-2 px-4 rounded">
                     הוסף מאמר
                 </button>
             </form>
