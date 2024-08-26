@@ -127,7 +127,7 @@ export const Navbar = (props: Props) => {
                 case 'CAD':
                     return 'שרטוט';
                 case 'Contribute':
-                    return 'העלת תוכן';
+                    return 'העלאת תוכן';
                 case 'Contact':
                     return 'צור קשר';
                 case "Search...":

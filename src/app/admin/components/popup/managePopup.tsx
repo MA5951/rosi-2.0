@@ -211,6 +211,15 @@ const Popup: React.FC<PopupProps> = ({ title, link, contact, description, tags, 
             <p className="text-gray-700 dark:text-gray-300">דרך קשר: {contact.phone}</p>
           </div>
           <div className="mt-4">
+            <div className="flex flex-wrap gap-2">
+              {tagsArr.map((tag, index) => (
+                <div key={index} className="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">
+                  {tag}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="mt-4">
             <input
               type="password"
               placeholder="הזן סיסמה"

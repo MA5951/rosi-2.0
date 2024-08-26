@@ -110,8 +110,7 @@ const Popup: React.FC<PopupProps> = ({ id, title, link, contact, teamnumber, des
             <p className="text-gray-700 dark:text-gray-300">Name: {contact.name}</p>
             <p className="text-gray-700 dark:text-gray-300">Contact: {contact.phone}</p>
           </div>
-          {/* uncomment the part below to bring back the display of tags */}
-          {/* <div className="mt-4">
+          <div className="mt-4">
             <div className="flex flex-wrap gap-2">
               {tagsArr.map((tag, index) => (
                 <div key={index} className="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">
@@ -119,7 +118,7 @@ const Popup: React.FC<PopupProps> = ({ id, title, link, contact, teamnumber, des
                 </div>
               ))}
             </div>
-          </div> */}
+          </div>
           <button
             onClick={onClose}
             className="mt-6 text-white bg-gradient-to-br from-red-500 to-red-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 ease-in-out transform hover:scale-105 shadow-md"
@@ -165,8 +164,7 @@ const Popup: React.FC<PopupProps> = ({ id, title, link, contact, teamnumber, des
             <p className="text-gray-700 dark:text-gray-300">שם: {contact.name}</p>
             <p className="text-gray-700 dark:text-gray-300">דרך קשר: {contact.phone}</p>
           </div>
-          {/* uncomment the part below to bring back the display of tags */}
-          {/* <div className="mt-4">
+          <div className="mt-4">
             <div className="flex flex-wrap gap-2">
               {tagsArr.map((tag, index) => (
                 <div key={index} className="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">
@@ -174,7 +172,7 @@ const Popup: React.FC<PopupProps> = ({ id, title, link, contact, teamnumber, des
                 </div>
               ))}
             </div>
-          </div> */}
+          </div>
           <button
             onClick={onClose}
             className="mt-6 text-white bg-gradient-to-br from-red-500 to-red-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 ease-in-out transform hover:scale-105 shadow-md"

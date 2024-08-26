@@ -65,6 +65,10 @@ const AddArticlePage: React.FC = () => {
         e.preventDefault();
         setErrorMessage('');
 
+        if (!formData.tags || formData.tags === ' ') {
+            formData.tags = 'אין תגיות';
+        }
+
         const formDataWithPhoto = { ...formData, photo: "https://i.ibb.co/JqzcZvj/first.png" };
 
         const promise = addArticle(formDataWithPhoto)
@@ -151,7 +155,6 @@ const AddArticlePage: React.FC = () => {
                         value={formData.tags}
                         onChange={handleChange}
                         className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 dark:bg-gray-600 border-0 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
-                        required
                     />
                 </div>
                 <div className="mb-4">

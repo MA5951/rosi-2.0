@@ -65,6 +65,10 @@ const AddArticlePage: React.FC = () => {
         e.preventDefault();
         setErrorMessage('');
 
+        if (!formData.tags || formData.tags === ' ') {
+            formData.tags = 'No tags';
+        }
+
         const formDataWithPhoto = { ...formData, photo: "https://i.ibb.co/JqzcZvj/first.png" };
 
         const promise = addArticle(formDataWithPhoto)
