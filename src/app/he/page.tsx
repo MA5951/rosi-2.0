@@ -360,7 +360,7 @@ export default function Home() {
             </a>
             <a
               href="/he/favorites"
-              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+              className=""
             >
               <h2 className="mb-3 text-2xl font-semibold">
                 <FontAwesomeIcon icon={faStar} className="mb-1 text-9xl text-red-700" />
@@ -373,7 +373,7 @@ export default function Home() {
             </a>
           <a
             href="/he/contribute"
-            className="group rounded-lg px-5 py-4 transition-colors border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-gray-300 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+            className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
           >
             <h2 className="mb-3 text-2xl font-semibold">
               <FontAwesomeIcon icon={faPlus} className="mr-2" />
@@ -388,7 +388,7 @@ export default function Home() {
           </a>
           <a
             href="/he/contact"
-            className="group rounded-lg px-5 py-4 transition-colors border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-gray-300 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+            className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
           >
             <h2 className="mb-3 text-2xl font-semibold">
               <FontAwesomeIcon icon={faBell} className="mr-2" />
