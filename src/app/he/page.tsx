@@ -28,7 +28,7 @@ export default function Home() {
     };
   }, []);
 
-  return (      
+  return (
     <main dir="rtl" className="flex min-h-screen flex-col items-center justify-between bg-blue-50 dark:bg-slate-900 text-gray-900 dark:text-white">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
       </div>
@@ -37,12 +37,12 @@ export default function Home() {
         <Image
           src={isDarkMode ? "/images/dark_rosi.png" : "/images/light_rosi.png"}
           alt="ROSI Logo"
-          style={{marginTop: isMobile ? '20vh' : '15%'}}
+          style={{ marginTop: isMobile ? '20vh' : '15%' }}
           width={600}
           height={500}
           priority
         />
-      </div>   
+      </div>
 
       {!isMobile && (
         <div className="mt-5 mb-5 ml-48 mr-48 rounded-lg px-5 py-4 transition-colors text-gray-800 dark:text-white bg-white dark:bg-gray-600/30">
@@ -72,9 +72,9 @@ export default function Home() {
             בכל הנושאים, מהקמת פרויקטים קהילתיים ומדיה, דרך תוכנה וקוד ועד להנדסת מכונות והנדסה.
           </p>
         </div>
-      )}  
+      )}
 
-      {!isMobile && ( 
+      {!isMobile && (
         <div>
           <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-center">
             <a
@@ -123,7 +123,7 @@ export default function Home() {
               <h2 className="mb-3 text-2xl font-semibold">
                 <FontAwesomeIcon icon={faPencil} className="mb-1 text-9xl text-red-700" />
                 <br />
-                {" "}שרטוט{" "}
+                {" "}סרטוט{" "}
                 <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                   -&gt;
                 </span>
@@ -242,164 +242,160 @@ export default function Home() {
       )} {isMobile && (
         <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
           <a
-              href="/he/programming"
-              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
-            >
-              <h2 className="mb-3 text-2xl font-semibold">
-                <FontAwesomeIcon icon={faCode} className="mb-1 text-9xl text-red-700" />
-                <br />
-                {" "}תוכנה{" "}
-                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
-                  -&gt;
-                </span>
-              </h2>
-            </a>
-            <a
-              href="/he/electrical"
-              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
-            >
-              <h2 className="mb-3 text-2xl font-semibold">
-                <FontAwesomeIcon icon={faBolt} className="mb-1 text-9xl text-red-700" />
-                <br />
-                {" "}אלקטרוניקה{" "}
-                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
-                  -&gt;
-                </span>
-              </h2>
-            </a>
-            <a
-              href="/he/manufacturing"
-              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
-            >
-              <h2 className="mb-3 text-2xl font-semibold">
-                <FontAwesomeIcon icon={faIndustry} className="mb-1 text-9xl text-red-700" />
-                <br />
-                {" "}ייצור{" "}
-                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
-                  -&gt;
-                </span>
-              </h2>
-            </a>
-            <a
-              href="/he/cad"
-              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
-            >
-              <h2 className="mb-3 text-2xl font-semibold">
-                <FontAwesomeIcon icon={faPencil} className="mb-1 text-9xl text-red-700" />
-                <br />
-                {" "}שרטוט{" "}
-                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
-                  -&gt;
-                </span>
-              </h2>
-            </a>
-          <a
-              href="/he/community"
-              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
-            >
-              <h2 className="mb-3 text-2xl font-semibold">
-                <FontAwesomeIcon icon={faUsers} className="mb-1 text-9xl text-red-700" />
-                <br />
-                {" "}קהילה{" "}
-                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
-                  -&gt;
-                </span>
-              </h2>
-            </a>
-            <a
-              href="/he/mechanics"
-              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
-            >
-              <h2 className="mb-3 text-2xl font-semibold">
-                <FontAwesomeIcon icon={faWrench} className="mb-1 text-9xl text-red-700" />
-                <br />
-                {" "}מכניקה{" "}
-                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
-                  -&gt;
-                </span>
-              </h2>
-            </a>
-            <a
-              href="/he/ftc"
-              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
-            >
-              <h2 className="mb-3 text-2xl font-semibold">
-                <FontAwesomeIcon icon={faMicrochip} className="mb-1 text-9xl text-red-700" />
-                <br />
-                {" "}FTC{" "}
-                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
-                  -&gt;
-                </span>
-              </h2>
-            </a>
-            <a
-              href="/he/other"
-              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
-            >
-              <h2 className="mb-3 text-2xl font-semibold">
-                <FontAwesomeIcon icon={faBook} className="mb-1 text-9xl text-red-700" />
-                <br />
-                {" "}אחר{" "}
-                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
-                  -&gt;
-                </span>
-              </h2>
-            </a>
-            <a
-              href="/he/directory"
-              className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
-            >
-              <h2 className="mb-3 text-2xl font-semibold">
-                <FontAwesomeIcon icon={faUserCircle} className="mb-1 text-9xl text-red-700" />
-                <br />
-                {" "}דף קשר{" "}
-                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
-                  -&gt;
-                </span>
-              </h2>
-            </a>
-            <a
-              href="/he/favorites"
-              className=""
-            >
-              <h2 className="mb-3 text-2xl font-semibold">
-                <FontAwesomeIcon icon={faStar} className="mb-1 text-9xl text-red-700" />
-                <br />
-                {" "}מועדפים{" "}
-                <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
-                  -&gt;
-                </span>
-              </h2>
-            </a>
-          <a
-            href="/he/contribute"
+            href="/he/programming"
             className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
           >
             <h2 className="mb-3 text-2xl font-semibold">
-              <FontAwesomeIcon icon={faPlus} className="mr-2" />
-              העלת תוכן{" "}
+              <FontAwesomeIcon icon={faCode} className="mb-1 text-9xl text-red-700" />
+              <br />
+              {" "}תוכנה{" "}
               <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                 -&gt;
               </span>
             </h2>
-            <p className="m-0 max-w-[30ch] text-sm opacity-100">
-              שתפו את הידע שלכם ועזרו לשפר את המשאבים הזמינים לכל הקבוצות.
-            </p>
           </a>
           <a
-            href="/he/contact"
+            href="/he/electrical"
             className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
           >
             <h2 className="mb-3 text-2xl font-semibold">
-              <FontAwesomeIcon icon={faBell} className="mr-2" />
-              צור קשר{" "}
+              <FontAwesomeIcon icon={faBolt} className="mb-1 text-9xl text-red-700" />
+              <br />
+              {" "}אלקטרוניקה{" "}
               <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
                 -&gt;
               </span>
             </h2>
-            <p className="m-0 max-w-[30ch] text-sm opacity-100">
-              צרו קשר איתנו למידע נוסף או למתן משוב.
-            </p>
+          </a>
+          <a
+            href="/he/manufacturing"
+            className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+          >
+            <h2 className="mb-3 text-2xl font-semibold">
+              <FontAwesomeIcon icon={faIndustry} className="mb-1 text-9xl text-red-700" />
+              <br />
+              {" "}ייצור{" "}
+              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
+                -&gt;
+              </span>
+            </h2>
+          </a>
+          <a
+            href="/he/cad"
+            className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+          >
+            <h2 className="mb-3 text-2xl font-semibold">
+              <FontAwesomeIcon icon={faPencil} className="mb-1 text-9xl text-red-700" />
+              <br />
+              {" "}סרטוט{" "}
+              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
+                -&gt;
+              </span>
+            </h2>
+          </a>
+          <a
+            href="/he/community"
+            className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+          >
+            <h2 className="mb-3 text-2xl font-semibold">
+              <FontAwesomeIcon icon={faUsers} className="mb-1 text-9xl text-red-700" />
+              <br />
+              {" "}קהילה{" "}
+              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
+                -&gt;
+              </span>
+            </h2>
+          </a>
+          <a
+            href="/he/mechanics"
+            className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+          >
+            <h2 className="mb-3 text-2xl font-semibold">
+              <FontAwesomeIcon icon={faWrench} className="mb-1 text-9xl text-red-700" />
+              <br />
+              {" "}מכניקה{" "}
+              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
+                -&gt;
+              </span>
+            </h2>
+          </a>
+          <a
+            href="/he/ftc"
+            className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+          >
+            <h2 className="mb-3 text-2xl font-semibold">
+              <FontAwesomeIcon icon={faMicrochip} className="mb-1 text-9xl text-red-700" />
+              <br />
+              {" "}FTC{" "}
+              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
+                -&gt;
+              </span>
+            </h2>
+          </a>
+          <a
+            href="/he/other"
+            className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+          >
+            <h2 className="mb-3 text-2xl font-semibold">
+              <FontAwesomeIcon icon={faBook} className="mb-1 text-9xl text-red-700" />
+              <br />
+              {" "}אחר{" "}
+              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
+                -&gt;
+              </span>
+            </h2>
+          </a>
+          <a
+            href="/he/directory"
+            className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+          >
+            <h2 className="mb-3 text-2xl font-semibold">
+              <FontAwesomeIcon icon={faUserCircle} className="mb-1 text-9xl text-red-700" />
+              <br />
+              {" "}דף קשר{" "}
+              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
+                -&gt;
+              </span>
+            </h2>
+          </a>
+          <a
+            href="/he/favorites"
+            className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+          >
+            <h2 className="mb-3 text-2xl font-semibold">
+              <FontAwesomeIcon icon={faStar} className="mb-1 text-9xl text-red-700" />
+              <br />
+              {" "}מועדפים{" "}
+              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
+                -&gt;
+              </span>
+            </h2>
+          </a>
+          <a
+            href="/he/other"
+            className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+          >
+            <h2 className="mb-3 text-2xl font-semibold">
+              <FontAwesomeIcon icon={faPlus} className="mb-1 text-9xl text-red-700" />
+              <br />
+              {" "}העלת תוכן{" "}
+              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
+                -&gt;
+              </span>
+            </h2>
+          </a>
+          <a
+            href="/he/other"
+            className="group rounded-lg px-5 py-4 transition-colors border-gray-500 dark:border-gray-400 m-2 border-4 text-gray-800 dark:text-white bg-white dark:bg-gray-600/30 hover:border-red-700 hover:bg-gray-100 hover:dark:border-red-700 hover:dark:bg-gray-500/15"
+          >
+            <h2 className="mb-3 text-2xl font-semibold">
+              <FontAwesomeIcon icon={faBell} className="mb-1 text-9xl text-red-700" />
+              <br />
+              {" "}צור קשר{" "}
+              <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
+                -&gt;
+              </span>
+            </h2>
           </a>
         </div>
       )}
